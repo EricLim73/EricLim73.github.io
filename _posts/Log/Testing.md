@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Welcome to Jekyll!"
+categories: [Log, Misc]
 tag: [Log, Misc]
 ---
 
