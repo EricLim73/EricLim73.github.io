@@ -2,15 +2,10 @@
 title: Text and Typography
 author: cotes
 date: 2019-08-08 11:33:00 +0800
-categories: [C++]
+categories: [C/C++, C++]
 tags: [Testing]
 math: true
 mermaid: true
-image:
-  path: /commons/devices-mockup.png
-  width: 800
-  height: 500
-  alt: Responsive rendering of Chirpy theme on multiple devices.
 ---
 
 This post is to show Markdown syntax rendering on [**Chirpy**](https://github.com/cotes2020/jekyll-theme-chirpy/fork), you can also use it as an example of writing. Now, let's start looking at text and typography.
