@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 
 title: Baby-Yoda Devlog                          # the main title
 
-tagline: When stressed out, slap some baby-yoda forehead and get back to work!   # it will display as the sub-title
+tagline: Smile like baby yoda   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   Graphics Programming, C/C++, Game Dev for fun
