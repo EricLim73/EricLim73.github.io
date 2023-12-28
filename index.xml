@@ -9,6 +9,25 @@
     <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
     <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster><atom:link href="https://EricLim73.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Helo</title>
+      <link>https://EricLim73.github.io/posts/helo/</link>
+      <pubDate>Thu, 28 Dec 2023 21:01:12 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/helo/</guid>
+      <description>&lt;p&gt;Generic summary&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Testing2</title>
+      <link>https://EricLim73.github.io/posts/testing2/</link>
+      <pubDate>Thu, 28 Dec 2023 20:36:20 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/testing2/</guid>
+      <description>&lt;p&gt;Generic summary
+안녕하세여&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Testing</title>
       <link>https://EricLim73.github.io/posts/testing/</link>
       <pubDate>Thu, 28 Dec 2023 20:13:59 +0900</pubDate>

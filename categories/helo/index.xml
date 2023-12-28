@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>helo on YodaModa</title>
+    <link>https://EricLim73.github.io/categories/helo/</link>
+    <description>Recent content in helo on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Thu, 28 Dec 2023 21:01:12 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/helo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Helo</title>
+      <link>https://EricLim73.github.io/posts/helo/</link>
+      <pubDate>Thu, 28 Dec 2023 21:01:12 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/helo/</guid>
+      <description>&lt;p&gt;Generic summary&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
