@@ -8,7 +8,16 @@
     <language>en</language>
     <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
     <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
-    <lastBuildDate>Thu, 28 Dec 2023 22:01:06 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 22:05:02 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vulkan</title>
+      <link>https://EricLim73.github.io/posts/vulkan/</link>
+      <pubDate>Thu, 28 Dec 2023 22:05:02 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/vulkan/</guid>
+      <description>&lt;p&gt;Generic summary&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>C&#43;&#43;_2</title>
       <link>https://EricLim73.github.io/posts/c&#43;&#43;_2/</link>
@@ -585,39 +594,6 @@ test_entity - satisfies -&gt; test_req
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Math Typesetting</title>
-      <link>https://EricLim73.github.io/posts/math-typesetting/</link>
-      <pubDate>Fri, 08 Feb 2019 00:00:00 +0000</pubDate>
-      <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/math-typesetting/</guid>
-      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
-&lt;p&gt;In this example we will be using &lt;a href=&#34;https://katex.org/&#34;&gt;$\KaTeX$&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Create a partial under &lt;code&gt;/layouts/partials/math.html&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Within this partial reference the &lt;a href=&#34;https://katex.org/docs/autorender.html&#34;&gt;Auto-render Extension&lt;/a&gt; or host these scripts locally.&lt;/li&gt;
-&lt;li&gt;Include the partial in your templates like so:&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; or .Params.math .Site.Params.math &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; partial &lt;span class=&#34;s2&#34;&gt;&amp;#34;math.html&amp;#34;&lt;/span&gt; . &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; end &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;To enable $\KaTeX$ globally set the parameter &lt;code&gt;math&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt; in a project&amp;rsquo;s configuration&lt;/li&gt;
-&lt;li&gt;To enable $\KaTeX$ on a per page basis include the parameter &lt;code&gt;math: true&lt;/code&gt; in content files&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Use the online reference of &lt;a href=&#34;https://katex.org/docs/supported.html&#34;&gt;Supported $\TeX$ Functions&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-Inline math: $\varphi = 1+\frac{1}{1+\frac{1}{1+\cdots}}$
-&lt;/p&gt;
-&lt;p&gt;Block math:
-$$
-\mathcal L_{\mathcal T}(\vec{\lambda})
-= \sum_{(\mathbf{x},\mathbf{s})\in \mathcal T}
-\log P(\mathbf{s}\mid\mathbf{x}) - \sum_{i=1}^m
-\frac{\lambda_i^2}{2\sigma^2}
-$$&lt;/p&gt;</description>
     </item>
     
   </channel>
