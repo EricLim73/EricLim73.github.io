@@ -8,7 +8,23 @@
     <language>en</language>
     <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
     <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/tests/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Dec 2023 20:13:59 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/tests/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing</title>
+      <link>https://EricLim73.github.io/posts/testing/</link>
+      <pubDate>Thu, 28 Dec 2023 20:13:59 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/testing/</guid>
+      <description>&lt;p&gt;Generic summary&lt;/p&gt;
+&lt;p&gt;Generic summary
+Generic summary
+Generic summary
+Generic summary
+Generic summary
+Generic summary
+Generic summary&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>mypost</title>
       <link>https://EricLim73.github.io/posts/mypost/</link>
