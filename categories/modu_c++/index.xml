@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MODU_C&#43;&#43; on YodaModa</title>
+    <link>https://EricLim73.github.io/categories/modu_c&#43;&#43;/</link>
+    <description>Recent content in MODU_C&#43;&#43; on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Fri, 21 Apr 2023 19:24:00 -0500</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/modu_c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[MODU_C&#43;&#43;] Post</title>
+      <link>https://EricLim73.github.io/posts/c_c&#43;&#43;/modu_c&#43;&#43;/2023-04-21-modu_c&#43;&#43;-post/</link>
+      <pubDate>Fri, 21 Apr 2023 19:24:00 -0500</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/modu_c&#43;&#43;/2023-04-21-modu_c&#43;&#43;-post/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;draft-false&#34;&gt;author: &amp;ldquo;Eric Lim&amp;rdquo;
+title: &amp;ldquo;[MODU_C++] Post&amp;rdquo;
+date: 2023-04-21T19:24:00-05:00
+description: Generic description
+categories: [C_C++, MODU_C++]
+tags: [Study, Basic, C++]
+toc: true
+math: false
+draft: false&lt;/h2&gt;
+&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;블로그 &amp;ldquo;모두의 코드&amp;rdquo; 바탕으로 배운 내용 + 보충설명&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;post-1&#34;&gt;Post 1&lt;/h2&gt;
+&lt;h2 id=&#34;post-2&#34;&gt;Post 2&lt;/h2&gt;
+&lt;h2 id=&#34;post-3&#34;&gt;Post 3&lt;/h2&gt;
+&lt;h2 id=&#34;post-3-1&#34;&gt;Post 3&lt;/h2&gt;
+&lt;h2 id=&#34;post-3-2&#34;&gt;Post 3&lt;/h2&gt;
+&lt;h2 id=&#34;post-3-3&#34;&gt;Post 3&lt;/h2&gt;
+&lt;h2 id=&#34;end&#34;&gt;End&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[Reference]&lt;br&gt;
+&lt;a href=&#34;https://modoocode.com/135&#34;&gt;모두의 코드 - C++&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

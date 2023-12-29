@@ -11,10 +11,10 @@
     <lastBuildDate>Fri, 10 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mermaid Diagrams</title>
-      <link>https://EricLim73.github.io/posts/mermaid-diagrams/</link>
+      <link>https://EricLim73.github.io/posts/howtomarkdown/mermaid-diagrams/</link>
       <pubDate>Fri, 10 Nov 2023 00:00:00 +0000</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/mermaid-diagrams/</guid>
+      <guid>https://EricLim73.github.io/posts/howtomarkdown/mermaid-diagrams/</guid>
       <description>&lt;h2 id=&#34;flowchart&#34;&gt;Flowchart&lt;/h2&gt;
 &lt;div class=&#34;mermaid&#34;&gt;graph LR;
     A[Hard edge] --&gt;|Link text| B(Round edge)

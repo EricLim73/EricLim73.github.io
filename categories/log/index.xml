@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Log on YodaModa</title>
+    <link>https://EricLim73.github.io/categories/log/</link>
+    <description>Recent content in Log on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Sun, 13 Nov 2022 09:42:00 -0500</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Visual-Studio]-Defualt-Shortcuts</title>
+      <link>https://EricLim73.github.io/posts/log/visual_studio/2022-11-13-visual-studio-defualt-shortcuts/</link>
+      <pubDate>Sun, 13 Nov 2022 09:42:00 -0500</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/log/visual_studio/2022-11-13-visual-studio-defualt-shortcuts/</guid>
+      <description>&lt;h1 id=&#34;default-shortcut&#34;&gt;Default Shortcut&lt;/h1&gt;
+&lt;h2 id=&#34;shortcuts-for-visual-studio&#34;&gt;ShortCuts for Visual Studio&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;#&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Shortcut(default)&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;What it does&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;0&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + k, c&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Commenting Line&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;1&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + k. u&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Undo Comment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;2&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Alt Drag&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Select Area&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;3&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + Shift + L&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Select all same character&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;4&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + D&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Select through same character&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;5&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F12 while selecting the target&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Jump to Declaration / Definition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;6&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + r + r while selecting a word&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Change every translation including that word&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;#6&lt;/em&gt; doesn&amp;rsquo;t really work with template variables for some reasons&amp;hellip;
+{: .prompt-warning }&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;debug&#34;&gt;Debug&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Shortcut(default)&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;What it does&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F5&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Start Debug&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F9&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Set/undo BreakPoint&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F10&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug 1 line&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F11&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Debug step in function&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Shift + F5&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Stop Debugging&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;F5 again while debugging&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Step to next bearkPoint&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Ctrl + Alt + D  while debugging&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Show Disassembly Window&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

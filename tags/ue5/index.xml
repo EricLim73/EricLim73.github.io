@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UE5 on YodaModa</title>
+    <link>https://EricLim73.github.io/tags/ue5/</link>
+    <description>Recent content in UE5 on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Sun, 06 Nov 2022 17:42:00 -0500</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/ue5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[UnrealEngine5] Keyword Review</title>
+      <link>https://EricLim73.github.io/posts/unrealengine5/2022-11-06-unrealengine5-keyword-review/</link>
+      <pubDate>Sun, 06 Nov 2022 17:42:00 -0500</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/unrealengine5/2022-11-06-unrealengine5-keyword-review/</guid>
+      <description>&lt;p&gt;Based on official documentation of Unreal Engine 5, these are some keywords that will help you understand basics of the engine.&lt;/p&gt;
+&lt;h1 id=&#34;project&#34;&gt;Project&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Basically holds all content&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Saved as &lt;code&gt;.uproject&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;blueprint&#34;&gt;BluePrint&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Visual Scripting using node-based interface&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Represents Object-Oriented classes or objects (BUT 기본적으로 코드보다 느림)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;object&#34;&gt;Object&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Basic class in UE5. Almost everything inherits &lt;code&gt;Object&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ 한정으로 &lt;code&gt;UObject&lt;/code&gt; == BaseClass
+&lt;ul&gt;
+&lt;li&gt;Features such as
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Grabage Collection&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;metadata(UProperty) support for Editor&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Serialization for load/save&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;class&#34;&gt;Class&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Defines behaviors &amp;amp; properties of arbitrary &lt;code&gt;Actor&lt;/code&gt; or &lt;code&gt;Object&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;The Class you use in C++(No big difference in its meaning)&lt;/li&gt;
+&lt;li&gt;Prefix for gamePlay classes&amp;hellip;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Prefix&lt;/th&gt;
+&lt;th style=&#34;text-align:left&#34;&gt;Meaning&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;A&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Actor -&amp;gt; Spawnable gameplay object.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;&lt;code&gt;U&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;Components -&amp;gt; Belongs to an Actor.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;actor&#34;&gt;Actor&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Everything you can put inside a level&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Everything that can be spawned / destroyed through gameplay code. &lt;br&gt;
+&lt;em&gt;ex)&lt;/em&gt; &lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;Camera&lt;/li&gt;
+&lt;li&gt;Static Mesh&lt;/li&gt;
+&lt;li&gt;Player Start Position&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;casting&#34;&gt;Casting&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Treat class $\alpha$ as class $\beta$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;주로 해당 클래스의 특정 기능을 쓸 때 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;component&#34;&gt;Component&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Functionality that can be added to Actor&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;액터 클래스에 특정 기능 추가할 때 그 &lt;code&gt;기능&lt;/code&gt;을 &lt;code&gt;Component&lt;/code&gt;라고 함&lt;br&gt;
+&lt;em&gt;ex)&lt;/em&gt; &lt;br&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SpotLight&lt;/code&gt; to &lt;code&gt;ACandle&lt;/code&gt; -&amp;gt; 캔들 액터가 Spotlight처럼 빛을 냄&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;pawn&#34;&gt;Pawn&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SubClass of Actor. Can be &lt;code&gt;Possessed&lt;/code&gt; by Player OR  game&amp;rsquo;s AI&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;컨트롤을 플레이어 혹은 AI가 갖고 있으면 &lt;code&gt;Possessed&lt;/code&gt;, 아니면 &lt;code&gt;Unpossessed&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;character&#34;&gt;Character&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SubClass of Pawn. Intended to be used for player character&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Includes&amp;hellip;
+&lt;ul&gt;
+&lt;li&gt;Input binding for 이족보행&lt;/li&gt;
+&lt;li&gt;Collision setup&lt;/li&gt;
+&lt;li&gt;+@ code for player-controlled movement&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;player-controller&#34;&gt;Player Controller&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Title explains itself. Controller for Player&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Input -&amp;gt; Output as interaction ingame.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Every game has at least 1 Player Controller&lt;/p&gt;
+&lt;p&gt;For Multiplayer games&amp;hellip;&lt;br&gt; Server has 1:1 instance of player controller for every client. Of course client only has its own controller&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;ai-controller&#34;&gt;AI Controller&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Possess pawn as NPC&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;By default, Pawns &amp;amp; Character will end up with base AI Controller&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;player-state&#34;&gt;Player State&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Status of game participant&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;말그대로 플레이어 상태&lt;/p&gt;
+&lt;p&gt;For Multiplayer&amp;hellip;&lt;br&gt;Every client replicates others PlayerState through server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;game-mode&#34;&gt;Game Mode&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Set of rules for the game&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;참여 / 승리 / 일시정지 종료 조건과 같이 게임 안에서 이루어지는 행위들을 위한 규칙&lt;/li&gt;
+&lt;li&gt;각 레벨별로 1개의 &lt;code&gt;Game Mode&lt;/code&gt;를 갖을 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;game-state&#34;&gt;Game State&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Status of the game&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;전반적인 현재 게임 상태 정보&lt;/p&gt;
+&lt;p&gt;For Multiplayer&amp;hellip;&lt;br&gt;There is one local instance of the Game State on each player&amp;rsquo;s machine. Local Game State instances get their updated information from the server&amp;rsquo;s instance of the Game State.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;brush&#34;&gt;Brush&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Actor describing 3D shapes&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Used for defining level geometry ( AKA Binary Space Partition Brush)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;volume&#34;&gt;Volume&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Bounded 3D space for various effects&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;특정 기능, 혹은 이팩트가 발생하는 한정된 구간(영역)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;level&#34;&gt;Level&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Arbitrary gameplay area that you define&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;각각의 level을 &lt;code&gt;.umap&lt;/code&gt;으로 저장(The reason why &lt;code&gt;level&lt;/code&gt;&amp;rsquo;s are also called &lt;code&gt;Maps&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;world&#34;&gt;World&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Container for levels&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;게임세계&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;각 항목의 구체적인 내용은 문서를 읽다보면 나오기 때문에 그때 다시 상세히 정리하는 걸로&amp;hellip;&lt;/p&gt;
+&lt;p&gt;UE5 Documentation &lt;a href=&#34;https://docs.unrealengine.com/5.0/en-US/unreal-engine-terminology/&#34;&gt;UE5 Doc - Terminology&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

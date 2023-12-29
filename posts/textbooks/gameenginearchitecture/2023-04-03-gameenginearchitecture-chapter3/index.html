@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 100%">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Eric Lim">
+
+  
+  
+  <meta name="description" content="Generic description">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://EricLim73.github.io//images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://EricLim73.github.io//images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://EricLim73.github.io//images/favicon-16x16.png">
+
+  
+  
+  <meta name="keywords" content=''>
+  
+
+  
+  
+  <link rel="stylesheet" href='/katex/katex.min.css'>
+<script defer defer src='/katex/katex.min.js'></script>
+<script defer src='/katex/contrib/auto-render.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+  
+
+  
+  
+
+  
+  <meta property="og:title" content="[GameEngineArchitecture] Chapter3" />
+<meta property="og:description" content="Generic description" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-03T23:50:00-05:00" />
+<meta property="article:modified_time" content="2023-04-03T23:50:00-05:00" /><meta property="og:site_name" content="YodaModa" />
+
+
+
+  
+  <link rel="canonical" href="https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/">
+
+  
+  
+  <meta itemprop="name" content="[GameEngineArchitecture] Chapter3">
+<meta itemprop="description" content="Generic description"><meta itemprop="datePublished" content="2023-04-03T23:50:00-05:00" />
+<meta itemprop="dateModified" content="2023-04-03T23:50:00-05:00" />
+<meta itemprop="wordCount" content="12325">
+<meta itemprop="keywords" content="Study,Summary," />
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/common.min.e562d763c6d0825495eb17de8b2c1d9800cf7c08db1c36accedf77a5fccfc4b9.css" integrity="sha256-5WLXY8bQglSV6xfeiywdmADPfAjbHDaszt93pfzPxLk=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.ba38eba94cb47fef9936258c42d11ff19fa9686a30b38e783773fe3f15eb44dc.css" integrity="sha256-ujjrqUy0f&#43;&#43;ZNiWMQtEf8Z&#43;paGows454N3P&#43;PxXrRNw=" crossorigin="anonymous">
+  
+
+  
+  
+  <title>[GameEngineArchitecture] Chapter3 - YodaModa</title>
+  
+
+  
+  <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="[GameEngineArchitecture] Chapter3"/>
+<meta name="twitter:description" content="Generic description"/>
+
+
+  
+
+
+  <link rel="stylesheet" href="/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/css/single.min.78a121b7d7a160420f9daab0ea13add66c37b9c44f27bba07b27207e2b0975d2.css" integrity="sha256-eKEht9ehYEIPnaqw6hOt1mw3ucRPJ7ugeycgfisJddI=" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+<header id="header">
+  <h1>
+    <a href="https://EricLim73.github.io/">YodaModa</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
+        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+        </svg>
+    </button>
+  </h1>
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17,11H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm0,4H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM11,9h6a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2ZM21,3H7A1,1,0,0,0,6,4V7H3A1,1,0,0,0,2,8V18a3,3,0,0,0,3,3H18a4,4,0,0,0,4-4V4A1,1,0,0,0,21,3ZM6,18a1,1,0,0,1-2,0V9H6Zm14-1a2,2,0,0,1-2,2H7.82A3,3,0,0,0,8,18V5H20Zm-9-4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Z"/></svg>
+</span>
+      
+      <a class="link" href="/posts/">Blog</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+<path d="M10.07031,20.50291a1.00008,1.00008,0,0,0-1.18115-.9834c-1.30908.24024-2.96191.27637-3.40137-.958a5.70754,5.70754,0,0,0-1.83691-2.415,1.20073,1.20073,0,0,1-.1665-.10938,1,1,0,0,0-.93067-.64551H2.54883a.99965.99965,0,0,0-1,.99512c-.00391.81543.811,1.33789,1.1416,1.51465a4.4408,4.4408,0,0,1,.92383,1.35937c.36426,1.02344,1.42285,2.57617,4.46582,2.376.001.03516.00195.06836.00244.09863l.00439.26758a1,1,0,0,0,2,0l-.00488-.31836C10.07715,21.4951,10.07031,21.22068,10.07031,20.50291Zm10.667-15.126c.03174-.125.063-.26367.09034-.41992a6.27792,6.27792,0,0,0-.40821-3.293,1.002,1.002,0,0,0-.61572-.58007c-.356-.12012-1.67041-.35645-4.18408,1.25a13.86918,13.86918,0,0,0-6.354,0C6.76221.751,5.45459.9658,5.10205,1.07908a.99744.99744,0,0,0-.63135.584,6.3003,6.3003,0,0,0-.40332,3.35644c.02442.12793.05078.2461.07813.35449A6.26928,6.26928,0,0,0,2.89014,9.20311a8.42168,8.42168,0,0,0,.04248.92187c.334,4.60254,3.334,5.98438,5.42431,6.459-.04345.125-.083.25878-.11816.40039a1.00023,1.00023,0,0,0,1.94238.47851,1.6784,1.6784,0,0,1,.46778-.87793.99947.99947,0,0,0-.5459-1.74512c-3.4541-.39453-4.95362-1.80175-5.1792-4.89843a6.61076,6.61076,0,0,1-.03369-.73828,4.25769,4.25769,0,0,1,.91943-2.71289,3.022,3.022,0,0,1,.1958-.23145.99988.99988,0,0,0,.188-1.02441,3.3876,3.3876,0,0,1-.15527-.55567A4.09356,4.09356,0,0,1,6.1167,3.06346a7.54263,7.54263,0,0,1,2.415,1.17968,1.00877,1.00877,0,0,0,.82764.13282,11.77716,11.77716,0,0,1,6.17285.001,1.00549,1.00549,0,0,0,.83056-.13769,7.572,7.572,0,0,1,2.40528-1.19043,4.03977,4.03977,0,0,1,.0874,1.57812,3.205,3.205,0,0,1-.16895.60743.9999.9999,0,0,0,.188,1.02441c.07715.08691.1543.18066.22363.26855A4.12186,4.12186,0,0,1,20,9.20311a7.03888,7.03888,0,0,1-.0376.77734c-.22021,3.05566-1.72558,4.46387-5.1958,4.85937a1,1,0,0,0-.54541,1.7461,1.63079,1.63079,0,0,1,.46631.9082,3.06079,3.06079,0,0,1,.09229.81934v2.334C14.77,21.2949,14.77,21.78025,14.77,22.00291a1,1,0,1,0,2,0c0-.2168,0-.69238.00977-1.33984V18.31346a4.8815,4.8815,0,0,0-.15479-1.31153,4.25638,4.25638,0,0,0-.11621-.416,6.51258,6.51258,0,0,0,5.44531-6.42383A8.69677,8.69677,0,0,0,22,9.20311,6.13062,6.13062,0,0,0,20.7373,5.37693Z"/></svg>
+</span>
+      
+      <a class="link" href="https://github.com/EricLim73">GitHub</a>
+    </span>
+    
+  </nav>
+</header>
+<hr class="head-rule"></hr>
+    
+<main id="main" class="post">
+  
+  <div class="post-heading">
+    <h1 class="post-title">[GameEngineArchitecture] Chapter3</h1>
+    <div class="publish-metadata">
+      
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      3 April 2023
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          12325 words
+        </span>
+      
+      
+      
+        
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~25 mins
+        </span>
+      
+    </div>
+  </div>
+
+  
+  <div>
+    
+    <a class="link tag" href='https://EricLim73.github.io/tags/study'>#Study</a>
+    
+    <a class="link tag" href='https://EricLim73.github.io/tags/summary'>#Summary</a>
+    
+    <br></br>
+  </div>
+  
+  
+  
+  <details>
+    <summary>
+      <b>Table of Contents</b>
+    </summary>
+    <div class="toc numbered-subtitles"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#c-review--best-practice">C++ Review &amp; Best Practice</a></li>
+    <li><a href="#catching--handling-errors">Catching &amp; Handling Errors</a></li>
+    <li><a href="#데이터와-메모리-레이아웃">데이터와 메모리 레이아웃</a>
+      <ul>
+        <li><a href="#machine-epsilon">Machine Epsilon</a></li>
+        <li><a href="#ulp-unit-in-the-last-place">ULP (Unit in the last place)</a></li>
+        <li><a href="#primitive-types">Primitive Types</a></li>
+        <li><a href="#multibyte-value">Multibyte value</a></li>
+      </ul>
+    </li>
+    <li><a href="#translation-unit-linkage-declarations-definitions">Translation Unit, Linkage, Declarations, Definitions</a>
+      <ul>
+        <li><a href="#용어정리-definition--declaration">용어정리 Definition | Declaration</a></li>
+        <li><a href="#linkage">Linkage</a></li>
+      </ul>
+    </li>
+    <li><a href="#코드-메모리-레이아웃">코드 메모리 레이아웃</a>
+      <ul>
+        <li><a href="#executable-image">Executable Image</a></li>
+        <li><a href="#함수스택">함수스택</a></li>
+        <li><a href="#다이나믹-메모리">다이나믹 메모리</a></li>
+        <li><a href="#alignment">Alignment</a></li>
+        <li><a href="#class-memory-layout">Class Memory Layout</a></li>
+      </ul>
+    </li>
+    <li><a href="#컴퓨터-구조">컴퓨터 구조</a>
+      <ul>
+        <li><a href="#memory-구조">Memory 구조</a></li>
+        <li><a href="#bus">Bus</a></li>
+        <li><a href="#isa--address-mode">ISA &amp; Address Mode</a></li>
+        <li><a href="#메모리-매핑">메모리 매핑</a></li>
+        <li><a href="#메모리-io-매핑">메모리 IO 매핑</a></li>
+        <li><a href="#비디오-램">비디오 램</a></li>
+        <li><a href="#가상-메모리">가상 메모리</a></li>
+        <li><a href="#가상-메모리-페이지">가상 메모리 페이지</a></li>
+        <li><a href="#메모리-레이턴시">메모리 레이턴시</a></li>
+        <li><a href="#메모리-캐쉬-계층">메모리 캐쉬 계층</a></li>
+        <li><a href="#캐쉬-라인">캐쉬 라인</a></li>
+        <li><a href="#mapping-cache-line-to-main-ram-memory">Mapping cache line to main RAM memory</a></li>
+        <li><a href="#addressing-the-cache">Addressing the Cache</a></li>
+        <li><a href="#set-associativity--replacement-policy">Set Associativity &amp; Replacement Policy</a></li>
+        <li><a href="#multilevel-cache--instruction-cache-data-cache">Multilevel Cache &amp; Instruction Cache Data Cache</a></li>
+        <li><a href="#write-policy">Write Policy</a></li>
+        <li><a href="#cache-coherency--mesi-moesi-mesif">Cache Coherency : MESI, MOESI, MESIF</a></li>
+        <li><a href="#avoiding-cache-misses">Avoiding Cache Misses</a></li>
+        <li><a href="#nonunifom-memory-access-numa">NonUnifom Memory Access (NUMA)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+  </details>
+  
+  
+  <article class="content numbered-subtitles">
+    
+    <h1 id="chapter-3-review">Chapter 3 Review</h1>
+<blockquote>
+<p>책 읽은 내용 정리 + 읽다가 생각난거 정리 (챕터1, 2는 딱히 재밌는 내용은 없었다&hellip;) 유사 독후감</p>
+</blockquote>
+<h2 id="c-review--best-practice">C++ Review &amp; Best Practice</h2>
+<p>챕터3의 시작부터 3.1.1.4까지는 C++을 사용하는 객체지향적 디자인에서의 주의점이나 특징들을 설명한다.</p>
+<p>기초적인 내용이고 딱히 어려운 내용은 없다. 프로그램 구조 상 당연한 얘기지만 아무생각 없이 막 상속받아 <code>deadly diamond</code> 같은 구조가 생기지 않도로 주의해야한다. <code>Polymorphism</code>의 경우 반복되는 함수가 클래스마다 약간씩만 달라지는 경우, 혹은 클래스별 상세한 구조를 wrapper처럼 감싸고 싶은 경우 사용할 수 있다. 클래스를 상속받아가며 계속 쌓는 것은 vtable을 계속 참조하게 된다는 의미로 별로 효율적인 구조는 아니라고 한다.</p>
+<p>그다음 내용들로는 클래스의 디자인 패턴, RAII가 나온다. 디자인 패턴은 팩토리, 싱글턴 등의 유명한 구조들을 소개한다. 이러한 패턴들로 모든 코드 베이스를 도배하라는 게 아니라 필요한 부분에 적절히 섞어서 쓰는 게 좋다. RAII는 C++과 C 를 차이 나게 하는 내용 중 하나다(Modern C++는 완전히 다른 언어가 되긴 했다). 책에서는 <em>Janitor Class</em>를 두고 해당 클래스가 할당된 메모리를 정리하는 역활을 한다고 한다. 스마트 포인터같이 RAII개념이 들어있는 기능들이 사용하기 편하긴 하다.<br>
+챕터 3.2로 넘어가기 전까지는 코드 스타일이랑 언어버젼에 관한 내용이다. 이건 일하는 조직이 따르고 있는 규칙을 그대로 따라가면 문제 없다는게 전부였다. C++ 버전에 대한 내용도 나오는데, 이것도 일하게 되는 조직에 따라 달라진다고 알고 있으면 된다고 한다. 책에서의 예시로는 회사 <strong>너티독</strong>의 경우 <code>auto</code>를 쓰는 걸 별로 좋게 보지 않는다는 내용이 있었다. 마지막에 살짝 <em>clean code</em> 내용이 나오기는 하는데 솔직히 클린코드의 정의가 사람마다 달라서 이건 그냥 주석 꾸준히 작성하고 반복되는 코드 없게 적으면 된다고 생각한다&hellip;</p>
+<h2 id="catching--handling-errors">Catching &amp; Handling Errors</h2>
+<p>두가지로 분류 가능</p>
+<ol>
+<li>프로그래머 오류</li>
+<li>사용자 오류</li>
+</ol>
+<p><code>Exception Handling</code>의 경우 성능을 깍아 먹는다. 이와 다르게 <code>assertion</code>의 경우 <code># ifdef</code>와 같은 구문으로 디버깅 모드일 경우에만 킬 수 있어 더 효과적이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp"># if ASSERTIONS_ENABLED
+</span></span></span><span class="line"><span class="cl"><span class="cp"># define debugBreak() asm {int 3}
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// check the expression and fail if it is false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp"># define ASSERT(expr) \
+</span></span></span><span class="line"><span class="cl"><span class="cp">if (expr) { } \
+</span></span></span><span class="line"><span class="cl"><span class="cp">else \
+</span></span></span><span class="line"><span class="cl"><span class="cp">{ \
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">//NOTE: reportAssertionFailure()의 경우 다른 파일 혹은 이 assert가 구현된 곳에서 따로 작성해야되는 프린트 함수
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">reportAssertionFailure</span><span class="p">(</span><span class="err">#</span> <span class="n">expr</span><span class="p">,</span> \
+</span></span><span class="line"><span class="cl"><span class="n">__FILE__</span><span class="p">,</span> <span class="n">__LINE__</span><span class="p">);</span> \
+</span></span><span class="line"><span class="cl"><span class="n">debugBreak</span><span class="p">();</span> \
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="cp"># else
+</span></span></span><span class="line"><span class="cl"><span class="cp"># define ASSERT(expr)
+</span></span></span><span class="line"><span class="cl"><span class="cp"># endif
+</span></span></span></code></pre></div><p><code>debugBreak</code>의 경우 GCC, Clang에서는 <code>__builtin_trap()</code>, MSVC의 경우 <code>__debugBreak()</code>를 사용해도 된다. 생성구문에 <code>if-else</code>블락으로 채워놨다. 이건 <code># define</code>문을 사용하여 작성한 부분은 코드블락에 그대로 들어가는데 만약 원래 코드의 <code>if-else</code> 문 사이에 들어가면 원래 생각하던 프로그램 플로우를 따르지 않게되는 상황을 막기 위한 방법이라고 한다.</p>
+<p>이러한 <code>assertion</code>의 경우 런타임 에러를 잡아내는데 사용되지만 컴파일 타임에 사용하는 <code>static assertion</code>의 경우 이러한 방법을 사용하기 힘들다. 이경우 C++11 이후로 추가된 <code>static_assert()</code>를 사용한다고 한다. (물론 해당 함수를 좋지 않게 여겨 직접 만드는 곳도 존재한다고 한다)</p>
+<h2 id="데이터와-메모리-레이아웃">데이터와 메모리 레이아웃</h2>
+<p>2의 보수, 음수값의 쉬프트 연산 특징, floating point notation(mentissa, exponent)등의 기본적인 내용이다.</p>
+<h3 id="machine-epsilon">Machine Epsilon</h3>
+<p>이건 처음보는 내용이였다. 머신 엡실론은 <code>1 + 엡실론 != 1</code>이 안되는 가장 작은 <code>float</code>값이라고 한다. IEEE-754 기준으로 2 ^-32, 즉 1.192 * 10^-7 정도의 값이라고 한다. 엡실론보다 작은 값을 1.0에 더해도 아무런 변화가 없다.</p>
+<h3 id="ulp-unit-in-the-last-place">ULP (Unit in the last place)</h3>
+<p>값이 마지막 LSB만을 제외하고 같은 서로 다른 두 실수가 있다면, 이둘은 <code>1ULP</code>차이로 다른 실수라고 인식할 수 있다고 한다. <code>exponent</code>가 <strong>1</strong>인 경우 <em>1ULP</em>는 엡실론 값을 갖는다. 만약 <strong>2</strong>인 경우 <em>1ULP</em>는 엡실론의 4배가 된다(값이 4.0이 되기 때문에 그렇다). 이를 식으로 나타내면 1ULP = <code>(2 ^ exponent) * 엡실론</code>이다. 이 값을 통해 floating point number의 정확도를 수치화할 수 있다고 한다.</p>
+<h3 id="primitive-types">Primitive Types</h3>
+<p>C++11 이후로 추가된 <cstdint>를 통해 크기에 맞춰 사용하는 데이터타입이 생겼다. 원래 이전에는 <code>typedef</code>로 개발자들이 크기단위에 맞게 aliasing을 하여 사용했는데 그럴 필요가 없어졌다. 이거말고는 특별한 내용은 없었고, <code>bool</code>값의 크기가 컴파일러에 따라 8비트인 경우와 32비트인 경우가 있다고 한다.</p>
+<h3 id="multibyte-value">Multibyte value</h3>
+<p>8비트 이상의 크기에 저장되는 데이터를 말한다. <em>0XF10032FF</em>가 있다고 하면, 앞에 0xF1은 MSB, 마지막 0xFF는 LSB라고 표현할 수 있다.
+<code>Multibyte value</code>를 저장하는 방법은 머신마다 다르다. <code>Little Endian</code>과 <code>Big Endian</code>으로 나눈다.
+<code>Little Endian</code> 은 LSB가 먼저 낮은 메모리 주소로 들어간다. 0x12345678 이면 왼쪽부터 메모리주소가 0이라는 가정하에 0x78 0x56 0x34 0x12라고 저장된다.
+<code>Big Endian</code>인 경우 그대로 순서대로(MSB가 앞으로) 들어간다.</p>
+<p>만약 리틀엔디안을 사용하는 방식의 CPU에서 빅엔디안을 사용하는 콘솔기기같은 환경에서 돌리면 모든 내용이 뒤죽박죽 되는 상황이다. 이럴때는 변환 툴을 써주는게 좋다.</p>
+<p>일반적인 정수형 데이터면 문제는 없지만, 커스텀 구조체 같은 놈들을 변환할려면 안에 있는 내용물들의 크기, 실제 구조체 크기등 진행하는데 있어 요구조건 이 좀 다르다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Example</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">U32</span> <span class="n">m_a</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">U16</span> <span class="n">m_b</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">U32</span> <span class="n">m_c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">writeExampleStruct</span><span class="p">(</span><span class="n">Example</span><span class="o">&amp;</span> <span class="n">ex</span><span class="p">,</span> <span class="n">Stream</span><span class="o">&amp;</span> <span class="n">stream</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">stream</span><span class="p">.</span><span class="n">writeU32</span><span class="p">(</span><span class="n">swapU32</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">m_a</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">stream</span><span class="p">.</span><span class="n">writeU16</span><span class="p">(</span><span class="n">swapU16</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">m_b</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">stream</span><span class="p">.</span><span class="n">writeU32</span><span class="p">(</span><span class="n">swapU32</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">m_c</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="n">U16</span> <span class="nf">swapU16</span><span class="p">(</span><span class="n">U16</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x00FF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0xFF00</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="n">U32</span> <span class="nf">swapU32</span><span class="p">(</span><span class="n">U32</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x000000FF</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">24</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x0000FF00</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0x00FF0000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="p">((</span><span class="n">value</span> <span class="o">&amp;</span> <span class="mh">0xFF000000</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>책에 있던 예시다. 말그대로 쉬프트 연산을 통한 비트의 순서를 바꿔주는 과정을 보여준다. float값의 경우 다르게 생각해줘야된다. 이타입의 경우 비트를 읽는 방식이 일반 정수랑 다르기 때문이다. 이러한 경우 C++은 <code>reinterpret_cast&lt;&gt;</code>를 통해 정수로 바꿔주고 쉬프트를 하면 된다고 알고 있다. 그런데 이렇게 변환하는거는 별로 안전하지(?) 않다고 한다. 이러한 방법(type-punning)은 최적화 규칙 중 <code>strict aliasing</code>, <em>&ldquo;근본적으로 타입이 다르다면 그 타입의 포인터로 변환을 금한다&rdquo;</em>, 이 켜져있는 경우 문제를 발생시킨다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">union</span> <span class="nc">U32F32</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">U32</span> <span class="n">m_asU32</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">F32</span> <span class="n">m_asF32</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">inline</span> <span class="n">F32</span> <span class="nf">swapF32</span><span class="p">(</span><span class="n">F32</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">U32F32</span> <span class="n">u</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">u</span><span class="p">.</span><span class="n">m_asF32</span> <span class="o">=</span> <span class="n">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// endian-swap as integer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">u</span><span class="p">.</span><span class="n">m_asU32</span> <span class="o">=</span> <span class="n">swapU32</span><span class="p">(</span><span class="n">u</span><span class="p">.</span><span class="n">m_asU32</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">return</span> <span class="n">u</span><span class="p">.</span><span class="n">m_asF32</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></div><p>유니언을 사용하여 문제해결이 가능하다.
+유니언의 경우 같은 메모리를 공유하기 때문에 어떻게 보면 <code>strict aliasing</code>을 회피하는 편법이라고 볼 수 있다.</p>
+<h2 id="translation-unit-linkage-declarations-definitions">Translation Unit, Linkage, Declarations, Definitions</h2>
+<p>CPP 프로그램의 생성과정</p>
+<p><code>여러 cpp파일(h 파일도 같이)을 한개당 하나의 obj를 생성</code> -&gt; <code>라이브러리와 링킹 후 exe 생성</code> -&gt; <code>DLL을 참고하여 실행파일 실행</code></p>
+<p>cpp파일 하나당 <code>translation unit</code>이라고 한다. 컴파일러는 한번에 한개씩 <code>obj</code>로 변환한다. 그래서 만약 그안에 <code>extern</code>으로 선언된 글로벌 변수가 있다면 컴파일러는 그냥 어딘가에 있다고 생각하고 믿고 가는 수 밖에 없다. 현재 이 상태를 <code>Unresolved external reference</code>라고 한다. <code>obj</code>변환을 전부 마치면 <code>linker</code>가 reference들을 전부 합쳐 <code>resolved</code>상태로 되게끔 찾아다니면서 설정해준다. 만약 진짜로 <code>extern</code>으로 명시된 놈들이 없는게 있다고 하면 에러로 <code>LINK_ERROR</code>같은 느낌으로 에러표시가 나온다.
+대표적인 링킹 에러 중에 하나는 <code>extern</code>으로 선언된 변수를 서로 다른 translation unit에서 작성하는 경우다(<code>multiply-defined Symbols</code>).</p>
+<h3 id="용어정리-definition--declaration">용어정리 Definition | Declaration</h3>
+<blockquote>
+<p>Declaration -&gt; 선언<br>
+Definition -&gt; 정의</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// All of these are variable definitions:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">U32</span> <span class="n">gGlobalInteger</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">F32</span> <span class="n">gGlobalFloatArray</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">MyClass</span> <span class="n">gGlobalInstance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// These are all pure declarations:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">extern</span> <span class="n">U32</span> <span class="n">gGlobalInteger</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="n">F32</span> <span class="n">gGlobalFloatArray</span><span class="p">[</span><span class="mi">16</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">extern</span> <span class="n">MyClass</span> <span class="n">gGlobalInstance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 정의 와 선언의 차이다.
+</span></span></span></code></pre></div><p>만약 같은 선언에 대해 정의가 서로 다른 두 곳에서 일어나면 이는  “multiply defined symbol” error로 처리된다. 만약 그 정의가 다른 두곳의 translation unit 에서 나타나면
+링커가 문제있다고 할 수 있다.</p>
+<p>선언을 헤더파일에 작성하는 행위는 위험하다. 헤더를 <code># include</code>하는 곳이 두곳이 있다면 바로 “multiply defined symbol” 처리 되기 때문이다.
+<code>inline</code>되는 함수의 경우 예외다. 인라인 함수는 함수몸체를 그대로 함수호출 부분으로 복사하기 때문에 괜찮다. 컴파일러의 최적화로 인라인 처리가 가능한 함수는 컴파일러가 알아서 인라인 처리한다.
+프로그래머가 붙히는 <code>inline</code>은 약간 컴파일러에게 힌트를 준다고 생각하는 편이 좋다. 컴파일러에 따라 강제로 인라인 시키는 매크로도 있다고 한다.</p>
+<p><code>template</code>의 경우 선언과 정의를 헤더파일 한군데에서 해야한다. 템플릿의 경우 실제로 코드가 있는게 아니라 불리면 그때 생성되는 함수매크로 처럼 작동하는 분이여서 정의를 <code>cpp</code>에 넣어버리면 헤더로 선언을 받고 템플릿 함수를 부르는 translation unit입장에서는 이놈이 뭐하는 코드인지 모르게 된다. 그냥 템플릿 함수를 쓸 생각이면 헤더에 다 작성하면 된다.</p>
+<h3 id="linkage">Linkage</h3>
+<ul>
+<li>External Linkage -&gt; <code>extern</code> 같은 놈들을 통해 외부에서 접근이 가능항 linkage</li>
+<li>Internal Linkage -&gt; <code>static</code> 같은 놈들을 통해 하나의 translation unit 안에서만 접근가능한 linkage</li>
+</ul>
+<p>기본적으로 <code>정의</code>들은 external, <code>static</code>이 붙으면 internal 로 변경가능.
+internal랑 linkage의 경우 동일한 녀석이 두개 이상의 서로다른 cpp파일에 있다고 해도 <code>중복 선언 에러</code>가 뜨지 않는다. <code>Distinct Entities</code>라고 처리되기 때문이다.</p>
+<p>메모리를 잡지 않는 <code>선언</code>의 경우 linkage를 갖는다고 말하기 어렵다. 다만 기본적으로 선언한, 혹은 # include한 translation unit, 파일에서 볼 수 있기 때문에 internal linkage라고 본다.</p>
+<p>이걸 응용하여 생각해보면 왜 <code>inline</code>함수들의 <code>정의</code>가 헤더파일에 있어도 되는지 이유를 알 수 있다. 인라인 함수는 기본적으로 internal linkage라고 보며, 여러 곳에서 해당 인라인 함수가 있는 헤더파일을 받아쓰더라도 컴파일러에 의해 자동으로 함수 몸체의 내용으로 바꿔치기 된다. 이는 개별적으로 참조한 파일마다 복사가 일어난다는 소리고, 결국 인라인 함수를 <code>Distinct Entities</code>라고 본다는 소리다.</p>
+<p><code>static</code>의 경우 선언 위치에 따라 여러 형식으로 작동한다 -&gt; 만 공통적으로 하는 일은 똑같고 위치에 컨택스트에 따라 약간 느낌이 달라지는거다. 결과적으로 그냥 자신이 사는 <code>스코프</code>에 internal 하게 소속된다는 느낌으로 이해하자.</p>
+<p>다만 클래스에 있는 static 변수의 경우 모르던 내용이 있었다. 내가 아는건 클래스의 static 변수는 해당 클래스 <em>이름</em> 밑에 존재하는 글로벌 변수의 느낌이고, static 함수도 마찬가지로 저장되는 세그먼트 영역의 특성상 static-클래스 변수만 접근 가능한 함수로 알고 있다
+여기다 추가로 클래서에 <code>선언</code>된 static 변수의 경우 메모리를 잡지 않는다고 한다. 나중에 클래스 이름으로 불러서 값을 넣으면 그때 초기화와 같이 잡힌다고 하는데 이건 좀 더 찾아봐야 되겠다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// [책 예제]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">foo</span><span class="p">.</span><span class="n">h</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Foo</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="n">F32</span> <span class="n">sClassStatic</span><span class="p">;</span> <span class="c1">// allocates no
+</span></span></span><span class="line"><span class="cl"><span class="c1">// memory!
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="n">foo</span><span class="p">.</span><span class="n">cpp</span>
+</span></span><span class="line"><span class="cl"><span class="n">F32</span> <span class="n">Foo</span><span class="o">::</span><span class="n">sClassStatic</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">;</span> <span class="c1">// define memory and
+</span></span></span><span class="line"><span class="cl"><span class="c1">// initialize
+</span></span></span></code></pre></div><h2 id="코드-메모리-레이아웃">코드 메모리 레이아웃</h2>
+<h3 id="executable-image">Executable Image</h3>
+<p>플랫폼마다 정해진 실행파일 형식은 다를 수 있다. 다만 공통적으로 자신이 가져야되는 메모리 레이아웃을 설명하는 <code>Image</code>를 갖고있다.
+<code>Image</code>는 <code>세크먼트</code>로 나눠진다.</p>
+<ul>
+<li>Text -&gt; 여기는 변역된 머신코드가 산다</li>
+<li>Data Section -&gt; 여기는 초기화된 글로벌 / static 변수들이 자리잡는다</li>
+<li>BSS (Block Start Symbol) -&gt; 요즘 부르는 이름이 달라졌지만 하는 일은 똑같다. 초기화되지 않은 글로벌/static을 저장하는데 쓰인다.
+-&gt; C/C++에서는 글로벌과 static 변수의 경우 직접 초기화하지 않을 시 모두 <code>0</code>으로 직접 초기화하며, 그많은 <code>0</code>들을 저장하는게 아닌 몇개있는지만을 저장하고 나중에 실행시 처음 <code>BSS</code>에 있는 데이터에 접근하게 되면 <code>0</code>을 준다고 한다.</li>
+<li>Read-only data segment -&gt; 말그대로 읽기 전용 공간. 상수값으로 설정된 놈들, 혹은 <code>&quot;&quot;</code>로 선언되는 문자열등이 여기 들어간다.</li>
+</ul>
+<h3 id="함수스택">함수스택</h3>
+<p>아는 내용이다. 함수가 불리면 해당 함수를 실행하기 위한 <code>stack frame</code>이 해당 프로그램을 실행했을 때 OS에서 배정해주는 <code>program stack</code>에 쌓인다.
+필요로하는 레지스터 값들, 자기가 갖고 있는 로컬변수들, 리턴 주소 들이 들어간다. 끝나면 스택에서 빠진다.</p>
+<h3 id="다이나믹-메모리">다이나믹 메모리</h3>
+<p>위에서 말한 메모리 레이아웃의 경우 사전에 사이즈를 알기에 실행전, 혹은 런타인에 함수스택을 맞는 사이즈로 제공할 수 있다.
+런타임 중에 무슨값이 알 수 없는 (사용자 입력값) 경우 해당 데이터는 <code>Dynamic</code>한 메모리인 <code>힙메모리</code>를 사용한다.
+C++에서는 <code>new</code>와 <code>delete</code>으로 힙메모리 할당/삭제를 한다. 문제는 해당 함수를 클래스에서, 혹은 자체적으로 오버로드 한 경우도 있기 때문에
+100% 무조건 글로벌 힙메모리에서 뽑아 온다고 생각하면 안된다. (아마 메모리 풀에서 뽑도록 함수 overload시킨 클래스 같은 놈들을 말하는거 같다).</p>
+<h3 id="alignment">Alignment</h3>
+<p>이부분은 Vulkan 공부하면서 하도 파서 왠만하면 아는 내용들이였다.
+한줄 요약을 하면 ***&ldquo;컴퓨터구조에 맞게 설계된 효율적인 읽기쓰기 방식에 맞춰 데이터를 저장,선언하는게 성능에 좋아 이러한 방식을 프로그래머에게 강제한다&rdquo;***라고 생각한다. 벌칸의 경우 GPU로 넘기는 유니폼 구조나 PushConstant안에 왠만하면 <code>vec4</code>로 맞추는 이유도 이렇한 이유였다(살짝 더 설명이 필요하지만 딱히 여기 내용이 아니여서 패스). 일반적인 구조체도 효율적으로 짜기 위해 <code>Data Packing</code>이 잘되어있으면 좋다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 책 예시
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">struct</span> <span class="nc">BestPacking</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="n">U32</span> <span class="n">mU1</span><span class="p">;</span> <span class="c1">// 32 bits (4-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">F32</span> <span class="n">mF2</span><span class="p">;</span> <span class="c1">// 32 bits (4-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">I32</span> <span class="n">mI4</span><span class="p">;</span> <span class="c1">// 32 bits (4-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span><span class="o">*</span> <span class="n">mP6</span><span class="p">;</span> <span class="c1">// 32 bits (4-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">U8</span> <span class="n">mB3</span><span class="p">;</span> <span class="c1">// 8 bits (1-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">bool</span> <span class="n">mB5</span><span class="p">;</span> <span class="c1">// 8 bits (1-byte aligned)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">U8</span> <span class="n">_pad</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span> <span class="c1">// explicit padding -&gt; no important data inside
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span></code></pre></div><p>크기를 맞춘다고 <em>stuffing</em>까지 넣는 경우도 있다고 한다(이부분은 캐쉬 때문인지는 모르겠는데 굳이 이정도까지 해야되나 라는 생각은 좀 든다).</p>
+<h3 id="class-memory-layout">Class Memory Layout</h3>
+<p>클래스의 상속은 결국 <code>vtable</code>의 기능을 최대한 활용한 Polymorphism과 인터페이스 구현에 있다고 생각한다. 지금까지 봐온 여러 강연이나 실력있는 개발자분들의 말씀을 들어보면 클래스의 상속은 거의 사탄취급을 받거나 써도 한계층만 유지하는 상속을 위주로 쓴다고 한다. 그만큼 기능을 호출할 때 생기는 불필요한 indirection이 실시간 렌더링의 입장에서는 성능에 꽤 영향을 준다고 한다.</p>
+<h2 id="컴퓨터-구조">컴퓨터 구조</h2>
+<p>가장 재밌는 내용들이였다.</p>
+<p>우선 CPU에 관한 내용이다.
+내부적으로 <code>clock</code>을 기준으로 들어오는 명령들을 처리한다.
+처리속도는 <code>frequency</code>에 따라 달라진다.</p>
+<ul>
+<li>ALU -&gt; 정수 연산</li>
+<li>FPU -&gt; floating point 연산</li>
+<li>VPU -&gt; 내장 그래픽 같은 느낌 (vector processing unit). 정수 실수 다함</li>
+<li>MMU -&gt; 칩 내/외 부 메모리 접근 관리를 위한 장치</li>
+<li>CU -&gt; instruction 실행 관리를 위한 장치</li>
+<li>Register -&gt; 말그대로 레지스터 (각각 저장하는/사용되는 내용/작업 이 다름)</li>
+</ul>
+<p>요즘은 FPU를 무저건 넣지 않고 VPU로 계산, 비는 트렌지스터를 캐쉬성능을 높이는데 사용한다고 한다.</p>
+<p>레지스터는 스택포인터, 프로그램 포인터 등 작업에 필요한 필수 정보를 저장하는 곳부터 그냥 값 반환을 위해 사용되는 레지스터등 여러개 있다.</p>
+<p>FPU와 VPU의 경우 ALU가 사용하는 (대부분 위에서 언급한)레지스터가 아닌 자신들만의 레지스터를 사용한다.</p>
+<p>CPU성능을 논할 때 단순히 MIPS, FLOPS으로 성능을 따질 수 없다. 3GHz CPU가 1개의 floating point operation을 처리하는데 6싸이클이 돌면 이론상 0.5GFLOPS가 가능하다. 물론 현실에선 반영되는 팩터가 더 많기 때문에 어림도 없다.</p>
+<p>TLDR -&gt; 직접 벤치마크 툴 써서 실제로 관측하고 말해라.</p>
+<h3 id="memory-구조">Memory 구조</h3>
+<p>시작은 간단하게 메모리의 종류 두가지를 설명한다.</p>
+<ol>
+<li>ROM -&gt; 각인되는 메모리, EPPROM과 같이 변경가능한 경우도 존재 (FlashDrive같은 놈들)</li>
+<li>RAM -&gt; static한 놈들과 널리 쓰이는 Dynamic(DRAM)존재. 전기가 통하는 도중에는 메모리 유지 가능</li>
+</ol>
+<p>DRAm의 경우 데이터를 유지하기 위해서 읽고 바로 해당 위체에 덮어쓰는 과정이 필요함(capacity가 점점 떨어지면서 데이터손상이 생기는걸 방지하기 위해서).</p>
+<h3 id="bus">Bus</h3>
+<p>물리적으로 데이터를 옮기는 경로를 말한다. 전류가 흐르면 1 아니면 0인 단순한 방식이다. 여기서 <code>주소버스</code>와 <code>데이터버스</code>라는 개념이 추가된다. 둘이 전송하는 객체가 다르다고 보면 된다.
+데이터를 CPU의 레지스터로 옮기는 경우 CPU가 <code>주소</code>버스를 통해 읽고 싶은 메모리 셀의 주소를 <code>메모리 컨트롤러</code>(one of the CPU component)에세 넘기면 메모리셀에서 데이터를 뽑아와 <code>데이터</code>버스를 통해 준다.</p>
+<p>반대로 레지스터의 값을 옮기는 경우도 CPU가 보낼려고 한 목표주소를 <code>주소</code>버스를 통해 전송하면 메모리 컨트롤러가 해당 주소를 찍어내서 데이터를 <code>데이터</code>버스를 통해 옮긴다.</p>
+<p>이 두버스가 분리된 형태, 같이 통합된 형태 둘다 존재한고 머신 설계과정에 따라 달라진다고 생각하면 된다.</p>
+<p>버스의 넓이는 곧 한번에 옮길 수 있는 데이터의 크기를 나타낸다. 무작정 크기 넓히는게 좋다고 할 수 없다. 버스의 크기보다 적게 읽어들이면 그 비어있는 라인을 걸러내기 위한 비트연산을 추가로 수행해야되는 오버헤드가 발생하기 때문에 적정량을 맞추는게 오히려 좋다.</p>
+<p>광고에서 보는 &ldquo;몇비트 체계의 컴퓨터&quot;는 보통 버스의 넓이를 기준으로 말한다고 한다. 다만 예전(지금은 어떤지 모른다) 컴퓨터들 중에 데이터와 주소버스의 넓이가 다른 경우가 있었다고 한다.</p>
+<h3 id="isa--address-mode">ISA &amp; Address Mode</h3>
+<p>어셈블리 명령과 해당 명령을 수행할 때 알아야되는 내용들이다. 기본적인 명령 하나의 구조와 자주 쓰는 명령들을 나열한다(이건 굳이 안적어도 될거 같다).</p>
+<p>명령중에서 <code>move</code>명령을 기준으로 <code>address mode</code>을 설명한다. 옮기는 대상에 따라 작동방식이 달라진다고 보면 된다.</p>
+<ul>
+<li>Register Addressing
+<ul>
+<li>레지스터에서 레지스터로 이동</li>
+</ul>
+</li>
+<li>Immediate Addressing
+<ul>
+<li>상수와 같은 순수 값을 레지스터로 이동</li>
+</ul>
+</li>
+<li>Direct Addressing
+<ul>
+<li>메모리 에서/으로 데이터를 이동</li>
+</ul>
+</li>
+<li>Register Indirect Addressing
+<ul>
+<li>명령어에 문자 그대로 값으로 저장된 내용이 아닌 레지스터 자체가 목표 메모리 주소가 된다. C와 C++에서 포인터 dereference를 할 때 사용한다.</li>
+</ul>
+</li>
+<li>Relative Addressing
+<ul>
+<li>operand로 주어지는 목표 주소에서 오프셋 정보를 이용해 메모리에 접근한다. <code>Indexed Array</code>를 구현하는 방식과 같다.</li>
+</ul>
+</li>
+<li>Other Addressing
+<ul>
+<li>이외에도 매우 많이 있다</li>
+</ul>
+</li>
+</ul>
+<h3 id="메모리-매핑">메모리 매핑</h3>
+<p>n 비트 주소버스를 갖는 CPU는 이론상 2^n의 주소를 접근할 수 있다. ROM 과 RAM을 해당 주소에 1-1로 매핑할 수도 있다.
+물론 이론상 2^n의 주소체계를 갖는것 뿐이지 딱히 모든 주소범위를 사용하지 않는다.</p>
+<h3 id="메모리-io-매핑">메모리 IO 매핑</h3>
+<p>위에서 말한것 처럼 모든 주소범위를 전부 ROM과 RAM이 사용하는것이 아니다. 컨트롤러나 또는 인풋디바이스를 같은 외부하드웨어에 CPU가 명령을 내리기 위해
+해당 기기들로 매핑하는 걸 <code>메모리 IO 매핑</code>이라고 한다. 외부디바이스 뿐만 아니라 <code>메모리 포트 매핑</code>과 같이 포트 레지스터를 통해 명령을 전달하기 위해
+메모리를 매핑한다.</p>
+<h3 id="비디오-램">비디오 램</h3>
+<p>비디오 컨트롤러가 사용하도록 할당받은 메모리를 <code>VRAM</code>이라고 한다. 플랫폼마다 약간의 차이가 있겠지만 기본적으로 개인 컴퓨터의 경우
+RAM과 GPU의 위치한 VRAM 사이에 데이터 통신을 위해 AGP, PCI, PCIe같은 버스 통신 프로토콜을 사용하여 데이터를 전송하고/받는다. RAM과 VRAM사이는 물리적으로
+연결되어있지 않기 때문에 그래픽 병목현상의 원인 중 하나가 될 수 도 있다. Vulkan의 경우 GPU 메모리에 직접 데이터를 때려박는 방식이라던가 스테이징 버퍼를 통해
+데이터를 GPU로 옮기는 등 HOST에서 DEVICE로 데이터를 옮기는 과정 하나에 복잡한 여러 방법이 있는 이유도 이러한 상황이 영향을 준다고 생각한다.</p>
+<p>아래는 책에서 나오는 애플2의 메모리 매핑 정보다.</p>
+<ul>
+<li>0xC100 - 0xFFFF ROM (Firmware)</li>
+<li>0xC000 - 0xC0FF Memory-Mapped I/O</li>
+<li>0x6000 - 0xBFFF General-purpose RAM</li>
+<li>0x4000 - 0x5FFF High-res video RAM (page 2)</li>
+<li>0x2000 - 0x3FFF High-res video RAM (page 1)</li>
+<li>0x0C00 - 0x1FFF General-purpose RAM</li>
+<li>0x0800 - 0x0BFF Text/lo-res video RAM (page 2)</li>
+<li>0x0400 - 0x07FF Text/lo-res video RAM (page 1)</li>
+<li>0x0200 - 0x03FF General-purpose and reserved RAM</li>
+<li>0x0100 - 0x01FF Program stack</li>
+<li>0x0000 - 0x00FF Zero page (mostly reserved for DOS)</li>
+</ul>
+<p>참고로 애플2의 메모리 매핑은 마더보드와 1-1 연결상태를 갖는다. 요즘 OS의 경우 <code>virtual addressing</code>을 통해 메모리를 관리한다.</p>
+<h3 id="가상-메모리">가상 메모리</h3>
+<p>가상 메모리 주소는 물리적으로 존재하는 메모리를 가르키는 메모리 주소로 OS가 관리하는 look-up table에 기록된다. 보안을 위한 조치이기도 하고
+연속적이지 않는 물리적 매모리 주소여도 가르키는 가상 메모리 주소가 연속적이면 사용하기 편한 장점도 있다. 또한 컴퓨터에 설치된 메모리보다 더 많은 메모리를
+프로그램이 사용할 수 있도록 해준다(활용을 잘한다는 가정하에&hellip;).</p>
+<h3 id="가상-메모리-페이지">가상 메모리 페이지</h3>
+<p>메모리 리매핑을 하기 위해서는 우선 위에서 언급한 버스의 n비트에 맞게 이론상 사용가능한 2^n의 메모리 주소를 기준으로, 일정한 <code>페이지</code> 단위로 나누어서 사용한다.
+Windows도 그렇고, 각 운영체제, 플랫폼 마다 기준으로 하는 페이지 단위가 같은 메모리 주소 비트 단위에서도 다를 수 있다. 예를 들어 대표적으로 사용하는 페이지 단위가
+<code>4Kib</code>인데, 32비트 주소체계에서 해당 페이지 범위로 0x0000~0xFFFF로 총  1,048,576의 페이지로 나뉜다고 한다.</p>
+<blockquote>
+<p>이건 Win32를 하면서 봤던 내용이다. 예를 들어 <code>VirtualAlloc</code>같은 함수로 메모리 할당을 할 시 크기가 1 페이지 단위보다 조금 더 많은 경우 바로 2페이지 용량으로 잡아버린다. 페이지 단위를 기준으로 메모리를 잡고 운영한다고 알고 있으면 될 것 같다.</p>
+</blockquote>
+<p>가상 메모리들은 실제 물리 메모리 주소에 매핑이 되며 이러한 정보를 <code>가상 메모리 테이블</code>로써 RAM에 보관하고 OS가 관리한다. 이 테이블을 통헤 가상메모리 주소로부터 실제 물리 메모리를 뽑는 동작을 CPU의 <code>MMU</code>에서 수행한다. 가상메모리는 물리 메모리 주소와에 매핑 뿐만 아니라 Swapfile을 참조하도록 매핑되기도 한다. (스왑파일은 메모리가 부족한 상황에 ssd나 하드의 공간을 메모리로 끌어쓰는것으로 알고 있으면 된다).</p>
+<p>계속해서 4Kib의 페이지 단위를 갖는 32비트 주소체계를 예시로 든다. 매핑된 주소를 찾는 방법은 다음과 같다. 주소로 사용하는 32비트 중에서 뒤에 12비트의 경우 매핑된 주소에서 부터 어디로 가야되는지 오프셋을 기록한다. 앞에 20비트의 경우 페이지의 인덱스가 된다. 만약 물리데이터 메모리 0x12345222을 찍고 싶다고 하자. 페이지 단위로 나뉜다고 보면 가상 메모리 테이블 어딘가에 0x12345000을 매핑하는 페이지 인덱스가 있을 것이다. 가상 메모리 주소 0x12FFF000가 0x12345000를 매핑한다고 하면, 우리가 원하는 0x12345222로 가기위해 0x12FFF222 가상메모리를 참조하면 되는거다. 만약 가상메모리 페이지에 물리 주소 0x12345000로 매핑이 된 곳이 없다면 할당 페이지를 못찾은거기 때문에 MMU는 interrupt를 건다. 이걸 <code>Page fault</code>라고 부른다.</p>
+<p>보통 페이지 폴트가 나면 코어덤프파일과 함께 크래쉬가 난다. 스왑디스크의 메모리가 필요한 경우 OS 관리하에 진행중인 프로그램을 잠시 멈추고 디스크가서 읽어서 RAM에 메모리로 **<code>스왑</code>**하고 다시 진행한다. 프로그램입장에서는 멈추는 과정을 인지하지 못하지만 엄연히 동작 중인 프로그램을 멈췄다가 다시 움직이는 것이기 때문에 성능을 잡아먹는다. OS는 이러한 스왑을 최소화하기 위해 가장 적게 쓰는 페이지 (<strong>L</strong>east <strong>F</strong>requently <strong>U</strong>sed page)를 디스크로 보낸다.</p>
+<h3 id="메모리-레이턴시">메모리 레이턴시</h3>
+<p>전송속도에 영향을 미치는 원인은 크게 3가지가 있다</p>
+<ul>
+<li>실제 메모리 셀의 성능</li>
+<li>메모리 셀이 지원하는 read/write 포트의 수</li>
+<li>CPU와 메모리 셀의 간격</li>
+</ul>
+<p>아무리 빛과 가까운 속도로 신호가 흐른다 해도, 로직스위치와 기타 연산의 영향을 받아 느려질 수 밖에 없다. 포트가 한개라고 하면 읽기/쓰기를 수행하는 시간이 여러개 포트를 가진 메모리 셀보다 느릴 수 밖에 없다. 물론 포트가 많은 놈들은 그만큼 처리를 위해 잡아먹는 트렌지스터 수도 많아져서 이건 give-n-take다.</p>
+<p>발전이 거듭되면서 <em>CPU의 연산 속도</em>와 <em>메모리 접근 속도</em>에 차이가 너무 많아졌고, 이를 <code>Memory Gap</code>이라고 부른다. 이를 우회하기 위해 여러 기법이 탄생한다.</p>
+<ul>
+<li>Reducing   :  CPU 근처에 최근 사용 데이터를 담아둘 수 있는 <em>메모리 뱅크</em>를 만들어 둔다.</li>
+<li>Hiding     :  레이턴시가 생겨도 CPU를 다른 유용한 연산을 계속 돌려 시간낭비를 줄인다.</li>
+<li>Minimizing : <em>메인 메모리</em>에 대한 접근을 최소화한다. 데이터 접근은 최소화하는 설계로 프로그램을 작성한다.</li>
+</ul>
+<p><code>CPU register</code>는 <em>minimizing</em>의 대표적인 사례가 된디. Static RAM(SRAM)으로 써 ALU 바로 옆에 붙어서 산다. 포트도 여러개 있고 ALU가 직접 사용해서 가상 메모리 테이블 접근이라던지 따로 접근에 필요한 추가적 작업이 필요가 없다. 더럽게 비싼만큼 미친 포퍼먼스를 자랑한다.</p>
+<h3 id="메모리-캐쉬-계층">메모리 캐쉬 계층</h3>
+<p>흔히 <code>L1, L2, L3</code>라고 불리는 CPU가 소유하는 메모리 케쉬 계층들이다. 순서대로의 성능을 갖고 있고, 순서대로 CPU와 거리가 있다. 만약 이런 캐쉬들에서 정보를 찾지 못해 main RAM으로 내려가 데이타를 찾게 되면 <code>cache miss</code>가 발생한다고 한다. <code>cache hit</code>의 경우 찾는 데이터가 캐쉬에 상주해 있을 때 바로 꺼내올 수 있어서 빠르다.</p>
+<h3 id="캐쉬-라인">캐쉬 라인</h3>
+<p>memory caching은 <code>locality of reference</code>라는 아이디어를 바탕으로 이득을 취한다.</p>
+<ul>
+<li>Spatial locality : 만약 N의 위치의 데이터를 접근했다면, 인접한 N+1, N+2의 데이터를 접근할 가능성이 높다고 보고 같이 캐쉬에 넣는다. 배열을 순차적으로 접근하는게 이거에 해당한다.</li>
+<li>Temporal locality : 만약 N번째의 데이터에 접근을 했다면 다시한번 해당 데이터를 사용할 확률이 높다고 본다. for루프에서 같은 인덱스 변수 계속 접근하는게 이거에 해당한다.</li>
+</ul>
+<p>위 두가지 특징을 살려서 캐쉬에 데이터를 <code>cache line</code>으로써 한개씩이 아닌 한 줄의 개념으로 끌어온다.
+책에서의 예제로는 클래스의 멤버변수를 읽어올 때 처음에는 10싸이클 정도 걸리지만 그때 주변 데이터, 이경우 해당 클래스의 다른 멤버변수도 같이 읽어오기 때문에 다음에 다른 멤버변수를 읽을 때에는 더 빠른 속도로 데이터를 읽어올 수 있다는 특징이 있다.</p>
+<h3 id="mapping-cache-line-to-main-ram-memory">Mapping cache line to main RAM memory</h3>
+<p>캐쉬의 메모리 주소로 메인 램의 메모리 주소를 전부 커버쳐야된다. 당연히 메인 램의 크기가 더 많다. 캐쉬를 라인별로 쪼개면 한 라인당 메인램의 여러군데랑 매핑되야된다.</p>
+<p>책의 예시로는 32Kib인 캐쉬랑 256Mib인 메인램이 있는 경우, 캐쉬와 메인램은 총 8192배의 차이((256 X 1024)/32)가 난다고 한다. 만약 캐쉬라인의 크기가 128바이트라고 하자. 그럼 총 256개의 캐쉬라인이 존재한다(256 X 128 = 32Kib). 캐쉬 전체로 램을 다 커버치고 싶으면 캐쉬라인 한줄 당 메인 램에서 라인크기와 맞는 영역 8192군데랑 매핑이 된다.
+이건 책 그림이 잘 보여준다(pdf 192pg). 빠르게 주소를 구하는 방법은 모듈로 연산이다. 메인램 주소가 어떤 캐쉬주소로 매핑되는지 알고 싶다면 해당 메인램 주소를 캐쉬 크기랑 <code>%</code> 하면 된다.</p>
+<h3 id="addressing-the-cache">Addressing the Cache</h3>
+<p>CPU에서 1바이트의 데이터를 읽는다고 가정하자. 그럼 먼저 캐쉬로 가서 해당 데이터가 있는지 보고 없다면 캐쉬미스로 간주하고 메인램까지 내려가서 다시 라인크기로 데이터를 읽어서 캐쉬에 올린다. 이 시퀀스를 조금 더 자세히 보자.</p>
+<p>우선 캐쉬 메모리를 바이트 단위로 관리하지 않는다. 어차피 언제나 읽어올때 라인크기로 읽어온다면 애초에 메모리 주소를 라인단위로 읽는게 맞는거다. 더자세한 내용은 밑에 나오는 <code>메모리 alignment</code>에서 자세히 나온다. 책의 설명을 이해하기가 조금 어려웠는데 일단 이해한 만큼 적는다.<br>
+CPU가 read 요청을 한다고 하자. 메인 램주소를 바탕으로 데이터를 읽을려고 한다면 , 해당 메인 램 주소를 캐쉬주소로 바꿔야된다(캐쉬에 올라와 있는지 확인하기 위해). 그럼 우선 해당 캐쉬라인에서 어디에 담겨있는지를 알기 위한 <code>오프셋</code>이 포함되어 있어야된다. 근데 일단 캐쉬에 어느 라인에 있는지를 알아야 한다. 그럴려면 변환된 주소에 <code>케쉬라인인덱스</code> 가 포함된다. 마지막으로 해당 라인이 내가 읽을려고 하고 있는 메인 램의 구역이랑 매핑되었는지 알아야된다.위에서 설명한 캐쉬-메인램 예시만 봐도 라인 한개 당 8192군데의 메인램의 라인크기만큼 매핑될 수 있다. 그래서 <code>tag</code>가 포함된다. 만약 메인 렘에서 데이터를 읽어온다고 하면, 위의 예시를 다시 들자면 8192개의 블록 중에서 어느 블록에 데이터인지를 알고 이와 매핑된 캐쉬라인에서 어느정도 오프셋에 존재하는지를 알아야 읽을 수 있는거다.</p>
+<h3 id="set-associativity--replacement-policy">Set Associativity &amp; Replacement Policy</h3>
+<p>위에 설명한 방법은 <code>direct mapped cache</code>의 개념에 들어간다. 이 방법은 문제점이 한가지 존재한다. 한번에 1개의 메인 렘에 매핑된다. 만약 아무것도 매핑이 안되어 있다면 그냥 렘에서 복사해오면 되는데 다른 장소에 라인정보가 존재한다면 기존껄 덮어쓰기 해야된다. 이런 덮어쓰기를 <code>evicting</code>한다고 한다. 문제는 만약 다른 두곳의 메모리 주소가 서로를 계속 핑퐁 키듯이 evicting을 해대면 성능 히트가 당연히 생긴다. 이를 해결하기 위해서 <code>2-way set associative cache</code>로 만든다. 말 그대로 한개의 메인 메모리 주소가 2군데의 캐쉬라인에 맵핑되는 거다. 당연히 <code>way</code>가 많아지면 그만큼 성능이 올라간다.
+(라고는 하는데 그만큼 효율적으로 넓은 범위 커버가 안되지 않나?).</p>
+<p>캐쉬 컨트롤러 입장에서는 이제 새로운 문제가 생긴다. 만약 캐쉬라인에 들어있는 메인 램 메모리 두개 다 히트가 안되서 메인 램에서 데이터 끌고 와야되먄 뭘 evict해야되나. 이건 <code>replacement policy</code>로써 CPU 디자인 별로 달라진다. FIFO, not most recently used, least frequently used, psedourandom 등 다양한 방식이 존재한다.</p>
+<h3 id="multilevel-cache--instruction-cache-data-cache">Multilevel Cache &amp; Instruction Cache Data Cache</h3>
+<p><code>Multilevel Cache</code>는 위에서 설명한 L1, L2, L3 계층별 속도차이가 존재한다는 내용이다.</p>
+<p><code>Instruction Cache &amp; Data Cache</code>는 실행 직전의 머신코드를 들고 있는 <code>I$</code>, 그리고 읽기쓰기를 위한 <code>D$</code> 캐쉬가 존재한다는 내용이다. L1 캐쉬의 경우 이 둘의 구분이 있다(기본적인 L1의 사이즈 제한 때문에). 다른 계층의 경우 크기의 여우가 있기 때문에 둘의 구분을 딱히 하지 않는다. 성능 향상을 위해 둘의 최적화를 생각하며 코드를 작성하는데 보통 한곳을 최적화하면 다른 한곳도 어느정도 영향을 받아 좋아진다고 한다.</p>
+<h3 id="write-policy">Write Policy</h3>
+<p>캐쉬에서의 데이터를 읽는게 아닌 쓰기를 할 경우, 이는 디자인 결정에 따라 달라진다. 가장 간단한 방식은 캐쉬에 쓰기를 하자마자 맵핑된 메인 렘의 주소로도 바로 데이터가 넘어가는 방법이 있다. 다른 방식은 우선 캐쉬에 작성을 하고, 나중에 특정 조건 (캐쉬라인이 오래되서 evict당하는 경우라던가)이 맞는 경우 flush하여 메인 렘에 데이터를 작성한다. 마지막 예시의 경우 데이터가 즉각적으로 업데이트가 안되는 문제가 있지 않나 싶지만 어차피 읽을 때 캐쉬에서 읽으니깐 괜찮은 거 같다.</p>
+<h3 id="cache-coherency--mesi-moesi-mesif">Cache Coherency : MESI, MOESI, MESIF</h3>
+<p>멀티코어 환경에서 L1과 다르게 L2와 같은 계층들은 여러 코어들이 나눠서 쓰고 있는 구조가 많고, 메인 램의 경우도 여러 코어들 사이에서 나눠쓰고 있는 디자인이 일반적이다. 이러한 경우에 읽어들이는 데이터의 일관성을 유지하기 위한 여러가지 포로토콜이 존재한다. 자세한 설명은 챕터4의 마지막부분쯤에 나온다고 소개만 해준다.</p>
+<h3 id="avoiding-cache-misses">Avoiding Cache Misses</h3>
+<p>데이터 캐쉬에서의 미스를 줄이고 싶다면 다루는 데이터를 최대한 잘개 쪼개서 이를 배열처럼 sequentially 하게 정렬하여 사용하면 된다. 이렇게 하면 한번의 캐쉬미스로 이후에 수행하는 연산에 필요한 데이터를 한번에 끌어올 수 있다. 명령캐쉬의 경우 최대한 루프안에서 함수 호출을 자재한다거나 작고 단순한 함수의 경우 <code>inline</code>을 활용하는 방법이 있다. <code>inline</code>의 경우 확실히 성능 향상을 끌어올 수 있지만 너무 많이 쓰면 코드 량이 늘어나 캐쉬크기(아마 instruction cache)를 넘겨버릴 수 있다(<code>inline</code>의 경우 말그대로 코드를 복붙하는 기능이라 그렇다).</p>
+<h3 id="nonunifom-memory-access-numa">NonUnifom Memory Access (NUMA)</h3>
+<p>이거 다음에 두부분을 마지막으로 드디어 챕터 3가 끝난다. 우선 여기서부터는 하드웨어 설계에 관한 내용이다. 기본적으로 디자인 방식은 <code>Uniform Memory Access</code>와 <code>NonUnifom Memory Access</code> 가 있다. UMA 디자인의 경우 모든 코어가 같은 물리 메모리 주소를 본다, 즉 읽기 쓰기를 한다. 다 좋은데 이렇게 하면 같은 곳을 동시 읽는 등 문제가 생긴다. 동시의 두개의 코어가 메모리를 접근할려고 하면 서로 싸우는 느낌이다(race condition 같은 느낌). NUMA의 경우 이를 해결할 수 있는 하드웨어 디자인 이라고 할 수 있다. PS3를 기준으로 보면 각 코어별로 <code>local space</code>라는 메모리 저장공간을 갖는다. 이들은 L1 캐쉬와 마찬가지로 코어와 같은 다이 위에 장착되며, 메모리 맵핑의 경우 실질적인 물리 메모리 주소부터 코어의 주소를 갖고 있는 경우도 있다. 코어들은 이 <code>local space</code>를 통해서만 메인 램과 소통할 수 있고, <code>DMA Controller</code>라는 장치가 중간자 역활을 한다.</p>
+<p>자세히 이해못했지만 대충 <code>local space</code>를 포함한 코어와 같이 메모리 데이터 이동을 해야되는 장치의 경우 <code>DMA Ring Bus</code>를 통해 데이터를 주고 받는데 그 관리를 <code>DMA Controller</code>가 한다. 이걸로 같은 데이터 주소를 동시에 읽을 려고하는 코어들 간 간섭을 최소화한다고 하는것 같다.</p>
+<p>그다음으로 PS2의 구조를 설명한다. 이경우 메모리 read/write latency를 줄이기 위한 구조보다는 병렬처리를 우선시하는 디자인이라는 설명이다. 시스템 버스를 통하지 않고 코어가 직접적으로 데이터의 read/write를 수행한다는 점을 기본 베이스로 프로그램 로직을 작성한다고 한다&hellip;</p>
+
+    
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  
+
+<div id="sharingbuttons">
+    
+    
+    <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=%5bGameEngineArchitecture%5d%20Chapter3&amp;url=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="mailto:?subject=%5bGameEngineArchitecture%5d%20Chapter3&amp;body=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_self" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17 0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1 0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08 0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f&amp;resubmit=true&amp;title=%5bGameEngineArchitecture%5d%20Chapter3" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="whatsapp://send?text=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--whatsapp resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f&amp;t=%5bGameEngineArchitecture%5d%20Chapter3" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+    	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140"><path fill-rule="evenodd" d="M60.94 82.314L17 0h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L103.49 0h18.69L77.84 83.308v53.087h-16.9v-54.08z"></path></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://telegram.me/share/url?text=%5bGameEngineArchitecture%5d%20Chapter3&amp;url=https%3a%2f%2fEricLim73.github.io%2fposts%2ftextbooks%2fgameenginearchitecture%2f2023-04-03-gameenginearchitecture-chapter3%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--telegram resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+</div>
+  <div class="paginator">
+    
+    <a class="link" href="https://EricLim73.github.io/posts/vulkan/2023-03-26-vulkan-instance-n-debug/" title="[Vulkan] Instance &amp; Debug">← prev</a>
+    
+    
+    <a class="link" href="https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-04-assortrock_2021_c&#43;&#43;_course-erase...-dynamicarray-/" title="[AssortRock_2021_C&#43;&#43;_Course] erase(...) Dynamic Array">next →</a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+      <script src="https://giscus.app/client.js"
+    data-repo="EricLim73/blogDiscussions"
+    data-repo-id="R_kgDOK-ebpA"
+    data-category="General"
+    data-category-id="DIC_kwDOK-ebpM4CcDSi"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="0"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="transparent_dark"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+  
+  </div>
+  
+  
+</main>
+
+    <footer id="footer">
+  <div>
+    <span>Powered by  <a class=link href=https://gohugo.io target=_blank rel=noopener>Hugo</a> | 
+Theme <a class=link href=https://github.com/michaelneuper/hugo-texify3 target=_blank rel=noopener>TeXify3</a>
+</span>
+  </div>
+  <div>
+    <span>Copyright © 2023 Eric Lim</span>
+  </div>
+</footer>
+
+  </div>
+
+  
+  <script src='https://EricLim73.github.io/js/script.js' defer></script>
+
+  
+  
+
+  
+  
+
+  
+  
+
+</body>
+
+</html>
