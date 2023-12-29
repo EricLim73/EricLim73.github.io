@@ -2,8 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://EricLim73.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
     <loc>https://EricLim73.github.io/categories/</loc>
-    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/textbooks/os/making_os_using_c&#43;&#43;/ch_12/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/computerscience/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/os/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/categories/os/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/</loc>
+    <lastmod>2023-12-29T14:31:57+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/css/</loc>
     <lastmod>2023-11-10T00:00:00+00:00</lastmod>
@@ -21,12 +42,6 @@
     <lastmod>2023-11-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/howtomarkdown/mermaid-diagrams/</loc>
-    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/posts/</loc>
-    <lastmod>2023-11-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/tags/</loc>
     <lastmod>2023-11-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/handmadehero/2023-06-18-handmadehero-instantaneous-live_coding/</loc>
@@ -57,9 +72,6 @@
     <lastmod>2023-04-21T19:24:00-05:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/c_c&#43;&#43;/</loc>
-    <lastmod>2023-04-21T19:24:00-05:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/tags/c&#43;&#43;/</loc>
     <lastmod>2023-04-21T19:24:00-05:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/modu_c&#43;&#43;/</loc>

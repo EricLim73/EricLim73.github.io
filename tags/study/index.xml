@@ -648,17 +648,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <pubDate>Fri, 21 Apr 2023 19:24:00 -0500</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/modu_c&#43;&#43;/2023-04-21-modu_c&#43;&#43;-post/</guid>
-      <description>&lt;hr&gt;
-&lt;h2 id=&#34;draft-false&#34;&gt;author: &amp;ldquo;Eric Lim&amp;rdquo;
-title: &amp;ldquo;[MODU_C++] Post&amp;rdquo;
-date: 2023-04-21T19:24:00-05:00
-description: Generic description
-categories: [C_C++, MODU_C++]
-tags: [Study, Basic, C++]
-toc: true
-math: false
-draft: false&lt;/h2&gt;
-&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
+      <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;블로그 &amp;ldquo;모두의 코드&amp;rdquo; 바탕으로 배운 내용 + 보충설명&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1056,10 +1046,10 @@ draft: false&lt;/h2&gt;
       <pubDate>Mon, 03 Apr 2023 23:50:00 -0500</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
       <guid>https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/</guid>
-      <description>&lt;h1 id=&#34;chapter-3-review&#34;&gt;Chapter 3 Review&lt;/h1&gt;
-&lt;blockquote&gt;
+      <description>&lt;blockquote&gt;
 &lt;p&gt;책 읽은 내용 정리 + 읽다가 생각난거 정리 (챕터1, 2는 딱히 재밌는 내용은 없었다&amp;hellip;) 유사 독후감&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;h1 id=&#34;chapter-3-review&#34;&gt;Chapter 3 Review&lt;/h1&gt;
 &lt;h2 id=&#34;c-review--best-practice&#34;&gt;C++ Review &amp;amp; Best Practice&lt;/h2&gt;
 &lt;p&gt;챕터3의 시작부터 3.1.1.4까지는 C++을 사용하는 객체지향적 디자인에서의 주의점이나 특징들을 설명한다.&lt;/p&gt;
 &lt;p&gt;기초적인 내용이고 딱히 어려운 내용은 없다. 프로그램 구조 상 당연한 얘기지만 아무생각 없이 막 상속받아 &lt;code&gt;deadly diamond&lt;/code&gt; 같은 구조가 생기지 않도로 주의해야한다. &lt;code&gt;Polymorphism&lt;/code&gt;의 경우 반복되는 함수가 클래스마다 약간씩만 달라지는 경우, 혹은 클래스별 상세한 구조를 wrapper처럼 감싸고 싶은 경우 사용할 수 있다. 클래스를 상속받아가며 계속 쌓는 것은 vtable을 계속 참조하게 된다는 의미로 별로 효율적인 구조는 아니라고 한다.&lt;/p&gt;
