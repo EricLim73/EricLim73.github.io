@@ -17,8 +17,7 @@
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-21-assortrock_2021_c&#43;&#43;_course-tree/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;tree&#34;&gt;Tree&lt;/h2&gt;
 &lt;p&gt;Data structure that effectively stores data in hierarchy (can also be seen as a subset of &lt;code&gt;Graph&lt;/code&gt;).&lt;br&gt;
@@ -651,8 +650,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-10-assortrock_2021_c&#43;&#43;_course-list-iterator/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;list-iterator&#34;&gt;List Iterator&lt;/h2&gt;
 &lt;p&gt;이전 darray와 마찬가지로 &lt;em&gt;inner class&lt;/em&gt;로 &lt;code&gt;iterator&lt;/code&gt;를 만들고 그 안에 &lt;code&gt;friend&lt;/code&gt;로 &lt;code&gt;List&lt;/code&gt;가 접급할 수 있도록 만든다.&lt;/p&gt;
@@ -874,8 +872,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-04-assortrock_2021_c&#43;&#43;_course-erase...-dynamicarray-/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;erase&#34;&gt;erase()&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
@@ -1027,8 +1024,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-09-assortrock_2021_c&#43;&#43;_course-iterator/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;iterator&#34;&gt;Iterator&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
@@ -1307,8 +1303,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-07-assortrock_2021_c&#43;&#43;_course-namespace--iostream/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;namespace&#34;&gt;Namespace&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Namespace&lt;/code&gt;를 통해 작성한 코드를 하나의 그룹으로 묶어둘 수 있다.&lt;/p&gt;
@@ -1436,8 +1431,7 @@ So that was how C++ manages to use BST, so now we make our less competent versio
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-02-assortrock_2021_c&#43;&#43;_course-small-project-darray-using-class/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;dynamic-array&#34;&gt;Dynamic Array&lt;/h2&gt;
 &lt;p&gt;We will make our &lt;em&gt;Dynamic Array&lt;/em&gt; form &lt;strong&gt;Dynamic Allocation&lt;/strong&gt; chapter using &lt;code&gt;class&lt;/code&gt;.&lt;/p&gt;
@@ -1636,8 +1630,7 @@ Lets say we had our implementation inside our &lt;em&gt;cpp file&lt;/em&gt;. &lt
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-02-assortrock_2021_c&#43;&#43;_course-small-project-linkedlist-using-class/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;linked-list&#34;&gt;Linked List&lt;/h2&gt;
 &lt;p&gt;This time we will be making &lt;em&gt;Linked List&lt;/em&gt; from &lt;strong&gt;Dynamic Allocation&lt;/strong&gt; chapter using &lt;code&gt;class&lt;/code&gt;. Furthermore we will add advance features as we go along implementing this class.&lt;/p&gt;
@@ -1757,8 +1750,7 @@ is that this structure is now &lt;em&gt;template&lt;/em&gt;d, meaning that it do
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-02-assortrock_2021_c&#43;&#43;_course-new--delete/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;new&#34;&gt;New&lt;/h2&gt;
 &lt;blockquote&gt;
@@ -1829,8 +1821,7 @@ Also we need to guarantee that constructors get called when instance gets alloca
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-02-assortrock_2021_c&#43;&#43;_course-class-2/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;destructor&#34;&gt;Destructor&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Class&lt;/code&gt; instance is created using &lt;em&gt;Constructor&lt;/em&gt;. When it gets deleted it uses whats called &lt;code&gt;Destructor&lt;/code&gt;.&lt;/p&gt;
@@ -2005,8 +1996,7 @@ Why do we need to return &lt;code&gt;*this&lt;/code&gt;?&lt;/p&gt;
       <guid>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-02-01-assortrock_2021_c&#43;&#43;_course-class-1/</guid>
       <description>&lt;h1 id=&#34;basic-cc&#34;&gt;Basic C/C++&lt;/h1&gt;
 &lt;blockquote&gt;
-&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의&lt;br&gt;
-[2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
+&lt;p&gt;유튜브 무료강의 플레이리스트인 &amp;ldquo;C언어/C++ 무료강의 [2021년 특강]&amp;ldquo;의 영상을 통해 배운 내용 정리&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;what-is-class&#34;&gt;What is Class&lt;/h2&gt;
 &lt;blockquote&gt;
