@@ -155,13 +155,14 @@ TEB는 철자에서 알 수 있듯이 &lt;code&gt;&amp;quot;Thread Environment B
 &lt;p&gt;Data structure that effectively stores data in hierarchy (can also be seen as a subset of &lt;code&gt;Graph&lt;/code&gt;).&lt;br&gt;
 Every entry of given data becomes a &lt;code&gt;node&lt;/code&gt; and each &lt;code&gt;node&lt;/code&gt; can have &lt;code&gt;child node&lt;/code&gt; attached to itself. We typically compare the inserted value with the current node and set the smaller one left, bigger one right child node. If we restrict each &lt;code&gt;node&lt;/code&gt; to have only &lt;em&gt;two&lt;/em&gt; &lt;code&gt;child node&lt;/code&gt; or below, we made our &lt;em&gt;tree&lt;/em&gt; a &lt;code&gt;Binary Tree&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[Basic Structure representation for Binary Tree]
-                        Root
-                        /
-    				100	                    lv 0
-    		50				150             lv 1
-    	25		75		125		175         lv 2    -&amp;gt; height = 2
-         \       \       /       /
-          ------&amp;gt; LeafNode &amp;lt;-----    
+
+    				100(root)	                    			lv 0
+    	
+			50				150             		lv 1
+    	
+		25		75		125		175         		lv 2    -&amp;gt; height = 2
+			
+			(25, 75, 125, 175) =&amp;gt; LeafNode
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Due to its quirks, &lt;code&gt;binary tree&lt;/code&gt; is used (and modified) for various occasions. One example would be &lt;code&gt;Complete Binary Tree&lt;/code&gt;.  A &lt;code&gt;Complete binary tree&lt;/code&gt; is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left. Another example would be &lt;code&gt;Full Binary Tree&lt;/code&gt; which guarantees that the number of child nodes at the heightest level equals 2^n(n=1,2,&amp;hellip;). Implementation would be done through an array; each index representing the nodes id. This way we can caculate a given nodes&amp;rsquo; left or right child node id. Also we can go upward and caculate a given nodes&amp;rsquo; parent node id as well.&lt;/p&gt;
 &lt;p&gt;In this tutorial we will focus on normal &lt;code&gt;binary tree&lt;/code&gt;.&lt;br&gt;

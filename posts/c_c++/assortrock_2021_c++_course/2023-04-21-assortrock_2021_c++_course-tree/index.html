@@ -52,7 +52,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-21-assortrock_2021_c&#43;&#43;_course-tree/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-04-21T19:24:00-05:00" />
-<meta property="article:modified_time" content="2023-04-21T19:24:00-05:00" /><meta property="og:site_name" content="YodaModa" />
+<meta property="article:modified_time" content="2023-12-29T18:08:15+09:00" /><meta property="og:site_name" content="YodaModa" />
 
 
 
@@ -63,8 +63,8 @@
   
   <meta itemprop="name" content="[AssortRock_2021_C&#43;&#43;_Course] Tree">
 <meta itemprop="description" content="Generic description"><meta itemprop="datePublished" content="2023-04-21T19:24:00-05:00" />
-<meta itemprop="dateModified" content="2023-04-21T19:24:00-05:00" />
-<meta itemprop="wordCount" content="3530">
+<meta itemprop="dateModified" content="2023-12-29T18:08:15+09:00" />
+<meta itemprop="wordCount" content="3527">
 <meta itemprop="keywords" content="Study,Basic,C&#43;&#43;," />
 
   
@@ -155,7 +155,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          3530 words
+          3527 words
         </span>
       
       
@@ -213,13 +213,14 @@
 <p>Data structure that effectively stores data in hierarchy (can also be seen as a subset of <code>Graph</code>).<br>
 Every entry of given data becomes a <code>node</code> and each <code>node</code> can have <code>child node</code> attached to itself. We typically compare the inserted value with the current node and set the smaller one left, bigger one right child node. If we restrict each <code>node</code> to have only <em>two</em> <code>child node</code> or below, we made our <em>tree</em> a <code>Binary Tree</code>.</p>
 <pre><code>[Basic Structure representation for Binary Tree]
-                        Root
-                        /
-    				100	                    lv 0
-    		50				150             lv 1
-    	25		75		125		175         lv 2    -&gt; height = 2
-         \       \       /       /
-          ------&gt; LeafNode &lt;-----    
+
+    				100(root)	                    			lv 0
+    	
+			50				150             		lv 1
+    	
+		25		75		125		175         		lv 2    -&gt; height = 2
+			
+			(25, 75, 125, 175) =&gt; LeafNode
 </code></pre>
 <p>Due to its quirks, <code>binary tree</code> is used (and modified) for various occasions. One example would be <code>Complete Binary Tree</code>.  A <code>Complete binary tree</code> is a binary tree in which all the levels are completely filled except possibly the lowest one, which is filled from the left. Another example would be <code>Full Binary Tree</code> which guarantees that the number of child nodes at the heightest level equals 2^n(n=1,2,&hellip;). Implementation would be done through an array; each index representing the nodes id. This way we can caculate a given nodes&rsquo; left or right child node id. Also we can go upward and caculate a given nodes&rsquo; parent node id as well.</p>
 <p>In this tutorial we will focus on normal <code>binary tree</code>.<br>
