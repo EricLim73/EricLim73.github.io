@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Error Encounter on YodaModa</title>
+    <link>https://EricLim73.github.io/tags/error-encounter/</link>
+    <description>Recent content in Error Encounter on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Sun, 31 Dec 2023 18:18:51 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/error-encounter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VisualStudio_Debugger_Error</title>
+      <link>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</link>
+      <pubDate>Sun, 31 Dec 2023 18:18:51 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</guid>
+      <description>&lt;h1 id=&#34;visual-studio를-믿을-수-없다--devenv-문제-&#34;&gt;Visual Studio를 믿을 수 없다. &amp;lt; devenv 문제 &amp;gt;&lt;/h1&gt;
+&lt;p&gt;자기 마음대로 단어 지워버리고 작성하던 줄의 tab을 넣버리는 등 본인이 쓰기에는 너무 불편해서 지금은 그저 디버거 GUI로써 사용하는 Visual Studio가 어느날 갑자기 작동하지 않는다. Visual Studio를 실행하면 작동하는데 컴파일을 위해 배치파일에서 &lt;code&gt;devenv&lt;/code&gt;로 실행하면 프로그램을 켜지는데 작업 관리자로 확인 시 &lt;em&gt;응답 없음&lt;/em&gt;으로 죽어있는 상황이 계속 발생했다. 심지어 Visual Studio를 정상적으로 작동 후 프로젝트 파일로 이동하여 디버깅을 진행하면 로드 가능한 모듈이 없다는 에러만 남기고 조용히 죽는다&amp;hellip;&lt;/p&gt;
+&lt;p&gt;처음에는 배치파일에 스크립트가 잘못써져 있거나 업데이트를 안해서 생긴 문제인 줄 알았다. 찾아보니 그냥 Visual Studio 문제다. &lt;a href=&#34;https://learn.microsoft.com/en-us/answers/questions/1229992/visual-studio-2022-is-not-responding-technically-s&#34;&gt;출처&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;해결방법은 &lt;code&gt;C:\Users\username\AppData\Local\Microsoft\VisualStudio\17.0_XXXXXXXX&lt;/code&gt; 안에 들어있는 &lt;code&gt;ComponentModelCache&lt;/code&gt;라는 파일의 이름을 변경하고, &lt;code&gt;Developer Command Prompt For Visual Studio 2022&lt;/code&gt;을 실행 한 다음 &lt;code&gt;devenv /ResetSettings&lt;/code&gt; 명령어를 실행하는 것이다. 이름변경은 그냥 아무 이름이여도 문제 없어보인다(나는 그냥 &lt;code&gt;이름변경&lt;/code&gt; 누르고 원래 이름 그대로 남겨뒀다). 이 방법으로 진행 후 실행하면 다시 정상적으로 작동한다&amp;hellip;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>10.0.19041_winbase_Error</title>
+      <link>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</link>
+      <pubDate>Sun, 31 Dec 2023 18:12:15 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</guid>
+      <description>&lt;h1 id=&#34;ms를-믿을-수-없다--윈도우-sdk-문제-&#34;&gt;MS를 믿을 수 없다. &amp;lt; 윈도우 SDK 문제 &amp;gt;&lt;/h1&gt;
+&lt;p&gt;C언어로 코딩 중 C11 기능들에 재밌는 것들이 보여서 사용할려고 Visual Studio 설치 시 들어있는 cl 컴파일러에 &lt;code&gt;/std:c11&lt;/code&gt;을 넣고 컴파일 해보니 지금까지 본적 없는 경고가 떴다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(9461,5): warning C5105: macro expansion producing &amp;lsquo;defined&amp;rsquo; has undefined behavior&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;매크로를 꽤 사용하긴 하지만 지금까지 문제 없던 내용이 C11로 빌드하겠다고 하니 문제가 생겨 처음에는 코드 문제인줄 알았다. 찾아보니 그냥 &lt;em&gt;&lt;strong&gt;윈도우 SDK 버젼 10.0.19041.0&lt;/strong&gt;&lt;/em&gt;에 버그가 있어서 생기는 문제였다&lt;a href=&#34;https://developercommunity.visualstudio.com/t/stdc17-generates-warning-compiling-windowsh/1249671&#34;&gt;출처&lt;/a&gt;.
+&lt;em&gt;&lt;strong&gt;윈도우 SDK 10.0.20348.0&lt;/strong&gt;&lt;/em&gt; 설치하고 다시 컴파일 해보니 문제없이 진행되었다.&lt;/p&gt;
+&lt;p&gt;가끔 내가 문제가 아닌 경우도 있다.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://EricLim73.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
-  </url><url>
     <loc>https://EricLim73.github.io/categories/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/error-encounter/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/categories/funnystuff/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/categories/log/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</loc>
+    <lastmod>2023-12-31T18:18:51+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</loc>
+    <lastmod>2023-12-31T18:12:15+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/c&#43;&#43;/</loc>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/textbooks/os/making_os_using_c&#43;&#43;/ch_12/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -19,12 +40,6 @@
   </url><url>
     <loc>https://EricLim73.github.io/categories/os/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/posts/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/tags/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/css/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -66,19 +81,19 @@
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/assortrock_2021_c&#43;&#43;_course/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/basic/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/c_c&#43;&#43;/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/modu_c&#43;&#43;/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/study/</loc>
-    <lastmod>2023-12-29T19:42:07+09:00</lastmod>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-10-assortrock_2021_c&#43;&#43;_course-list-iterator/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -188,9 +203,6 @@
     <loc>https://EricLim73.github.io/tags/log/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/categories/log/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
-  </url><url>
     <loc>https://EricLim73.github.io/tags/visual_studio/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
@@ -204,7 +216,7 @@
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2022-11-10-assortrock_2021_c&#43;&#43;_course-starting-with-basics/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/vulkan/2022-11-10-vulkan-101/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
