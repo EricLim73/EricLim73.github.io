@@ -8,7 +8,25 @@
     <language>en</language>
     <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
     <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
-    <lastBuildDate>Sun, 31 Dec 2023 18:18:51 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/log/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 13:19:27 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/log/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu_Ethernet_Connection_Problem</title>
+      <link>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</link>
+      <pubDate>Wed, 03 Jan 2024 13:19:27 +0900</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</guid>
+      <description>&lt;h1 id=&#34;이상한-원인과-이상한-결과&#34;&gt;이상한 원인과 이상한 결과&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;결론: 이더넷 케이블 문제 (cat5e -&amp;gt; cat6 교체로 문제해결)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;아무 생각 없이 PC를 작동시키자 인터넷 연결이 끊긴 상태였다. 메뉴 위에 배치된 연결 상태창은 물음표만 보이고, 세팅으로 들어가면 평상시와 같이 &lt;em&gt;Connected 100mbs&lt;/em&gt;라는 표시만 보일 뿐이다. &lt;code&gt;ping&lt;/code&gt;을 날려봐도 서버 이름을 찾지 못한다고 에러가 돌아올 뿐이다. 이더넷을 통한 연결이어서 IP 문제인가 싶어 사용할 수 있는 다른 아이피로 접속해 보았다. 여전히 연결되지 않는다.&lt;br&gt;
+현재 머신은 듀얼 부팅이 되도록 설정되어 있다. 윈도우로 들어가 확인해 보면 같은 IP로 문제없이 연결된다. 문제는 윈도우는 지금 &lt;code&gt;설정 -&amp;gt; 네트워크 설정&lt;/code&gt;을 수행하면 바로 상태창이 꺼져버리고, wsl이 갑자기 망가져 있었다. 보통 원인이 불명확하면 재설치가 답이다. 필요한 내용 다 백업하고 Ubuntu 20.04를 다시 설치했다. 설치하는 김에 파티션도 원하는 형태로 재설정했다. 문제는 그럼에도 같은 증상이 나타났다. 연결되어 있다고 뜨는데 상태창은 물음표, &lt;code&gt;ping&lt;/code&gt;명령으로 연결은 안 되지만 윈도우로 부팅하면 문제없다.&lt;/p&gt;
+&lt;p&gt;여러 방법을 시도해 봤다. &lt;code&gt;netplan&lt;/code&gt;이 망가진 경우가 있다고 해서 &lt;code&gt;/etc&lt;/code&gt;에 있는 netplan을 수정하고 &lt;code&gt;sudo netplan generate&lt;/code&gt; 후 &lt;code&gt;sudo netplan apply&lt;/code&gt;를 실행했지만, 아무 반응 없었다. &lt;code&gt;ping&lt;/code&gt;을 수행 시 나오는 에러 메세지가 연결이 안 되다가 아닌 서버 이름을 못찾는다고 나오는 상황을 토대로 ICMP에서 정보 접근 시 OS가 설정한 방화벽 때문에 DNS 서버나 통신 중간 지점에서 문제가 생긴다고 봤다. 방화벽 설정이랑 ICMP 설정도 재설정 후 진행했지만, 반응이 없다. 이더넷 문제는 네트워크 드라이버가 원인인 경우가 많다고 하여 &lt;code&gt;lspci | grep -i Ethernet&lt;/code&gt;을 통해 확인한 버젼에 맞는 드라이버를 Realtek 사이트에서 다운받아 설치했다. 여전히 반응이 없다&amp;hellip;.
+학교에서 사용 중인 머신이다 보니 보안상 문제로 새로 생겨난 조치에 의해 문제가 생긴건 아닌가 의심해 보지만 그렇다면 윈도우에서도 연결이 되면 안 된다&amp;hellip;.&lt;/p&gt;
+&lt;p&gt;운영체제 재설치, IMCP 설정 및 방화벽 설정, netplan 설정, IP 변경, bios 네트워크 설정 등 알고 있는 방법을 다 써봐도 반응이 없다. 결국 밤새가며 찾아본 결과 해당 &lt;a href=&#34;https://askubuntu.com/questions/1267212/ethernet-connection-not-working-on-ubuntu-20-04&#34;&gt;포스트&lt;/a&gt;를 찾았다. 처음에는 그냥 흘러 넘겼다. 당시 새벽 4시여서 졸린 상태이기도 했고, 포스트의 내용을 보면 라우터 2개를 사용하면서 생기는 라우터 정보 불일치와 관련된 질의였다고 생각했다. 다음날 다시 다른 방법들을 시도하기 위해 검색기록을 올라가며 살펴본 결과 해당 포스트의 &lt;em&gt;&amp;ldquo;현재 자신의 머신 상태&amp;rdquo;&lt;/em&gt; 라고 올린 사진의 내용들이 본인 상태와 정확히 똑같다는 걸 확인하고 바로 답변을 살펴봤다. 질문자의 경우 메인 라우터로 연결하면 바로 해결된다고 나오는데, 본인의 경우 라우터를 한 개만 사용한다. 다른 내용들을 보니 위에 이더넷 드라이버 확인 명령으로 확인해 보면 &lt;em&gt;&lt;strong&gt;1Gbs연결이 가능한데 연결속도는 100mbs로 나오는 경우 케이블을 cat5e에서 cat6로 바꿔&lt;/strong&gt;&lt;/em&gt;보라고 한다. 케이블을 교체해 보니 거짓말같이 문제가 해결됐다&amp;hellip;.&lt;br&gt;
+한번도 이런 문제를 경험해 본 적이 없어서 하루 + 5시간이 날아갔다&amp;hellip;.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>VisualStudio_Debugger_Error</title>
       <link>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</link>

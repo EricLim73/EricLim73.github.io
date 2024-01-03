@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FunnyStuff on YodaModa</title>
-    <link>https://EricLim73.github.io/categories/funnystuff/</link>
-    <description>Recent content in FunnyStuff on YodaModa</description>
+    <title>Ubuntu on YodaModa</title>
+    <link>https://EricLim73.github.io/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on YodaModa</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
     <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
-    <lastBuildDate>Wed, 03 Jan 2024 13:19:27 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/funnystuff/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 13:19:27 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu_Ethernet_Connection_Problem</title>
       <link>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</link>
@@ -25,34 +25,6 @@
 학교에서 사용 중인 머신이다 보니 보안상 문제로 새로 생겨난 조치에 의해 문제가 생긴건 아닌가 의심해 보지만 그렇다면 윈도우에서도 연결이 되면 안 된다&amp;hellip;.&lt;/p&gt;
 &lt;p&gt;운영체제 재설치, IMCP 설정 및 방화벽 설정, netplan 설정, IP 변경, bios 네트워크 설정 등 알고 있는 방법을 다 써봐도 반응이 없다. 결국 밤새가며 찾아본 결과 해당 &lt;a href=&#34;https://askubuntu.com/questions/1267212/ethernet-connection-not-working-on-ubuntu-20-04&#34;&gt;포스트&lt;/a&gt;를 찾았다. 처음에는 그냥 흘러 넘겼다. 당시 새벽 4시여서 졸린 상태이기도 했고, 포스트의 내용을 보면 라우터 2개를 사용하면서 생기는 라우터 정보 불일치와 관련된 질의였다고 생각했다. 다음날 다시 다른 방법들을 시도하기 위해 검색기록을 올라가며 살펴본 결과 해당 포스트의 &lt;em&gt;&amp;ldquo;현재 자신의 머신 상태&amp;rdquo;&lt;/em&gt; 라고 올린 사진의 내용들이 본인 상태와 정확히 똑같다는 걸 확인하고 바로 답변을 살펴봤다. 질문자의 경우 메인 라우터로 연결하면 바로 해결된다고 나오는데, 본인의 경우 라우터를 한 개만 사용한다. 다른 내용들을 보니 위에 이더넷 드라이버 확인 명령으로 확인해 보면 &lt;em&gt;&lt;strong&gt;1Gbs연결이 가능한데 연결속도는 100mbs로 나오는 경우 케이블을 cat5e에서 cat6로 바꿔&lt;/strong&gt;&lt;/em&gt;보라고 한다. 케이블을 교체해 보니 거짓말같이 문제가 해결됐다&amp;hellip;.&lt;br&gt;
 한번도 이런 문제를 경험해 본 적이 없어서 하루 + 5시간이 날아갔다&amp;hellip;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>VisualStudio_Debugger_Error</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</link>
-      <pubDate>Sun, 31 Dec 2023 18:18:51 +0900</pubDate>
-      <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</guid>
-      <description>&lt;h1 id=&#34;visual-studio를-믿을-수-없다--devenv-문제-&#34;&gt;Visual Studio를 믿을 수 없다. &amp;lt; devenv 문제 &amp;gt;&lt;/h1&gt;
-&lt;p&gt;자기 마음대로 단어 지워버리고 작성하던 줄의 tab을 넣버리는 등 본인이 쓰기에는 너무 불편해서 지금은 그저 디버거 GUI로써 사용하는 Visual Studio가 어느날 갑자기 작동하지 않는다. Visual Studio를 실행하면 작동하는데 컴파일을 위해 배치파일에서 &lt;code&gt;devenv&lt;/code&gt;로 실행하면 프로그램을 켜지는데 작업 관리자로 확인 시 &lt;em&gt;응답 없음&lt;/em&gt;으로 죽어있는 상황이 계속 발생했다. 심지어 Visual Studio를 정상적으로 작동 후 프로젝트 파일로 이동하여 디버깅을 진행하면 로드 가능한 모듈이 없다는 에러만 남기고 조용히 죽는다&amp;hellip;&lt;/p&gt;
-&lt;p&gt;처음에는 배치파일에 스크립트가 잘못써져 있거나 업데이트를 안해서 생긴 문제인 줄 알았다. 찾아보니 그냥 Visual Studio 문제다. &lt;a href=&#34;https://learn.microsoft.com/en-us/answers/questions/1229992/visual-studio-2022-is-not-responding-technically-s&#34;&gt;출처&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;해결방법은 &lt;code&gt;C:\Users\username\AppData\Local\Microsoft\VisualStudio\17.0_XXXXXXXX&lt;/code&gt; 안에 들어있는 &lt;code&gt;ComponentModelCache&lt;/code&gt;라는 파일의 이름을 변경하고, &lt;code&gt;Developer Command Prompt For Visual Studio 2022&lt;/code&gt;을 실행 한 다음 &lt;code&gt;devenv /ResetSettings&lt;/code&gt; 명령어를 실행하는 것이다. 이름변경은 그냥 아무 이름이여도 문제 없어보인다(나는 그냥 &lt;code&gt;이름변경&lt;/code&gt; 누르고 원래 이름 그대로 남겨뒀다). 이 방법으로 진행 후 실행하면 다시 정상적으로 작동한다&amp;hellip;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>10.0.19041_winbase_Error</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</link>
-      <pubDate>Sun, 31 Dec 2023 18:12:15 +0900</pubDate>
-      <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</guid>
-      <description>&lt;h1 id=&#34;ms를-믿을-수-없다--윈도우-sdk-문제-&#34;&gt;MS를 믿을 수 없다. &amp;lt; 윈도우 SDK 문제 &amp;gt;&lt;/h1&gt;
-&lt;p&gt;C언어로 코딩 중 C11 기능들에 재밌는 것들이 보여서 사용할려고 Visual Studio 설치 시 들어있는 cl 컴파일러에 &lt;code&gt;/std:c11&lt;/code&gt;을 넣고 컴파일 해보니 지금까지 본적 없는 경고가 떴다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(9461,5): warning C5105: macro expansion producing &amp;lsquo;defined&amp;rsquo; has undefined behavior&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;매크로를 꽤 사용하긴 하지만 지금까지 문제 없던 내용이 C11로 빌드하겠다고 하니 문제가 생겨 처음에는 코드 문제인줄 알았다. 찾아보니 그냥 &lt;em&gt;&lt;strong&gt;윈도우 SDK 버젼 10.0.19041.0&lt;/strong&gt;&lt;/em&gt;에 버그가 있어서 생기는 문제였다&lt;a href=&#34;https://developercommunity.visualstudio.com/t/stdc17-generates-warning-compiling-windowsh/1249671&#34;&gt;출처&lt;/a&gt;.
-&lt;em&gt;&lt;strong&gt;윈도우 SDK 10.0.20348.0&lt;/strong&gt;&lt;/em&gt; 설치하고 다시 컴파일 해보니 문제없이 진행되었다.&lt;/p&gt;
-&lt;p&gt;가끔 내가 문제가 아닌 경우도 있다.&lt;/p&gt;</description>
     </item>
     
   </channel>
