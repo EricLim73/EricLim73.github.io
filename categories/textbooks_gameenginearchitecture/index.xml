@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Textbooks_GameEngineArchitecture on YodaModa</title>
+    <link>https://EricLim73.github.io/categories/textbooks_gameenginearchitecture/</link>
+    <description>Recent content in Textbooks_GameEngineArchitecture on YodaModa</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>ljheric7@gmail.com (Eric Lim)</managingEditor>
+    <webMaster>ljheric7@gmail.com (Eric Lim)</webMaster>
+    <lastBuildDate>Mon, 03 Apr 2023 23:50:00 -0500</lastBuildDate><atom:link href="https://EricLim73.github.io/categories/textbooks_gameenginearchitecture/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[GameEngineArchitecture] Chapter3</title>
+      <link>https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/</link>
+      <pubDate>Mon, 03 Apr 2023 23:50:00 -0500</pubDate>
+      <author>ljheric7@gmail.com (Eric Lim)</author>
+      <guid>https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;책 읽은 내용 정리 + 읽다가 생각난거 정리 (챕터1, 2는 딱히 재밌는 내용은 없었다&amp;hellip;) 유사 독후감&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;chapter-3-review&#34;&gt;Chapter 3 Review&lt;/h1&gt;
+&lt;h2 id=&#34;c-review--best-practice&#34;&gt;C++ Review &amp;amp; Best Practice&lt;/h2&gt;
+&lt;p&gt;챕터3의 시작부터 3.1.1.4까지는 C++을 사용하는 객체지향적 디자인에서의 주의점이나 특징들을 설명한다.&lt;/p&gt;
+&lt;p&gt;기초적인 내용이고 딱히 어려운 내용은 없다. 프로그램 구조 상 당연한 얘기지만 아무생각 없이 막 상속받아 &lt;code&gt;deadly diamond&lt;/code&gt; 같은 구조가 생기지 않도로 주의해야한다. &lt;code&gt;Polymorphism&lt;/code&gt;의 경우 반복되는 함수가 클래스마다 약간씩만 달라지는 경우, 혹은 클래스별 상세한 구조를 wrapper처럼 감싸고 싶은 경우 사용할 수 있다. 클래스를 상속받아가며 계속 쌓는 것은 vtable을 계속 참조하게 된다는 의미로 별로 효율적인 구조는 아니라고 한다.&lt;/p&gt;
+&lt;p&gt;그다음 내용들로는 클래스의 디자인 패턴, RAII가 나온다. 디자인 패턴은 팩토리, 싱글턴 등의 유명한 구조들을 소개한다. 이러한 패턴들로 모든 코드 베이스를 도배하라는 게 아니라 필요한 부분에 적절히 섞어서 쓰는 게 좋다. RAII는 C++과 C 를 차이 나게 하는 내용 중 하나다(Modern C++는 완전히 다른 언어가 되긴 했다). 책에서는 &lt;em&gt;Janitor Class&lt;/em&gt;를 두고 해당 클래스가 할당된 메모리를 정리하는 역활을 한다고 한다. 스마트 포인터같이 RAII개념이 들어있는 기능들이 사용하기 편하긴 하다.&lt;br&gt;
+챕터 3.2로 넘어가기 전까지는 코드 스타일이랑 언어버젼에 관한 내용이다. 이건 일하는 조직이 따르고 있는 규칙을 그대로 따라가면 문제 없다는게 전부였다. C++ 버전에 대한 내용도 나오는데, 이것도 일하게 되는 조직에 따라 달라진다고 알고 있으면 된다고 한다. 책에서의 예시로는 회사 &lt;strong&gt;너티독&lt;/strong&gt;의 경우 &lt;code&gt;auto&lt;/code&gt;를 쓰는 걸 별로 좋게 보지 않는다는 내용이 있었다. 마지막에 살짝 &lt;em&gt;clean code&lt;/em&gt; 내용이 나오기는 하는데 솔직히 클린코드의 정의가 사람마다 달라서 이건 그냥 주석 꾸준히 작성하고 반복되는 코드 없게 적으면 된다고 생각한다&amp;hellip;&lt;/p&gt;
+&lt;h2 id=&#34;catching--handling-errors&#34;&gt;Catching &amp;amp; Handling Errors&lt;/h2&gt;
+&lt;p&gt;두가지로 분류 가능&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;프로그래머 오류&lt;/li&gt;
+&lt;li&gt;사용자 오류&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Exception Handling&lt;/code&gt;의 경우 성능을 깍아 먹는다. 이와 다르게 &lt;code&gt;assertion&lt;/code&gt;의 경우 &lt;code&gt;# ifdef&lt;/code&gt;와 같은 구문으로 디버깅 모드일 경우에만 킬 수 있어 더 효과적이다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# if ASSERTIONS_ENABLED
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# define debugBreak() asm {int 3}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// check the expression and fail if it is false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;# define ASSERT(expr) \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;if (expr) { } \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;else \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;{ \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;//NOTE: reportAssertionFailure()의 경우 다른 파일 혹은 이 assert가 구현된 곳에서 따로 작성해야되는 프린트 함수
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reportAssertionFailure&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;#&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;expr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;__FILE__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;__LINE__&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;debugBreak&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt; \
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# else
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# define ASSERT(expr)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;# endif
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;debugBreak&lt;/code&gt;의 경우 GCC, Clang에서는 &lt;code&gt;__builtin_trap()&lt;/code&gt;, MSVC의 경우 &lt;code&gt;__debugBreak()&lt;/code&gt;를 사용해도 된다. 생성구문에 &lt;code&gt;if-else&lt;/code&gt;블락으로 채워놨다. 이건 &lt;code&gt;# define&lt;/code&gt;문을 사용하여 작성한 부분은 코드블락에 그대로 들어가는데 만약 원래 코드의 &lt;code&gt;if-else&lt;/code&gt; 문 사이에 들어가면 원래 생각하던 프로그램 플로우를 따르지 않게되는 상황을 막기 위한 방법이라고 한다.&lt;/p&gt;
+&lt;p&gt;이러한 &lt;code&gt;assertion&lt;/code&gt;의 경우 런타임 에러를 잡아내는데 사용되지만 컴파일 타임에 사용하는 &lt;code&gt;static assertion&lt;/code&gt;의 경우 이러한 방법을 사용하기 힘들다. 이경우 C++11 이후로 추가된 &lt;code&gt;static_assert()&lt;/code&gt;를 사용한다고 한다. (물론 해당 함수를 좋지 않게 여겨 직접 만드는 곳도 존재한다고 한다)&lt;/p&gt;
+&lt;h2 id=&#34;데이터와-메모리-레이아웃&#34;&gt;데이터와 메모리 레이아웃&lt;/h2&gt;
+&lt;p&gt;2의 보수, 음수값의 쉬프트 연산 특징, floating point notation(mentissa, exponent)등의 기본적인 내용이다.&lt;/p&gt;
+&lt;h3 id=&#34;machine-epsilon&#34;&gt;Machine Epsilon&lt;/h3&gt;
+&lt;p&gt;이건 처음보는 내용이였다. 머신 엡실론은 &lt;code&gt;1 + 엡실론 != 1&lt;/code&gt;이 안되는 가장 작은 &lt;code&gt;float&lt;/code&gt;값이라고 한다. IEEE-754 기준으로 2 ^-32, 즉 1.192 * 10^-7 정도의 값이라고 한다. 엡실론보다 작은 값을 1.0에 더해도 아무런 변화가 없다.&lt;/p&gt;
+&lt;h3 id=&#34;ulp-unit-in-the-last-place&#34;&gt;ULP (Unit in the last place)&lt;/h3&gt;
+&lt;p&gt;값이 마지막 LSB만을 제외하고 같은 서로 다른 두 실수가 있다면, 이둘은 &lt;code&gt;1ULP&lt;/code&gt;차이로 다른 실수라고 인식할 수 있다고 한다. &lt;code&gt;exponent&lt;/code&gt;가 &lt;strong&gt;1&lt;/strong&gt;인 경우 &lt;em&gt;1ULP&lt;/em&gt;는 엡실론 값을 갖는다. 만약 &lt;strong&gt;2&lt;/strong&gt;인 경우 &lt;em&gt;1ULP&lt;/em&gt;는 엡실론의 4배가 된다(값이 4.0이 되기 때문에 그렇다). 이를 식으로 나타내면 1ULP = &lt;code&gt;(2 ^ exponent) * 엡실론&lt;/code&gt;이다. 이 값을 통해 floating point number의 정확도를 수치화할 수 있다고 한다.&lt;/p&gt;
+&lt;h3 id=&#34;primitive-types&#34;&gt;Primitive Types&lt;/h3&gt;
+&lt;p&gt;C++11 이후로 추가된 &lt;cstdint&gt;를 통해 크기에 맞춰 사용하는 데이터타입이 생겼다. 원래 이전에는 &lt;code&gt;typedef&lt;/code&gt;로 개발자들이 크기단위에 맞게 aliasing을 하여 사용했는데 그럴 필요가 없어졌다. 이거말고는 특별한 내용은 없었고, &lt;code&gt;bool&lt;/code&gt;값의 크기가 컴파일러에 따라 8비트인 경우와 32비트인 경우가 있다고 한다.&lt;/p&gt;
+&lt;h3 id=&#34;multibyte-value&#34;&gt;Multibyte value&lt;/h3&gt;
+&lt;p&gt;8비트 이상의 크기에 저장되는 데이터를 말한다. &lt;em&gt;0XF10032FF&lt;/em&gt;가 있다고 하면, 앞에 0xF1은 MSB, 마지막 0xFF는 LSB라고 표현할 수 있다.
+&lt;code&gt;Multibyte value&lt;/code&gt;를 저장하는 방법은 머신마다 다르다. &lt;code&gt;Little Endian&lt;/code&gt;과 &lt;code&gt;Big Endian&lt;/code&gt;으로 나눈다.
+&lt;code&gt;Little Endian&lt;/code&gt; 은 LSB가 먼저 낮은 메모리 주소로 들어간다. 0x12345678 이면 왼쪽부터 메모리주소가 0이라는 가정하에 0x78 0x56 0x34 0x12라고 저장된다.
+&lt;code&gt;Big Endian&lt;/code&gt;인 경우 그대로 순서대로(MSB가 앞으로) 들어간다.&lt;/p&gt;
+&lt;p&gt;만약 리틀엔디안을 사용하는 방식의 CPU에서 빅엔디안을 사용하는 콘솔기기같은 환경에서 돌리면 모든 내용이 뒤죽박죽 되는 상황이다. 이럴때는 변환 툴을 써주는게 좋다.&lt;/p&gt;
+&lt;p&gt;일반적인 정수형 데이터면 문제는 없지만, 커스텀 구조체 같은 놈들을 변환할려면 안에 있는 내용물들의 크기, 실제 구조체 크기등 진행하는데 있어 요구조건 이 좀 다르다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Example&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m_a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U16&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m_b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m_c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;writeExampleStruct&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Example&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Stream&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;stream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swapU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;stream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeU16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swapU16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;stream&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;writeU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;swapU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;U16&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swapU16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U16&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x00FF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0xFF00&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swapU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x000000FF&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x0000FF00&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0x00FF0000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0xFF000000&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;24&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;책에 있던 예시다. 말그대로 쉬프트 연산을 통한 비트의 순서를 바꿔주는 과정을 보여준다. float값의 경우 다르게 생각해줘야된다. 이타입의 경우 비트를 읽는 방식이 일반 정수랑 다르기 때문이다. 이러한 경우 C++은 &lt;code&gt;reinterpret_cast&amp;lt;&amp;gt;&lt;/code&gt;를 통해 정수로 바꿔주고 쉬프트를 하면 된다고 알고 있다. 그런데 이렇게 변환하는거는 별로 안전하지(?) 않다고 한다. 이러한 방법(type-punning)은 최적화 규칙 중 &lt;code&gt;strict aliasing&lt;/code&gt;, &lt;em&gt;&amp;ldquo;근본적으로 타입이 다르다면 그 타입의 포인터로 변환을 금한다&amp;rdquo;&lt;/em&gt;, 이 켜져있는 경우 문제를 발생시킨다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;union&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;U32F32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m_asU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;m_asF32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;inline&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;swapF32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U32F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_asF32&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// endian-swap as integer
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_asU32&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;swapU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_asU32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;u&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m_asF32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;유니언을 사용하여 문제해결이 가능하다.
+유니언의 경우 같은 메모리를 공유하기 때문에 어떻게 보면 &lt;code&gt;strict aliasing&lt;/code&gt;을 회피하는 편법이라고 볼 수 있다.&lt;/p&gt;
+&lt;h2 id=&#34;translation-unit-linkage-declarations-definitions&#34;&gt;Translation Unit, Linkage, Declarations, Definitions&lt;/h2&gt;
+&lt;p&gt;CPP 프로그램의 생성과정&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;여러 cpp파일(h 파일도 같이)을 한개당 하나의 obj를 생성&lt;/code&gt; -&amp;gt; &lt;code&gt;라이브러리와 링킹 후 exe 생성&lt;/code&gt; -&amp;gt; &lt;code&gt;DLL을 참고하여 실행파일 실행&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;cpp파일 하나당 &lt;code&gt;translation unit&lt;/code&gt;이라고 한다. 컴파일러는 한번에 한개씩 &lt;code&gt;obj&lt;/code&gt;로 변환한다. 그래서 만약 그안에 &lt;code&gt;extern&lt;/code&gt;으로 선언된 글로벌 변수가 있다면 컴파일러는 그냥 어딘가에 있다고 생각하고 믿고 가는 수 밖에 없다. 현재 이 상태를 &lt;code&gt;Unresolved external reference&lt;/code&gt;라고 한다. &lt;code&gt;obj&lt;/code&gt;변환을 전부 마치면 &lt;code&gt;linker&lt;/code&gt;가 reference들을 전부 합쳐 &lt;code&gt;resolved&lt;/code&gt;상태로 되게끔 찾아다니면서 설정해준다. 만약 진짜로 &lt;code&gt;extern&lt;/code&gt;으로 명시된 놈들이 없는게 있다고 하면 에러로 &lt;code&gt;LINK_ERROR&lt;/code&gt;같은 느낌으로 에러표시가 나온다.
+대표적인 링킹 에러 중에 하나는 &lt;code&gt;extern&lt;/code&gt;으로 선언된 변수를 서로 다른 translation unit에서 작성하는 경우다(&lt;code&gt;multiply-defined Symbols&lt;/code&gt;).&lt;/p&gt;
+&lt;h3 id=&#34;용어정리-definition--declaration&#34;&gt;용어정리 Definition | Declaration&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Declaration -&amp;gt; 선언&lt;br&gt;
+Definition -&amp;gt; 정의&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// All of these are variable definitions:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalInteger&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalFloatArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;MyClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalInstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// These are all pure declarations:
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;extern&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalInteger&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;extern&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalFloatArray&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;extern&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MyClass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gGlobalInstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 정의 와 선언의 차이다.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;만약 같은 선언에 대해 정의가 서로 다른 두 곳에서 일어나면 이는  “multiply defined symbol” error로 처리된다. 만약 그 정의가 다른 두곳의 translation unit 에서 나타나면
+링커가 문제있다고 할 수 있다.&lt;/p&gt;
+&lt;p&gt;선언을 헤더파일에 작성하는 행위는 위험하다. 헤더를 &lt;code&gt;# include&lt;/code&gt;하는 곳이 두곳이 있다면 바로 “multiply defined symbol” 처리 되기 때문이다.
+&lt;code&gt;inline&lt;/code&gt;되는 함수의 경우 예외다. 인라인 함수는 함수몸체를 그대로 함수호출 부분으로 복사하기 때문에 괜찮다. 컴파일러의 최적화로 인라인 처리가 가능한 함수는 컴파일러가 알아서 인라인 처리한다.
+프로그래머가 붙히는 &lt;code&gt;inline&lt;/code&gt;은 약간 컴파일러에게 힌트를 준다고 생각하는 편이 좋다. 컴파일러에 따라 강제로 인라인 시키는 매크로도 있다고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;template&lt;/code&gt;의 경우 선언과 정의를 헤더파일 한군데에서 해야한다. 템플릿의 경우 실제로 코드가 있는게 아니라 불리면 그때 생성되는 함수매크로 처럼 작동하는 분이여서 정의를 &lt;code&gt;cpp&lt;/code&gt;에 넣어버리면 헤더로 선언을 받고 템플릿 함수를 부르는 translation unit입장에서는 이놈이 뭐하는 코드인지 모르게 된다. 그냥 템플릿 함수를 쓸 생각이면 헤더에 다 작성하면 된다.&lt;/p&gt;
+&lt;h3 id=&#34;linkage&#34;&gt;Linkage&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;External Linkage -&amp;gt; &lt;code&gt;extern&lt;/code&gt; 같은 놈들을 통해 외부에서 접근이 가능항 linkage&lt;/li&gt;
+&lt;li&gt;Internal Linkage -&amp;gt; &lt;code&gt;static&lt;/code&gt; 같은 놈들을 통해 하나의 translation unit 안에서만 접근가능한 linkage&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;기본적으로 &lt;code&gt;정의&lt;/code&gt;들은 external, &lt;code&gt;static&lt;/code&gt;이 붙으면 internal 로 변경가능.
+internal랑 linkage의 경우 동일한 녀석이 두개 이상의 서로다른 cpp파일에 있다고 해도 &lt;code&gt;중복 선언 에러&lt;/code&gt;가 뜨지 않는다. &lt;code&gt;Distinct Entities&lt;/code&gt;라고 처리되기 때문이다.&lt;/p&gt;
+&lt;p&gt;메모리를 잡지 않는 &lt;code&gt;선언&lt;/code&gt;의 경우 linkage를 갖는다고 말하기 어렵다. 다만 기본적으로 선언한, 혹은 # include한 translation unit, 파일에서 볼 수 있기 때문에 internal linkage라고 본다.&lt;/p&gt;
+&lt;p&gt;이걸 응용하여 생각해보면 왜 &lt;code&gt;inline&lt;/code&gt;함수들의 &lt;code&gt;정의&lt;/code&gt;가 헤더파일에 있어도 되는지 이유를 알 수 있다. 인라인 함수는 기본적으로 internal linkage라고 보며, 여러 곳에서 해당 인라인 함수가 있는 헤더파일을 받아쓰더라도 컴파일러에 의해 자동으로 함수 몸체의 내용으로 바꿔치기 된다. 이는 개별적으로 참조한 파일마다 복사가 일어난다는 소리고, 결국 인라인 함수를 &lt;code&gt;Distinct Entities&lt;/code&gt;라고 본다는 소리다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;static&lt;/code&gt;의 경우 선언 위치에 따라 여러 형식으로 작동한다 -&amp;gt; 만 공통적으로 하는 일은 똑같고 위치에 컨택스트에 따라 약간 느낌이 달라지는거다. 결과적으로 그냥 자신이 사는 &lt;code&gt;스코프&lt;/code&gt;에 internal 하게 소속된다는 느낌으로 이해하자.&lt;/p&gt;
+&lt;p&gt;다만 클래스에 있는 static 변수의 경우 모르던 내용이 있었다. 내가 아는건 클래스의 static 변수는 해당 클래스 &lt;em&gt;이름&lt;/em&gt; 밑에 존재하는 글로벌 변수의 느낌이고, static 함수도 마찬가지로 저장되는 세그먼트 영역의 특성상 static-클래스 변수만 접근 가능한 함수로 알고 있다
+여기다 추가로 클래서에 &lt;code&gt;선언&lt;/code&gt;된 static 변수의 경우 메모리를 잡지 않는다고 한다. 나중에 클래스 이름으로 불러서 값을 넣으면 그때 초기화와 같이 잡힌다고 하는데 이건 좀 더 찾아봐야 되겠다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// [책 예제]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Foo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sClassStatic&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// allocates no
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// memory!
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cpp&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Foo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sClassStatic&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;1.0f&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// define memory and
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// initialize
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;코드-메모리-레이아웃&#34;&gt;코드 메모리 레이아웃&lt;/h2&gt;
+&lt;h3 id=&#34;executable-image&#34;&gt;Executable Image&lt;/h3&gt;
+&lt;p&gt;플랫폼마다 정해진 실행파일 형식은 다를 수 있다. 다만 공통적으로 자신이 가져야되는 메모리 레이아웃을 설명하는 &lt;code&gt;Image&lt;/code&gt;를 갖고있다.
+&lt;code&gt;Image&lt;/code&gt;는 &lt;code&gt;세크먼트&lt;/code&gt;로 나눠진다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Text -&amp;gt; 여기는 변역된 머신코드가 산다&lt;/li&gt;
+&lt;li&gt;Data Section -&amp;gt; 여기는 초기화된 글로벌 / static 변수들이 자리잡는다&lt;/li&gt;
+&lt;li&gt;BSS (Block Start Symbol) -&amp;gt; 요즘 부르는 이름이 달라졌지만 하는 일은 똑같다. 초기화되지 않은 글로벌/static을 저장하는데 쓰인다.
+-&amp;gt; C/C++에서는 글로벌과 static 변수의 경우 직접 초기화하지 않을 시 모두 &lt;code&gt;0&lt;/code&gt;으로 직접 초기화하며, 그많은 &lt;code&gt;0&lt;/code&gt;들을 저장하는게 아닌 몇개있는지만을 저장하고 나중에 실행시 처음 &lt;code&gt;BSS&lt;/code&gt;에 있는 데이터에 접근하게 되면 &lt;code&gt;0&lt;/code&gt;을 준다고 한다.&lt;/li&gt;
+&lt;li&gt;Read-only data segment -&amp;gt; 말그대로 읽기 전용 공간. 상수값으로 설정된 놈들, 혹은 &lt;code&gt;&amp;quot;&amp;quot;&lt;/code&gt;로 선언되는 문자열등이 여기 들어간다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;함수스택&#34;&gt;함수스택&lt;/h3&gt;
+&lt;p&gt;아는 내용이다. 함수가 불리면 해당 함수를 실행하기 위한 &lt;code&gt;stack frame&lt;/code&gt;이 해당 프로그램을 실행했을 때 OS에서 배정해주는 &lt;code&gt;program stack&lt;/code&gt;에 쌓인다.
+필요로하는 레지스터 값들, 자기가 갖고 있는 로컬변수들, 리턴 주소 들이 들어간다. 끝나면 스택에서 빠진다.&lt;/p&gt;
+&lt;h3 id=&#34;다이나믹-메모리&#34;&gt;다이나믹 메모리&lt;/h3&gt;
+&lt;p&gt;위에서 말한 메모리 레이아웃의 경우 사전에 사이즈를 알기에 실행전, 혹은 런타인에 함수스택을 맞는 사이즈로 제공할 수 있다.
+런타임 중에 무슨값이 알 수 없는 (사용자 입력값) 경우 해당 데이터는 &lt;code&gt;Dynamic&lt;/code&gt;한 메모리인 &lt;code&gt;힙메모리&lt;/code&gt;를 사용한다.
+C++에서는 &lt;code&gt;new&lt;/code&gt;와 &lt;code&gt;delete&lt;/code&gt;으로 힙메모리 할당/삭제를 한다. 문제는 해당 함수를 클래스에서, 혹은 자체적으로 오버로드 한 경우도 있기 때문에
+100% 무조건 글로벌 힙메모리에서 뽑아 온다고 생각하면 안된다. (아마 메모리 풀에서 뽑도록 함수 overload시킨 클래스 같은 놈들을 말하는거 같다).&lt;/p&gt;
+&lt;h3 id=&#34;alignment&#34;&gt;Alignment&lt;/h3&gt;
+&lt;p&gt;이부분은 Vulkan 공부하면서 하도 파서 왠만하면 아는 내용들이였다.
+한줄 요약을 하면 ***&amp;ldquo;컴퓨터구조에 맞게 설계된 효율적인 읽기쓰기 방식에 맞춰 데이터를 저장,선언하는게 성능에 좋아 이러한 방식을 프로그래머에게 강제한다&amp;rdquo;***라고 생각한다. 벌칸의 경우 GPU로 넘기는 유니폼 구조나 PushConstant안에 왠만하면 &lt;code&gt;vec4&lt;/code&gt;로 맞추는 이유도 이렇한 이유였다(살짝 더 설명이 필요하지만 딱히 여기 내용이 아니여서 패스). 일반적인 구조체도 효율적으로 짜기 위해 &lt;code&gt;Data Packing&lt;/code&gt;이 잘되어있으면 좋다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 책 예시
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;BestPacking&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;U32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mU1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 32 bits (4-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;F32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mF2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 32 bits (4-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;I32&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mI4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 32 bits (4-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mP6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 32 bits (4-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U8&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mB3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 8 bits (1-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;bool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mB5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 8 bits (1-byte aligned)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;U8&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_pad&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// explicit padding -&amp;gt; no important data inside
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;크기를 맞춘다고 &lt;em&gt;stuffing&lt;/em&gt;까지 넣는 경우도 있다고 한다(이부분은 캐쉬 때문인지는 모르겠는데 굳이 이정도까지 해야되나 라는 생각은 좀 든다).&lt;/p&gt;
+&lt;h3 id=&#34;class-memory-layout&#34;&gt;Class Memory Layout&lt;/h3&gt;
+&lt;p&gt;클래스의 상속은 결국 &lt;code&gt;vtable&lt;/code&gt;의 기능을 최대한 활용한 Polymorphism과 인터페이스 구현에 있다고 생각한다. 지금까지 봐온 여러 강연이나 실력있는 개발자분들의 말씀을 들어보면 클래스의 상속은 거의 사탄취급을 받거나 써도 한계층만 유지하는 상속을 위주로 쓴다고 한다. 그만큼 기능을 호출할 때 생기는 불필요한 indirection이 실시간 렌더링의 입장에서는 성능에 꽤 영향을 준다고 한다.&lt;/p&gt;
+&lt;h2 id=&#34;컴퓨터-구조&#34;&gt;컴퓨터 구조&lt;/h2&gt;
+&lt;p&gt;가장 재밌는 내용들이였다.&lt;/p&gt;
+&lt;p&gt;우선 CPU에 관한 내용이다.
+내부적으로 &lt;code&gt;clock&lt;/code&gt;을 기준으로 들어오는 명령들을 처리한다.
+처리속도는 &lt;code&gt;frequency&lt;/code&gt;에 따라 달라진다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ALU -&amp;gt; 정수 연산&lt;/li&gt;
+&lt;li&gt;FPU -&amp;gt; floating point 연산&lt;/li&gt;
+&lt;li&gt;VPU -&amp;gt; 내장 그래픽 같은 느낌 (vector processing unit). 정수 실수 다함&lt;/li&gt;
+&lt;li&gt;MMU -&amp;gt; 칩 내/외 부 메모리 접근 관리를 위한 장치&lt;/li&gt;
+&lt;li&gt;CU -&amp;gt; instruction 실행 관리를 위한 장치&lt;/li&gt;
+&lt;li&gt;Register -&amp;gt; 말그대로 레지스터 (각각 저장하는/사용되는 내용/작업 이 다름)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;요즘은 FPU를 무저건 넣지 않고 VPU로 계산, 비는 트렌지스터를 캐쉬성능을 높이는데 사용한다고 한다.&lt;/p&gt;
+&lt;p&gt;레지스터는 스택포인터, 프로그램 포인터 등 작업에 필요한 필수 정보를 저장하는 곳부터 그냥 값 반환을 위해 사용되는 레지스터등 여러개 있다.&lt;/p&gt;
+&lt;p&gt;FPU와 VPU의 경우 ALU가 사용하는 (대부분 위에서 언급한)레지스터가 아닌 자신들만의 레지스터를 사용한다.&lt;/p&gt;
+&lt;p&gt;CPU성능을 논할 때 단순히 MIPS, FLOPS으로 성능을 따질 수 없다. 3GHz CPU가 1개의 floating point operation을 처리하는데 6싸이클이 돌면 이론상 0.5GFLOPS가 가능하다. 물론 현실에선 반영되는 팩터가 더 많기 때문에 어림도 없다.&lt;/p&gt;
+&lt;p&gt;TLDR -&amp;gt; 직접 벤치마크 툴 써서 실제로 관측하고 말해라.&lt;/p&gt;
+&lt;h3 id=&#34;memory-구조&#34;&gt;Memory 구조&lt;/h3&gt;
+&lt;p&gt;시작은 간단하게 메모리의 종류 두가지를 설명한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ROM -&amp;gt; 각인되는 메모리, EPPROM과 같이 변경가능한 경우도 존재 (FlashDrive같은 놈들)&lt;/li&gt;
+&lt;li&gt;RAM -&amp;gt; static한 놈들과 널리 쓰이는 Dynamic(DRAM)존재. 전기가 통하는 도중에는 메모리 유지 가능&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;DRAm의 경우 데이터를 유지하기 위해서 읽고 바로 해당 위체에 덮어쓰는 과정이 필요함(capacity가 점점 떨어지면서 데이터손상이 생기는걸 방지하기 위해서).&lt;/p&gt;
+&lt;h3 id=&#34;bus&#34;&gt;Bus&lt;/h3&gt;
+&lt;p&gt;물리적으로 데이터를 옮기는 경로를 말한다. 전류가 흐르면 1 아니면 0인 단순한 방식이다. 여기서 &lt;code&gt;주소버스&lt;/code&gt;와 &lt;code&gt;데이터버스&lt;/code&gt;라는 개념이 추가된다. 둘이 전송하는 객체가 다르다고 보면 된다.
+데이터를 CPU의 레지스터로 옮기는 경우 CPU가 &lt;code&gt;주소&lt;/code&gt;버스를 통해 읽고 싶은 메모리 셀의 주소를 &lt;code&gt;메모리 컨트롤러&lt;/code&gt;(one of the CPU component)에세 넘기면 메모리셀에서 데이터를 뽑아와 &lt;code&gt;데이터&lt;/code&gt;버스를 통해 준다.&lt;/p&gt;
+&lt;p&gt;반대로 레지스터의 값을 옮기는 경우도 CPU가 보낼려고 한 목표주소를 &lt;code&gt;주소&lt;/code&gt;버스를 통해 전송하면 메모리 컨트롤러가 해당 주소를 찍어내서 데이터를 &lt;code&gt;데이터&lt;/code&gt;버스를 통해 옮긴다.&lt;/p&gt;
+&lt;p&gt;이 두버스가 분리된 형태, 같이 통합된 형태 둘다 존재한고 머신 설계과정에 따라 달라진다고 생각하면 된다.&lt;/p&gt;
+&lt;p&gt;버스의 넓이는 곧 한번에 옮길 수 있는 데이터의 크기를 나타낸다. 무작정 크기 넓히는게 좋다고 할 수 없다. 버스의 크기보다 적게 읽어들이면 그 비어있는 라인을 걸러내기 위한 비트연산을 추가로 수행해야되는 오버헤드가 발생하기 때문에 적정량을 맞추는게 오히려 좋다.&lt;/p&gt;
+&lt;p&gt;광고에서 보는 &amp;ldquo;몇비트 체계의 컴퓨터&amp;quot;는 보통 버스의 넓이를 기준으로 말한다고 한다. 다만 예전(지금은 어떤지 모른다) 컴퓨터들 중에 데이터와 주소버스의 넓이가 다른 경우가 있었다고 한다.&lt;/p&gt;
+&lt;h3 id=&#34;isa--address-mode&#34;&gt;ISA &amp;amp; Address Mode&lt;/h3&gt;
+&lt;p&gt;어셈블리 명령과 해당 명령을 수행할 때 알아야되는 내용들이다. 기본적인 명령 하나의 구조와 자주 쓰는 명령들을 나열한다(이건 굳이 안적어도 될거 같다).&lt;/p&gt;
+&lt;p&gt;명령중에서 &lt;code&gt;move&lt;/code&gt;명령을 기준으로 &lt;code&gt;address mode&lt;/code&gt;을 설명한다. 옮기는 대상에 따라 작동방식이 달라진다고 보면 된다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Register Addressing
+&lt;ul&gt;
+&lt;li&gt;레지스터에서 레지스터로 이동&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Immediate Addressing
+&lt;ul&gt;
+&lt;li&gt;상수와 같은 순수 값을 레지스터로 이동&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Direct Addressing
+&lt;ul&gt;
+&lt;li&gt;메모리 에서/으로 데이터를 이동&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Register Indirect Addressing
+&lt;ul&gt;
+&lt;li&gt;명령어에 문자 그대로 값으로 저장된 내용이 아닌 레지스터 자체가 목표 메모리 주소가 된다. C와 C++에서 포인터 dereference를 할 때 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Relative Addressing
+&lt;ul&gt;
+&lt;li&gt;operand로 주어지는 목표 주소에서 오프셋 정보를 이용해 메모리에 접근한다. &lt;code&gt;Indexed Array&lt;/code&gt;를 구현하는 방식과 같다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Other Addressing
+&lt;ul&gt;
+&lt;li&gt;이외에도 매우 많이 있다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;메모리-매핑&#34;&gt;메모리 매핑&lt;/h3&gt;
+&lt;p&gt;n 비트 주소버스를 갖는 CPU는 이론상 2^n의 주소를 접근할 수 있다. ROM 과 RAM을 해당 주소에 1-1로 매핑할 수도 있다.
+물론 이론상 2^n의 주소체계를 갖는것 뿐이지 딱히 모든 주소범위를 사용하지 않는다.&lt;/p&gt;
+&lt;h3 id=&#34;메모리-io-매핑&#34;&gt;메모리 IO 매핑&lt;/h3&gt;
+&lt;p&gt;위에서 말한것 처럼 모든 주소범위를 전부 ROM과 RAM이 사용하는것이 아니다. 컨트롤러나 또는 인풋디바이스를 같은 외부하드웨어에 CPU가 명령을 내리기 위해
+해당 기기들로 매핑하는 걸 &lt;code&gt;메모리 IO 매핑&lt;/code&gt;이라고 한다. 외부디바이스 뿐만 아니라 &lt;code&gt;메모리 포트 매핑&lt;/code&gt;과 같이 포트 레지스터를 통해 명령을 전달하기 위해
+메모리를 매핑한다.&lt;/p&gt;
+&lt;h3 id=&#34;비디오-램&#34;&gt;비디오 램&lt;/h3&gt;
+&lt;p&gt;비디오 컨트롤러가 사용하도록 할당받은 메모리를 &lt;code&gt;VRAM&lt;/code&gt;이라고 한다. 플랫폼마다 약간의 차이가 있겠지만 기본적으로 개인 컴퓨터의 경우
+RAM과 GPU의 위치한 VRAM 사이에 데이터 통신을 위해 AGP, PCI, PCIe같은 버스 통신 프로토콜을 사용하여 데이터를 전송하고/받는다. RAM과 VRAM사이는 물리적으로
+연결되어있지 않기 때문에 그래픽 병목현상의 원인 중 하나가 될 수 도 있다. Vulkan의 경우 GPU 메모리에 직접 데이터를 때려박는 방식이라던가 스테이징 버퍼를 통해
+데이터를 GPU로 옮기는 등 HOST에서 DEVICE로 데이터를 옮기는 과정 하나에 복잡한 여러 방법이 있는 이유도 이러한 상황이 영향을 준다고 생각한다.&lt;/p&gt;
+&lt;p&gt;아래는 책에서 나오는 애플2의 메모리 매핑 정보다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0xC100 - 0xFFFF ROM (Firmware)&lt;/li&gt;
+&lt;li&gt;0xC000 - 0xC0FF Memory-Mapped I/O&lt;/li&gt;
+&lt;li&gt;0x6000 - 0xBFFF General-purpose RAM&lt;/li&gt;
+&lt;li&gt;0x4000 - 0x5FFF High-res video RAM (page 2)&lt;/li&gt;
+&lt;li&gt;0x2000 - 0x3FFF High-res video RAM (page 1)&lt;/li&gt;
+&lt;li&gt;0x0C00 - 0x1FFF General-purpose RAM&lt;/li&gt;
+&lt;li&gt;0x0800 - 0x0BFF Text/lo-res video RAM (page 2)&lt;/li&gt;
+&lt;li&gt;0x0400 - 0x07FF Text/lo-res video RAM (page 1)&lt;/li&gt;
+&lt;li&gt;0x0200 - 0x03FF General-purpose and reserved RAM&lt;/li&gt;
+&lt;li&gt;0x0100 - 0x01FF Program stack&lt;/li&gt;
+&lt;li&gt;0x0000 - 0x00FF Zero page (mostly reserved for DOS)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;참고로 애플2의 메모리 매핑은 마더보드와 1-1 연결상태를 갖는다. 요즘 OS의 경우 &lt;code&gt;virtual addressing&lt;/code&gt;을 통해 메모리를 관리한다.&lt;/p&gt;
+&lt;h3 id=&#34;가상-메모리&#34;&gt;가상 메모리&lt;/h3&gt;
+&lt;p&gt;가상 메모리 주소는 물리적으로 존재하는 메모리를 가르키는 메모리 주소로 OS가 관리하는 look-up table에 기록된다. 보안을 위한 조치이기도 하고
+연속적이지 않는 물리적 매모리 주소여도 가르키는 가상 메모리 주소가 연속적이면 사용하기 편한 장점도 있다. 또한 컴퓨터에 설치된 메모리보다 더 많은 메모리를
+프로그램이 사용할 수 있도록 해준다(활용을 잘한다는 가정하에&amp;hellip;).&lt;/p&gt;
+&lt;h3 id=&#34;가상-메모리-페이지&#34;&gt;가상 메모리 페이지&lt;/h3&gt;
+&lt;p&gt;메모리 리매핑을 하기 위해서는 우선 위에서 언급한 버스의 n비트에 맞게 이론상 사용가능한 2^n의 메모리 주소를 기준으로, 일정한 &lt;code&gt;페이지&lt;/code&gt; 단위로 나누어서 사용한다.
+Windows도 그렇고, 각 운영체제, 플랫폼 마다 기준으로 하는 페이지 단위가 같은 메모리 주소 비트 단위에서도 다를 수 있다. 예를 들어 대표적으로 사용하는 페이지 단위가
+&lt;code&gt;4Kib&lt;/code&gt;인데, 32비트 주소체계에서 해당 페이지 범위로 0x0000~0xFFFF로 총  1,048,576의 페이지로 나뉜다고 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;이건 Win32를 하면서 봤던 내용이다. 예를 들어 &lt;code&gt;VirtualAlloc&lt;/code&gt;같은 함수로 메모리 할당을 할 시 크기가 1 페이지 단위보다 조금 더 많은 경우 바로 2페이지 용량으로 잡아버린다. 페이지 단위를 기준으로 메모리를 잡고 운영한다고 알고 있으면 될 것 같다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;가상 메모리들은 실제 물리 메모리 주소에 매핑이 되며 이러한 정보를 &lt;code&gt;가상 메모리 테이블&lt;/code&gt;로써 RAM에 보관하고 OS가 관리한다. 이 테이블을 통헤 가상메모리 주소로부터 실제 물리 메모리를 뽑는 동작을 CPU의 &lt;code&gt;MMU&lt;/code&gt;에서 수행한다. 가상메모리는 물리 메모리 주소와에 매핑 뿐만 아니라 Swapfile을 참조하도록 매핑되기도 한다. (스왑파일은 메모리가 부족한 상황에 ssd나 하드의 공간을 메모리로 끌어쓰는것으로 알고 있으면 된다).&lt;/p&gt;
+&lt;p&gt;계속해서 4Kib의 페이지 단위를 갖는 32비트 주소체계를 예시로 든다. 매핑된 주소를 찾는 방법은 다음과 같다. 주소로 사용하는 32비트 중에서 뒤에 12비트의 경우 매핑된 주소에서 부터 어디로 가야되는지 오프셋을 기록한다. 앞에 20비트의 경우 페이지의 인덱스가 된다. 만약 물리데이터 메모리 0x12345222을 찍고 싶다고 하자. 페이지 단위로 나뉜다고 보면 가상 메모리 테이블 어딘가에 0x12345000을 매핑하는 페이지 인덱스가 있을 것이다. 가상 메모리 주소 0x12FFF000가 0x12345000를 매핑한다고 하면, 우리가 원하는 0x12345222로 가기위해 0x12FFF222 가상메모리를 참조하면 되는거다. 만약 가상메모리 페이지에 물리 주소 0x12345000로 매핑이 된 곳이 없다면 할당 페이지를 못찾은거기 때문에 MMU는 interrupt를 건다. 이걸 &lt;code&gt;Page fault&lt;/code&gt;라고 부른다.&lt;/p&gt;
+&lt;p&gt;보통 페이지 폴트가 나면 코어덤프파일과 함께 크래쉬가 난다. 스왑디스크의 메모리가 필요한 경우 OS 관리하에 진행중인 프로그램을 잠시 멈추고 디스크가서 읽어서 RAM에 메모리로 **&lt;code&gt;스왑&lt;/code&gt;**하고 다시 진행한다. 프로그램입장에서는 멈추는 과정을 인지하지 못하지만 엄연히 동작 중인 프로그램을 멈췄다가 다시 움직이는 것이기 때문에 성능을 잡아먹는다. OS는 이러한 스왑을 최소화하기 위해 가장 적게 쓰는 페이지 (&lt;strong&gt;L&lt;/strong&gt;east &lt;strong&gt;F&lt;/strong&gt;requently &lt;strong&gt;U&lt;/strong&gt;sed page)를 디스크로 보낸다.&lt;/p&gt;
+&lt;h3 id=&#34;메모리-레이턴시&#34;&gt;메모리 레이턴시&lt;/h3&gt;
+&lt;p&gt;전송속도에 영향을 미치는 원인은 크게 3가지가 있다&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;실제 메모리 셀의 성능&lt;/li&gt;
+&lt;li&gt;메모리 셀이 지원하는 read/write 포트의 수&lt;/li&gt;
+&lt;li&gt;CPU와 메모리 셀의 간격&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;아무리 빛과 가까운 속도로 신호가 흐른다 해도, 로직스위치와 기타 연산의 영향을 받아 느려질 수 밖에 없다. 포트가 한개라고 하면 읽기/쓰기를 수행하는 시간이 여러개 포트를 가진 메모리 셀보다 느릴 수 밖에 없다. 물론 포트가 많은 놈들은 그만큼 처리를 위해 잡아먹는 트렌지스터 수도 많아져서 이건 give-n-take다.&lt;/p&gt;
+&lt;p&gt;발전이 거듭되면서 &lt;em&gt;CPU의 연산 속도&lt;/em&gt;와 &lt;em&gt;메모리 접근 속도&lt;/em&gt;에 차이가 너무 많아졌고, 이를 &lt;code&gt;Memory Gap&lt;/code&gt;이라고 부른다. 이를 우회하기 위해 여러 기법이 탄생한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reducing   :  CPU 근처에 최근 사용 데이터를 담아둘 수 있는 &lt;em&gt;메모리 뱅크&lt;/em&gt;를 만들어 둔다.&lt;/li&gt;
+&lt;li&gt;Hiding     :  레이턴시가 생겨도 CPU를 다른 유용한 연산을 계속 돌려 시간낭비를 줄인다.&lt;/li&gt;
+&lt;li&gt;Minimizing : &lt;em&gt;메인 메모리&lt;/em&gt;에 대한 접근을 최소화한다. 데이터 접근은 최소화하는 설계로 프로그램을 작성한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;CPU register&lt;/code&gt;는 &lt;em&gt;minimizing&lt;/em&gt;의 대표적인 사례가 된디. Static RAM(SRAM)으로 써 ALU 바로 옆에 붙어서 산다. 포트도 여러개 있고 ALU가 직접 사용해서 가상 메모리 테이블 접근이라던지 따로 접근에 필요한 추가적 작업이 필요가 없다. 더럽게 비싼만큼 미친 포퍼먼스를 자랑한다.&lt;/p&gt;
+&lt;h3 id=&#34;메모리-캐쉬-계층&#34;&gt;메모리 캐쉬 계층&lt;/h3&gt;
+&lt;p&gt;흔히 &lt;code&gt;L1, L2, L3&lt;/code&gt;라고 불리는 CPU가 소유하는 메모리 케쉬 계층들이다. 순서대로의 성능을 갖고 있고, 순서대로 CPU와 거리가 있다. 만약 이런 캐쉬들에서 정보를 찾지 못해 main RAM으로 내려가 데이타를 찾게 되면 &lt;code&gt;cache miss&lt;/code&gt;가 발생한다고 한다. &lt;code&gt;cache hit&lt;/code&gt;의 경우 찾는 데이터가 캐쉬에 상주해 있을 때 바로 꺼내올 수 있어서 빠르다.&lt;/p&gt;
+&lt;h3 id=&#34;캐쉬-라인&#34;&gt;캐쉬 라인&lt;/h3&gt;
+&lt;p&gt;memory caching은 &lt;code&gt;locality of reference&lt;/code&gt;라는 아이디어를 바탕으로 이득을 취한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Spatial locality : 만약 N의 위치의 데이터를 접근했다면, 인접한 N+1, N+2의 데이터를 접근할 가능성이 높다고 보고 같이 캐쉬에 넣는다. 배열을 순차적으로 접근하는게 이거에 해당한다.&lt;/li&gt;
+&lt;li&gt;Temporal locality : 만약 N번째의 데이터에 접근을 했다면 다시한번 해당 데이터를 사용할 확률이 높다고 본다. for루프에서 같은 인덱스 변수 계속 접근하는게 이거에 해당한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위 두가지 특징을 살려서 캐쉬에 데이터를 &lt;code&gt;cache line&lt;/code&gt;으로써 한개씩이 아닌 한 줄의 개념으로 끌어온다.
+책에서의 예제로는 클래스의 멤버변수를 읽어올 때 처음에는 10싸이클 정도 걸리지만 그때 주변 데이터, 이경우 해당 클래스의 다른 멤버변수도 같이 읽어오기 때문에 다음에 다른 멤버변수를 읽을 때에는 더 빠른 속도로 데이터를 읽어올 수 있다는 특징이 있다.&lt;/p&gt;
+&lt;h3 id=&#34;mapping-cache-line-to-main-ram-memory&#34;&gt;Mapping cache line to main RAM memory&lt;/h3&gt;
+&lt;p&gt;캐쉬의 메모리 주소로 메인 램의 메모리 주소를 전부 커버쳐야된다. 당연히 메인 램의 크기가 더 많다. 캐쉬를 라인별로 쪼개면 한 라인당 메인램의 여러군데랑 매핑되야된다.&lt;/p&gt;
+&lt;p&gt;책의 예시로는 32Kib인 캐쉬랑 256Mib인 메인램이 있는 경우, 캐쉬와 메인램은 총 8192배의 차이((256 X 1024)/32)가 난다고 한다. 만약 캐쉬라인의 크기가 128바이트라고 하자. 그럼 총 256개의 캐쉬라인이 존재한다(256 X 128 = 32Kib). 캐쉬 전체로 램을 다 커버치고 싶으면 캐쉬라인 한줄 당 메인 램에서 라인크기와 맞는 영역 8192군데랑 매핑이 된다.
+이건 책 그림이 잘 보여준다(pdf 192pg). 빠르게 주소를 구하는 방법은 모듈로 연산이다. 메인램 주소가 어떤 캐쉬주소로 매핑되는지 알고 싶다면 해당 메인램 주소를 캐쉬 크기랑 &lt;code&gt;%&lt;/code&gt; 하면 된다.&lt;/p&gt;
+&lt;h3 id=&#34;addressing-the-cache&#34;&gt;Addressing the Cache&lt;/h3&gt;
+&lt;p&gt;CPU에서 1바이트의 데이터를 읽는다고 가정하자. 그럼 먼저 캐쉬로 가서 해당 데이터가 있는지 보고 없다면 캐쉬미스로 간주하고 메인램까지 내려가서 다시 라인크기로 데이터를 읽어서 캐쉬에 올린다. 이 시퀀스를 조금 더 자세히 보자.&lt;/p&gt;
+&lt;p&gt;우선 캐쉬 메모리를 바이트 단위로 관리하지 않는다. 어차피 언제나 읽어올때 라인크기로 읽어온다면 애초에 메모리 주소를 라인단위로 읽는게 맞는거다. 더자세한 내용은 밑에 나오는 &lt;code&gt;메모리 alignment&lt;/code&gt;에서 자세히 나온다. 책의 설명을 이해하기가 조금 어려웠는데 일단 이해한 만큼 적는다.&lt;br&gt;
+CPU가 read 요청을 한다고 하자. 메인 램주소를 바탕으로 데이터를 읽을려고 한다면 , 해당 메인 램 주소를 캐쉬주소로 바꿔야된다(캐쉬에 올라와 있는지 확인하기 위해). 그럼 우선 해당 캐쉬라인에서 어디에 담겨있는지를 알기 위한 &lt;code&gt;오프셋&lt;/code&gt;이 포함되어 있어야된다. 근데 일단 캐쉬에 어느 라인에 있는지를 알아야 한다. 그럴려면 변환된 주소에 &lt;code&gt;케쉬라인인덱스&lt;/code&gt; 가 포함된다. 마지막으로 해당 라인이 내가 읽을려고 하고 있는 메인 램의 구역이랑 매핑되었는지 알아야된다.위에서 설명한 캐쉬-메인램 예시만 봐도 라인 한개 당 8192군데의 메인램의 라인크기만큼 매핑될 수 있다. 그래서 &lt;code&gt;tag&lt;/code&gt;가 포함된다. 만약 메인 렘에서 데이터를 읽어온다고 하면, 위의 예시를 다시 들자면 8192개의 블록 중에서 어느 블록에 데이터인지를 알고 이와 매핑된 캐쉬라인에서 어느정도 오프셋에 존재하는지를 알아야 읽을 수 있는거다.&lt;/p&gt;
+&lt;h3 id=&#34;set-associativity--replacement-policy&#34;&gt;Set Associativity &amp;amp; Replacement Policy&lt;/h3&gt;
+&lt;p&gt;위에 설명한 방법은 &lt;code&gt;direct mapped cache&lt;/code&gt;의 개념에 들어간다. 이 방법은 문제점이 한가지 존재한다. 한번에 1개의 메인 렘에 매핑된다. 만약 아무것도 매핑이 안되어 있다면 그냥 렘에서 복사해오면 되는데 다른 장소에 라인정보가 존재한다면 기존껄 덮어쓰기 해야된다. 이런 덮어쓰기를 &lt;code&gt;evicting&lt;/code&gt;한다고 한다. 문제는 만약 다른 두곳의 메모리 주소가 서로를 계속 핑퐁 키듯이 evicting을 해대면 성능 히트가 당연히 생긴다. 이를 해결하기 위해서 &lt;code&gt;2-way set associative cache&lt;/code&gt;로 만든다. 말 그대로 한개의 메인 메모리 주소가 2군데의 캐쉬라인에 맵핑되는 거다. 당연히 &lt;code&gt;way&lt;/code&gt;가 많아지면 그만큼 성능이 올라간다.
+(라고는 하는데 그만큼 효율적으로 넓은 범위 커버가 안되지 않나?).&lt;/p&gt;
+&lt;p&gt;캐쉬 컨트롤러 입장에서는 이제 새로운 문제가 생긴다. 만약 캐쉬라인에 들어있는 메인 램 메모리 두개 다 히트가 안되서 메인 램에서 데이터 끌고 와야되먄 뭘 evict해야되나. 이건 &lt;code&gt;replacement policy&lt;/code&gt;로써 CPU 디자인 별로 달라진다. FIFO, not most recently used, least frequently used, psedourandom 등 다양한 방식이 존재한다.&lt;/p&gt;
+&lt;h3 id=&#34;multilevel-cache--instruction-cache-data-cache&#34;&gt;Multilevel Cache &amp;amp; Instruction Cache Data Cache&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Multilevel Cache&lt;/code&gt;는 위에서 설명한 L1, L2, L3 계층별 속도차이가 존재한다는 내용이다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Instruction Cache &amp;amp; Data Cache&lt;/code&gt;는 실행 직전의 머신코드를 들고 있는 &lt;code&gt;I$&lt;/code&gt;, 그리고 읽기쓰기를 위한 &lt;code&gt;D$&lt;/code&gt; 캐쉬가 존재한다는 내용이다. L1 캐쉬의 경우 이 둘의 구분이 있다(기본적인 L1의 사이즈 제한 때문에). 다른 계층의 경우 크기의 여우가 있기 때문에 둘의 구분을 딱히 하지 않는다. 성능 향상을 위해 둘의 최적화를 생각하며 코드를 작성하는데 보통 한곳을 최적화하면 다른 한곳도 어느정도 영향을 받아 좋아진다고 한다.&lt;/p&gt;
+&lt;h3 id=&#34;write-policy&#34;&gt;Write Policy&lt;/h3&gt;
+&lt;p&gt;캐쉬에서의 데이터를 읽는게 아닌 쓰기를 할 경우, 이는 디자인 결정에 따라 달라진다. 가장 간단한 방식은 캐쉬에 쓰기를 하자마자 맵핑된 메인 렘의 주소로도 바로 데이터가 넘어가는 방법이 있다. 다른 방식은 우선 캐쉬에 작성을 하고, 나중에 특정 조건 (캐쉬라인이 오래되서 evict당하는 경우라던가)이 맞는 경우 flush하여 메인 렘에 데이터를 작성한다. 마지막 예시의 경우 데이터가 즉각적으로 업데이트가 안되는 문제가 있지 않나 싶지만 어차피 읽을 때 캐쉬에서 읽으니깐 괜찮은 거 같다.&lt;/p&gt;
+&lt;h3 id=&#34;cache-coherency--mesi-moesi-mesif&#34;&gt;Cache Coherency : MESI, MOESI, MESIF&lt;/h3&gt;
+&lt;p&gt;멀티코어 환경에서 L1과 다르게 L2와 같은 계층들은 여러 코어들이 나눠서 쓰고 있는 구조가 많고, 메인 램의 경우도 여러 코어들 사이에서 나눠쓰고 있는 디자인이 일반적이다. 이러한 경우에 읽어들이는 데이터의 일관성을 유지하기 위한 여러가지 포로토콜이 존재한다. 자세한 설명은 챕터4의 마지막부분쯤에 나온다고 소개만 해준다.&lt;/p&gt;
+&lt;h3 id=&#34;avoiding-cache-misses&#34;&gt;Avoiding Cache Misses&lt;/h3&gt;
+&lt;p&gt;데이터 캐쉬에서의 미스를 줄이고 싶다면 다루는 데이터를 최대한 잘개 쪼개서 이를 배열처럼 sequentially 하게 정렬하여 사용하면 된다. 이렇게 하면 한번의 캐쉬미스로 이후에 수행하는 연산에 필요한 데이터를 한번에 끌어올 수 있다. 명령캐쉬의 경우 최대한 루프안에서 함수 호출을 자재한다거나 작고 단순한 함수의 경우 &lt;code&gt;inline&lt;/code&gt;을 활용하는 방법이 있다. &lt;code&gt;inline&lt;/code&gt;의 경우 확실히 성능 향상을 끌어올 수 있지만 너무 많이 쓰면 코드 량이 늘어나 캐쉬크기(아마 instruction cache)를 넘겨버릴 수 있다(&lt;code&gt;inline&lt;/code&gt;의 경우 말그대로 코드를 복붙하는 기능이라 그렇다).&lt;/p&gt;
+&lt;h3 id=&#34;nonunifom-memory-access-numa&#34;&gt;NonUnifom Memory Access (NUMA)&lt;/h3&gt;
+&lt;p&gt;이거 다음에 두부분을 마지막으로 드디어 챕터 3가 끝난다. 우선 여기서부터는 하드웨어 설계에 관한 내용이다. 기본적으로 디자인 방식은 &lt;code&gt;Uniform Memory Access&lt;/code&gt;와 &lt;code&gt;NonUnifom Memory Access&lt;/code&gt; 가 있다. UMA 디자인의 경우 모든 코어가 같은 물리 메모리 주소를 본다, 즉 읽기 쓰기를 한다. 다 좋은데 이렇게 하면 같은 곳을 동시 읽는 등 문제가 생긴다. 동시의 두개의 코어가 메모리를 접근할려고 하면 서로 싸우는 느낌이다(race condition 같은 느낌). NUMA의 경우 이를 해결할 수 있는 하드웨어 디자인 이라고 할 수 있다. PS3를 기준으로 보면 각 코어별로 &lt;code&gt;local space&lt;/code&gt;라는 메모리 저장공간을 갖는다. 이들은 L1 캐쉬와 마찬가지로 코어와 같은 다이 위에 장착되며, 메모리 맵핑의 경우 실질적인 물리 메모리 주소부터 코어의 주소를 갖고 있는 경우도 있다. 코어들은 이 &lt;code&gt;local space&lt;/code&gt;를 통해서만 메인 램과 소통할 수 있고, &lt;code&gt;DMA Controller&lt;/code&gt;라는 장치가 중간자 역활을 한다.&lt;/p&gt;
+&lt;p&gt;자세히 이해못했지만 대충 &lt;code&gt;local space&lt;/code&gt;를 포함한 코어와 같이 메모리 데이터 이동을 해야되는 장치의 경우 &lt;code&gt;DMA Ring Bus&lt;/code&gt;를 통해 데이터를 주고 받는데 그 관리를 &lt;code&gt;DMA Controller&lt;/code&gt;가 한다. 이걸로 같은 데이터 주소를 동시에 읽을 려고하는 코어들 간 간섭을 최소화한다고 하는것 같다.&lt;/p&gt;
+&lt;p&gt;그다음으로 PS2의 구조를 설명한다. 이경우 메모리 read/write latency를 줄이기 위한 구조보다는 병렬처리를 우선시하는 디자인이라는 설명이다. 시스템 버스를 통하지 않고 코어가 직접적으로 데이터의 read/write를 수행한다는 점을 기본 베이스로 프로그램 로직을 작성한다고 한다&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -11,10 +11,10 @@
     <lastBuildDate>Wed, 03 Jan 2024 13:19:27 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/error-encounter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu_Ethernet_Connection_Problem</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</link>
+      <link>https://EricLim73.github.io/posts/log/errors/ubuntu_ethernet_connection_problem/</link>
       <pubDate>Wed, 03 Jan 2024 13:19:27 +0900</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</guid>
+      <guid>https://EricLim73.github.io/posts/log/errors/ubuntu_ethernet_connection_problem/</guid>
       <description>&lt;h1 id=&#34;이상한-원인과-이상한-결과&#34;&gt;이상한 원인과 이상한 결과&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;결론: 이더넷 케이블 문제 (cat5e -&amp;gt; cat6 교체로 문제해결)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
@@ -29,10 +29,10 @@
     
     <item>
       <title>VisualStudio_Debugger_Error</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</link>
+      <link>https://EricLim73.github.io/posts/log/errors/visualstudio_debugger_error/</link>
       <pubDate>Sun, 31 Dec 2023 18:18:51 +0900</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</guid>
+      <guid>https://EricLim73.github.io/posts/log/errors/visualstudio_debugger_error/</guid>
       <description>&lt;h1 id=&#34;visual-studio를-믿을-수-없다--devenv-문제-&#34;&gt;Visual Studio를 믿을 수 없다. &amp;lt; devenv 문제 &amp;gt;&lt;/h1&gt;
 &lt;p&gt;자기 마음대로 단어 지워버리고 작성하던 줄의 tab을 넣버리는 등 본인이 쓰기에는 너무 불편해서 지금은 그저 디버거 GUI로써 사용하는 Visual Studio가 어느날 갑자기 작동하지 않는다. Visual Studio를 실행하면 작동하는데 컴파일을 위해 배치파일에서 &lt;code&gt;devenv&lt;/code&gt;로 실행하면 프로그램을 켜지는데 작업 관리자로 확인 시 &lt;em&gt;응답 없음&lt;/em&gt;으로 죽어있는 상황이 계속 발생했다. 심지어 Visual Studio를 정상적으로 작동 후 프로젝트 파일로 이동하여 디버깅을 진행하면 로드 가능한 모듈이 없다는 에러만 남기고 조용히 죽는다&amp;hellip;&lt;/p&gt;
 &lt;p&gt;처음에는 배치파일에 스크립트가 잘못써져 있거나 업데이트를 안해서 생긴 문제인 줄 알았다. 찾아보니 그냥 Visual Studio 문제다. &lt;a href=&#34;https://learn.microsoft.com/en-us/answers/questions/1229992/visual-studio-2022-is-not-responding-technically-s&#34;&gt;출처&lt;/a&gt;&lt;/p&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>10.0.19041_winbase_Error</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</link>
+      <link>https://EricLim73.github.io/posts/log/errors/10.0.19041_winbase_error/</link>
       <pubDate>Sun, 31 Dec 2023 18:12:15 +0900</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</guid>
+      <guid>https://EricLim73.github.io/posts/log/errors/10.0.19041_winbase_error/</guid>
       <description>&lt;h1 id=&#34;ms를-믿을-수-없다--윈도우-sdk-문제-&#34;&gt;MS를 믿을 수 없다. &amp;lt; 윈도우 SDK 문제 &amp;gt;&lt;/h1&gt;
 &lt;p&gt;C언어로 코딩 중 C11 기능들에 재밌는 것들이 보여서 사용할려고 Visual Studio 설치 시 들어있는 cl 컴파일러에 &lt;code&gt;/std:c11&lt;/code&gt;을 넣고 컴파일 해보니 지금까지 본적 없는 경고가 떴다.&lt;/p&gt;
 &lt;blockquote&gt;

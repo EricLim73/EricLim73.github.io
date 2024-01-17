@@ -2,53 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://EricLim73.github.io/tags/c/</loc>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/posts/log/what_i_learned/c_memory_allocation/</loc>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
+  </url><url>
     <loc>https://EricLim73.github.io/categories/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/tags/error-encounter/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <loc>https://EricLim73.github.io/categories/log_visual_studio/</loc>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/categories/funnystuff/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/categories/log/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/tags/network/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <loc>https://EricLim73.github.io/tags/memory-allocation/</loc>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <lastmod>2024-01-17T14:10:32+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/error-encounter/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/categories/log_errors/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
+  </url><url>
+    <loc>https://EricLim73.github.io/tags/network/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/ubuntu/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</loc>
-    <lastmod>2024-01-03T13:19:27+09:00</lastmod>
+    <loc>https://EricLim73.github.io/posts/log/errors/ubuntu_ethernet_connection_problem/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/posts/log/funnystuff/visualstudio_debugger_error/</loc>
-    <lastmod>2023-12-31T18:50:35+09:00</lastmod>
+    <loc>https://EricLim73.github.io/posts/log/errors/visualstudio_debugger_error/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/posts/log/funnystuff/10.0.19041_winbase_error/</loc>
-    <lastmod>2023-12-31T18:50:35+09:00</lastmod>
+    <loc>https://EricLim73.github.io/posts/log/errors/10.0.19041_winbase_error/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/c&#43;&#43;/</loc>
-    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/posts/textbooks/os/making_os_using_c&#43;&#43;/ch_12/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <loc>https://EricLim73.github.io/posts/textbooks/making_os_using_c&#43;&#43;/ch_12/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/computerscience/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/os/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/categories/os/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <loc>https://EricLim73.github.io/categories/textbooks_making_os_using_c&#43;&#43;/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/css/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -93,7 +102,7 @@
     <lastmod>2023-12-30T18:40:01+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/basic/</loc>
-    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/categories/c_c&#43;&#43;/</loc>
     <lastmod>2023-12-30T18:40:01+09:00</lastmod>
@@ -102,7 +111,7 @@
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/study/</loc>
-    <lastmod>2023-12-30T18:40:01+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2023-04-10-assortrock_2021_c&#43;&#43;_course-list-iterator/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -111,16 +120,13 @@
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/textbooks/gameenginearchitecture/2023-04-03-gameenginearchitecture-chapter3/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/categories/gameenginearchitecture/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/summary/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
-    <loc>https://EricLim73.github.io/categories/textbooks/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <loc>https://EricLim73.github.io/categories/textbooks_gameenginearchitecture/</loc>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/vulkan/2023-03-26-vulkan-instance-n-debug/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
@@ -207,16 +213,13 @@
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/log/visual_studio/2022-11-13-visual-studio-defualt-shortcuts/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/log/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/tags/visual_studio/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
-  </url><url>
-    <loc>https://EricLim73.github.io/categories/visual_studio/</loc>
-    <lastmod>2023-12-29T18:08:15+09:00</lastmod>
+    <lastmod>2024-01-06T17:38:16+09:00</lastmod>
   </url><url>
     <loc>https://EricLim73.github.io/posts/c_c&#43;&#43;/assortrock_2021_c&#43;&#43;_course/2022-11-12-assortrock_2021_c&#43;&#43;_course-array--struct/</loc>
     <lastmod>2023-12-29T18:08:15+09:00</lastmod>

@@ -11,10 +11,10 @@
     <lastBuildDate>Wed, 03 Jan 2024 13:19:27 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu_Ethernet_Connection_Problem</title>
-      <link>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</link>
+      <link>https://EricLim73.github.io/posts/log/errors/ubuntu_ethernet_connection_problem/</link>
       <pubDate>Wed, 03 Jan 2024 13:19:27 +0900</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/log/funnystuff/ubuntu_ethernet_connection_problem/</guid>
+      <guid>https://EricLim73.github.io/posts/log/errors/ubuntu_ethernet_connection_problem/</guid>
       <description>&lt;h1 id=&#34;이상한-원인과-이상한-결과&#34;&gt;이상한 원인과 이상한 결과&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;결론: 이더넷 케이블 문제 (cat5e -&amp;gt; cat6 교체로 문제해결)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;

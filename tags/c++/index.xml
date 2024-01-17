@@ -11,10 +11,10 @@
     <lastBuildDate>Fri, 29 Dec 2023 14:31:57 +0900</lastBuildDate><atom:link href="https://EricLim73.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CH_1 &amp; 2</title>
-      <link>https://EricLim73.github.io/posts/textbooks/os/making_os_using_c&#43;&#43;/ch_12/</link>
+      <link>https://EricLim73.github.io/posts/textbooks/making_os_using_c&#43;&#43;/ch_12/</link>
       <pubDate>Fri, 29 Dec 2023 14:31:57 +0900</pubDate>
       <author>ljheric7@gmail.com (Eric Lim)</author>
-      <guid>https://EricLim73.github.io/posts/textbooks/os/making_os_using_c&#43;&#43;/ch_12/</guid>
+      <guid>https://EricLim73.github.io/posts/textbooks/making_os_using_c&#43;&#43;/ch_12/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;C++로 나만의 운영체제 만들기&amp;rdquo; 내용 정리 (운영체제 내용 복습용)&lt;/p&gt;
 &lt;/blockquote&gt;
