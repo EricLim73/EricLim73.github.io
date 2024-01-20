@@ -52,7 +52,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://EricLim73.github.io/posts/log/what_i_learned/c_memory_allocation/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-01-06T14:28:35+09:00" />
-<meta property="article:modified_time" content="2024-01-17T20:28:14+09:00" /><meta property="og:site_name" content="YodaModa" />
+<meta property="article:modified_time" content="2024-01-18T00:02:49+09:00" /><meta property="og:site_name" content="YodaModa" />
 
 
 
@@ -63,8 +63,8 @@
   
   <meta itemprop="name" content="C_Memory_Allocation">
 <meta itemprop="description" content="Generic description"><meta itemprop="datePublished" content="2024-01-06T14:28:35+09:00" />
-<meta itemprop="dateModified" content="2024-01-17T20:28:14+09:00" />
-<meta itemprop="wordCount" content="11231">
+<meta itemprop="dateModified" content="2024-01-18T00:02:49+09:00" />
+<meta itemprop="wordCount" content="10597">
 <meta itemprop="keywords" content="C,Memory Allocation," />
 
   
@@ -155,7 +155,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          11231 words
+          10597 words
         </span>
       
       
@@ -168,7 +168,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~23 mins
+          ~22 mins
         </span>
       
     </div>
@@ -292,7 +292,7 @@ C++에서 부르는 메모리 할당 함수다. <code>malloc()</code>, <code>fre
 </blockquote>
 <p>설명을 들어보면 아주 말이 되는 방식이다. 위에서 설명한 C의 메모리 할당 문제를 정확히 이해하고 해결하고자 한다(만든 사람은 똑똑한 사람이 분명하다). <em>&ldquo;메모리 할당의 생명주기가 문제라면, 그냥 변수(할당받은 메모리)의 생성과 삭제를 <code>scope{}</code>범위에 속해 있는지에 따라 자동으로 만들어버리자! 인간보다 기계가 더 믿을 만하니깐 프로그래머의 실수는 개입할 여지가 없잖아~&rdquo;</em> 라는 발상이다. 이 해결법의 아쉬운 점이 몇가지 있다. 우선 불필요한 코드를 작성해야하고, 불러야된다. 여기서 <strong>불필요</strong>하다는 의미는 쓸모없다가 아니다. 만약 해당 자원인 스코프 밖으로도 잠깐 나가야되는 경우, 이 문제를 해결하기 위한 코드를 따로 작성해줘야 된다(i.e CopyConstructor). C에서의 방식을 벗어나기 위해 오버헤드가 생기는 샘이다(사실 이게 그렇게 큰 영향을 끼치는지는 본인은 잘모르겠다). 더 큰 문제는 이 해결법이 모든 문제를 해결해 주지 않는다는 점이다. <code>RAII</code>의 개념은 <em><strong>오브젝트</strong></em>의 생명주기를 관리하는 것이다. <em>&ldquo;오브젝트가 메모리를 할당하니깐 당연한 소리 아니냐!&rdquo;</em> 라고 할 수 있다. 그런데 작성하는 코드의 모든 영역에서 오브젝트만이 메모리를 사용하는 것도 아니고, 꽤 빈번하게 오브젝트의 생명주기랑은 상관없이 메모리 그 자체가 중요한 경우가 많다. 해당 기능을 위해 언어들은 컴파일타임을 소모하여 코드 생성과 잘못된 사용처리를 막는 작업을 하게 된다.</p>
 <h3 id="garbage-collection">Garbage Collection</h3>
-<p>이 부분은 학교에서 처음으로 자바를 배울 때도 사실 굳이 필요한가 싶은 기능이긴 했다. 아마 학생 수준의 결과물에서 위력은 커녕 동작하지 않아도 전혀 문제 없었기 때문에 체감이 잘안된 것이라고 생각한다. ***<a href="https://www.rfleury.com/p/untangling-lifetimes-the-arena-allocator">Ryan Fleury님</a>***은 본인보다 훌륭하고 경험도 많은 개발자이고, 그럼에도 불과하고 가비지 컬렉터를 좋게 보지 않는 것 같다. 가비지 컬렉터라는 거창한 이름과 다르게 하는 작업은 단순하다. 지금 할당된 자원들을 리스트로 갖고 있고, 한번씩 쭉 돌아보며 referenced되지 않는 놈을 찾아 쓰레기통으로 보낸다. 이 방법은 세가지 정도 문제점이 있다. 첫째, 딱히 인터페이스의 교정이 없기 때문에 해당 기능이 있음에도 불과하고 메모리 문제는 발생할 수 있다. 둘째, 코드 실행 플로우를 방해한다. 셋째, 이건 첫번째 이유의 결과물로, 만약 코드가 처리하고 버려야될 메모리 할당 핸들은 프로그래머의 부주의로 계속 갖고있다면 가바지 컬렉터는 쓸모가 없어진다.</p>
+<p>이 부분은 학교에서 처음으로 자바를 배울 때도 사실 굳이 필요한가 싶은 기능이긴 했다. 아마 학생 수준의 결과물에서 위력은 커녕 동작하지 않아도 전혀 문제 없었기 때문에 체감이 잘안된 것이라고 생각한다. <em><strong><a href="https://www.rfleury.com/p/untangling-lifetimes-the-arena-allocator">Ryan Fleury님</a></strong></em> 은 본인보다 훌륭하고 경험도 많은 개발자이고, 그럼에도 불과하고 가비지 컬렉터를 좋게 보지 않는 것 같다. 가비지 컬렉터라는 거창한 이름과 다르게 하는 작업은 단순하다. 지금 할당된 자원들을 리스트로 갖고 있고, 한번씩 쭉 돌아보며 referenced되지 않는 놈을 찾아 쓰레기통으로 보낸다. 이 방법은 세가지 정도 문제점이 있다. 첫째, 딱히 인터페이스의 교정이 없기 때문에 해당 기능이 있음에도 불과하고 메모리 문제는 발생할 수 있다. 둘째, 코드 실행 플로우를 방해한다. 셋째, 이건 첫번째 이유의 결과물로, 만약 코드가 처리하고 버려야될 메모리 할당 핸들은 프로그래머의 부주의로 계속 갖고있다면 가바지 컬렉터는 쓸모가 없어진다.</p>
 <h2 id="다른-방법은-없는건가">다른 방법은 없는건가.</h2>
 <p>참고하고 있는 블로그 글에서는 위 방법들과 같은 결과를 불러일으킨 사고방식과 왜 그게 미래적인 관점에서 크게 도움이 안되는지를 예쁘게 설명하고 있다. 마음같아선 본인도 그렇게 쓰고 싶지만 부족한 한글실력과 실제로 내용을 100% 이해하고 있다고 말할 수 없기 때문에 해당 내용은 직접가서 보면 좋다.</p>
 <p>다른 언어들이 결론을 제시해주지 못한다면 C에서 작업 하지 말라는 소리처럼 들린다. 문제를 다시 생각해 볼 필요가 있다. 문제는 <strong>생명주기</strong>다. 프로그래머로써 우리는 안전하게 메모리에 접근하여 본인들이 작성한 기능이 필요로 하는 만큼 해당 메모리를 제공하다가 정리할 타이밍이 오면 성능부담 없이 깔끔하게 정리하고 싶다. 이러한 기능을 갖고 있는, 모두가 아는 방법이 있다.</p>
@@ -328,12 +328,12 @@ C++에서 부르는 메모리 할당 함수다. <code>malloc()</code>, <code>fre
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>위 코드가 가능하다면 꽤 재밌을것 같다. 아쉽게도(?) C에서는 저런 문법을 지원하지 않는다. 스택을 이용한 생명주기 관리가 갖는 한계이기도 하다. 하지만 위 코드가 갖는 아이디어는 쓸만할것 같다. (***<a href="https://www.rfleury.com/p/untangling-lifetimes-the-arena-allocator">블로그 글</a>***에서는 이걸로 <code>stack allocator</code>까지 설명한다)</p>
+</span></span></code></pre></div><p>위 코드가 가능하다면 꽤 재밌을것 같다. 아쉽게도(?) C에서는 저런 문법을 지원하지 않는다. 스택을 이용한 생명주기 관리가 갖는 한계이기도 하다. 하지만 위 코드가 갖는 아이디어는 쓸만할것 같다. (<em><strong><a href="https://www.rfleury.com/p/untangling-lifetimes-the-arena-allocator">블로그 글</a></strong></em> 에서는 이걸로 <code>stack allocator</code>까지 설명한다)</p>
 <h2 id="arena-allocator">Arena Allocator</h2>
 <p>위에 스택과 같은 성질을 갖고, 생성시기에 있어 자유도가 높은 allocator를 갖고 싶다. <code>Arena Allocator</code>가 바로 그것이다. 사실 이름은 여러가지 있다(arena allocator, linear allocator, bump allocator 등등). 우선 참고한 블로그 글을 기준으로 설명할 예정이다.</p>
 <p>우선 기본적인 인터페이스는 다음과 같다.</p>
 <blockquote>
-<p>코드 자체는 코드베이스 가이드를 진행하시는 ***<a href="https://www.youtube.com/playlist?list=PLT6InxK-XQvNKTyLXk6H6KKy12UYS_KDL">Mr.4th Programming</a>***의 영상을 참고하여 본인 나름대로 작성해 본 것이다(대부분 영상에서 떠먹여주는 수준으로 설명해준다). 채널 주인분과 Ryan Fleury님이 속한 <em>Dion system</em>에서도 이러한 코드베이스를 이용하여 작업을 하신다고 한다. 실사용 예시를 보고자 한다면 언리얼엔진 그룹 밑에서 개발중인 RAD 디버깅 툴이 영상에 나오는 코드베이스를 기반으로 작성되고 있다. 본인도 영상을 봐가며 몇주간 놀아본 결과 정말 유연한 시스템이고 평소에 짜던 C코드에서 완전 다른 언어를 사용하는 느낌을 받을 정도였다. 디자인의 성공이라고 할 수 있다.</p>
+<p>코드 자체는 코드베이스 가이드를 진행하시는 <em><strong><a href="https://www.youtube.com/playlist?list=PLT6InxK-XQvNKTyLXk6H6KKy12UYS_KDL">Mr.4th Programming</a></strong></em> 의 영상을 참고하여 본인 나름대로 작성해 본 것이다(대부분 영상에서 떠먹여주는 수준으로 설명해준다). 채널 주인분과 Ryan Fleury님이 속한 <em>Dion system</em>에서도 이러한 코드베이스를 이용하여 작업을 하신다고 한다. 실사용 예시를 보고자 한다면 언리얼엔진 그룹 밑에서 개발중인 RAD 디버깅 툴이 영상에 나오는 코드베이스를 기반으로 작성되고 있다. 본인도 영상을 봐가며 몇주간 놀아본 결과 정말 유연한 시스템이고 평소에 짜던 C코드에서 완전 다른 언어를 사용하는 느낌을 받을 정도였다. 디자인의 성공이라고 할 수 있다.</p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="cp">#ifndef BASE_MEMORY_H
@@ -402,166 +402,7 @@ C++에서 부르는 메모리 할당 함수다. <code>malloc()</code>, <code>fre
 </span></span><span class="line"><span class="cl"><span class="c1">//--Temp Functions--
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
 </span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">//BASE_MEMORY_H
-</span></span></span></code></pre></div><p>구현된 C 파일은 다음과 같다. 설명하는데 구현도 같이 보는게 쉽다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="c1">// NOTE(EricLim): return pointer for arena. 
-</span></span></span><span class="line"><span class="cl"><span class="c1">// First get a chunk of memory that is reserved and 
-</span></span></span><span class="line"><span class="cl"><span class="c1">// commited(bigger than sizeof(Arena)), use the first
-</span></span></span><span class="line"><span class="cl"><span class="c1">// sizeof(Arena) amount of portion to save settings(just like malloc)
-</span></span></span><span class="line"><span class="cl"><span class="c1">// and return the ptr back. Allocation with this arena starts from
-</span></span></span><span class="line"><span class="cl"><span class="c1">// arena-&gt;pos, which points to the next address right after setting values
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">root_function</span> <span class="n">Arena</span><span class="o">*</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaAlloc</span><span class="p">(</span><span class="n">U64</span> <span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// snapping input size to fit 64KB unit
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">U64</span> <span class="n">snapping_factor</span> <span class="o">=</span> <span class="nf">MegaByte</span><span class="p">(</span><span class="mi">64</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">size</span> <span class="o">+=</span> <span class="n">snapping_factor</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">size</span> <span class="o">-=</span> <span class="n">size</span> <span class="o">%</span> <span class="n">snapping_factor</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">memory</span> <span class="o">=</span> <span class="nf">OS_Reserve</span><span class="p">(</span><span class="n">size</span><span class="p">);</span> 
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">initial_commit_size</span> <span class="o">=</span> <span class="n">ARENA_COMMIT_REGION_SIZE</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//Assert(initial_commit_size &gt; sizeof(Arena));
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">OS_Commit</span><span class="p">(</span><span class="n">memory</span><span class="p">,</span> <span class="n">initial_commit_size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span> <span class="o">=</span> <span class="p">(</span><span class="n">Arena</span><span class="o">*</span><span class="p">)</span><span class="n">memory</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Arena</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span> <span class="o">=</span> <span class="n">initial_commit_size</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arena</span><span class="o">-&gt;</span><span class="n">align</span> <span class="o">=</span> <span class="n">DEFAULT_ALIGNMENT</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arena</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">arena</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="n">Arena</span><span class="o">*</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaAllocDefault</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// Reserve up to 4Gb
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// because its only reserving, and virtual memory address space
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// is like over hundred terabytes, so no problem in 64bit
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="nf">ArenaAlloc</span><span class="p">(</span><span class="nf">GigaByte</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// NOTE(EricLim): Originally tried to make so that 
-</span></span></span><span class="line"><span class="cl"><span class="c1">// we return arena-&gt;pos and calculate arena-&gt;pos 
-</span></span></span><span class="line"><span class="cl"><span class="c1">// by input_size + align, but if commit size was big
-</span></span></span><span class="line"><span class="cl"><span class="c1">// enough, the result actually going to have size+align
-</span></span></span><span class="line"><span class="cl"><span class="c1">// so we need to calculate alignment before setting result pos
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">root_function</span> <span class="kt">void</span><span class="o">*</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaPushNoZero</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span><span class="p">,</span> <span class="n">U64</span> <span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">+</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// base ptr point for pointer calculation
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">U8</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">U8</span><span class="o">*</span><span class="p">)</span><span class="n">arena</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">U64</span> <span class="n">aligned_pos</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">aligned_pos</span> <span class="o">+=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">align</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">aligned_pos</span> <span class="o">-=</span> <span class="n">aligned_pos</span> <span class="o">%</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">align</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">U64</span> <span class="n">align</span> <span class="o">=</span> <span class="n">aligned_pos</span> <span class="o">-</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">=</span> <span class="n">base</span> <span class="o">+</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">+</span> <span class="n">align</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">+=</span> <span class="n">size</span> <span class="o">+</span> <span class="n">align</span><span class="p">;</span> 
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span> <span class="o">&lt;</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="c1">// NOTE(EricLim): We dont need to do this snapping for windows
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// bc the page size is the default commit_region_size but just doing
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// for cases when this becomes false
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">U64</span> <span class="n">update_commit</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">-</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">update_commit</span> <span class="o">+=</span> <span class="n">ARENA_COMMIT_REGION_SIZE</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            <span class="n">update_commit</span> <span class="o">-=</span> <span class="n">update_commit</span> <span class="o">%</span> <span class="n">ARENA_COMMIT_REGION_SIZE</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">            
-</span></span><span class="line"><span class="cl">            <span class="nf">OS_Commit</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span><span class="p">,</span> <span class="n">update_commit</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">            <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span> <span class="o">+=</span> <span class="n">update_commit</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// TODO(EricLim): Will implement link inside arena for growing arena
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nf">Assert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span><span class="o">*</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaPush</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span><span class="p">,</span> <span class="n">U64</span> <span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">void</span><span class="o">*</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">ArenaPushNoZero</span><span class="p">(</span><span class="n">arena</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">MemoryZero</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaPopTo</span><span class="p">(</span><span class="n">Arena</span> <span class="o">*</span><span class="n">arena</span><span class="p">,</span> <span class="n">U64</span> <span class="n">pos</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">pop_limit</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Arena</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">new_pos</span> <span class="o">=</span> <span class="nf">Max</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">pop_limit</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">=</span> <span class="n">new_pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="c1">// find align new arena-&gt;pos
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// NOTE(EricLim): we DO NOT update arena-&gt;pos with this value
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// arena-&gt;pos gets aligned right before insertion
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">U64</span> <span class="n">aligned_pos</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">+</span> <span class="n">ARENA_COMMIT_REGION_SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">aligned_pos</span> <span class="o">-=</span> <span class="n">aligned_pos</span> <span class="o">%</span> <span class="n">ARENA_COMMIT_REGION_SIZE</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">aligned_pos</span> <span class="o">+</span> <span class="n">ARENA_DECOMMIT_BOUNDARY_SIZE</span> <span class="o">&lt;=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// NOTE(EricLim): the only explaination i have with this
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// is that if there is too much memory being commited,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// over the boundary that we specified, then we decommit
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// The size of decommit_size doesn&#39;t need to care about
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// alignment because aligned_pos did that part already
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">U8</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="p">(</span><span class="n">U8</span><span class="o">*</span><span class="p">)</span><span class="n">arena</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="n">U64</span> <span class="n">decommit_size</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span> <span class="o">-</span> <span class="n">aligned_pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">OS_Decommit</span><span class="p">(</span><span class="n">base</span> <span class="o">+</span> <span class="n">aligned_pos</span><span class="p">,</span> <span class="n">decommit_size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">arena</span><span class="o">-&gt;</span><span class="n">commit_pos</span> <span class="o">-=</span> <span class="n">decommit_size</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaPop</span><span class="p">(</span><span class="n">Arena</span> <span class="o">*</span><span class="n">arena</span><span class="p">,</span> <span class="n">U64</span> <span class="n">size</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">pop_limit</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Arena</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">pop_range</span> <span class="o">=</span> <span class="nf">Min</span><span class="p">(</span><span class="n">pop_limit</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="n">U64</span> <span class="n">new_pos</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span> <span class="o">-</span> <span class="n">pop_range</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="n">new_pos</span> <span class="o">=</span> <span class="nf">Max</span><span class="p">(</span><span class="n">new_pos</span><span class="p">,</span> <span class="n">pop_range</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">ArenaPopTo</span><span class="p">(</span><span class="n">arena</span><span class="p">,</span> <span class="n">new_pos</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span>
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaRelease</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">OS_Release</span><span class="p">(</span><span class="n">arena</span><span class="p">,</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">size</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">ArenaClear</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// puff all the way back
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">ArenaPopTo</span><span class="p">(</span><span class="n">arena</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">Arena</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">// For temporary arena -&gt; mostly for scratch arena
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">root_function</span> <span class="n">TempArena</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">TempBegin</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span> <span class="n">arena</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TempArena</span> <span class="n">temp</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-</span></span><span class="line"><span class="cl">    <span class="n">temp</span><span class="p">.</span><span class="n">arena</span> <span class="o">=</span> <span class="n">arena</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">temp</span><span class="p">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">arena</span><span class="o">-&gt;</span><span class="n">pos</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">root_function</span> <span class="kt">void</span> 
-</span></span><span class="line"><span class="cl"><span class="nf">TempPop</span><span class="p">(</span><span class="n">TempArena</span> <span class="n">temp</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">ArenaPopTo</span><span class="p">(</span><span class="n">temp</span><span class="p">.</span><span class="n">arena</span><span class="p">,</span> <span class="n">temp</span><span class="p">.</span><span class="n">pos</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>잘 설명할 수 있을지 모르겠지만, 결과적으로 <code>arena allocator</code>는 그냥 한번에 크게 메모리를 할당받고 그 영역을 스택처럼 관리하면서 메모리 할당이 필요할 때마다 받아놓은 메모리에 위치 포인터를 반환하고 위치를 할당한 크기만큼 옮기는게 끝이다.
+</span></span></span></code></pre></div><p>잘 설명할 수 있을지 모르겠지만, 결과적으로 <code>arena allocator</code>는 그냥 한번에 크게 메모리를 할당받고 그 영역을 스택처럼 관리하면서 메모리 할당이 필요할 때마다 받아놓은 메모리에 위치 포인터를 반환하고 위치를 할당한 크기만큼 옮기는게 끝이다.
 <code>ArenaAlloc()</code>은 <code>VirtualAlloc()</code>의 기능을 이용하여 작동한다. 코드의 주석에 대략의 동작과정을 적어놨다. 입력된 크기만큼을 일정 offset에 맞게 스냅핑하고 그만큼을 예약한다. 실제 할당은 작동하는 운영체제의 페이지 단위로 적용된다. 할당받은 포인터에서 <code>Arena</code>정보를 담을 수 있게 캐스팅하여 헤더 내용을 적고, 끝부분의 포인터를 반환한다. 할당을 받기 위해서는 <code>ArenaPush()</code>를 통해 진행된다. <code>Arena</code>안에 존재하는 <code>pos</code>를 반환하고, 사용할 크기만큼 <code>pos</code>를 이동시킨다. 만약 이동된 위치, 정확히는 현재 커밋되어 있는 영역이 모자르면 예약을 걸어놓은 영역에서 일정부분을 할당받아온다. <code>Arena</code>에 올린 내용 중 더이상 사용하지 않는 내용은 <code>ArenaClean</code>을 쓰면 된다. 실제로 할당된 메모리를 비우기보단 <code>pos</code>의 위치만을 이동시켜 다음 할당에서는 기존 데이터(더이상 사용않하는 데이터)를 덮어쓰기하는 형태다. 더이상 <code>Arena</code>를 사용하지 않는다면 <code>ArenaRelease()</code>를 불러주면 된다. 처음에 Mr.4th Programming의 영상과 Ryan Fleury님의 블로그 글을 아무리 봐도 이게 왜 위에서 봤던 스택의 특성을 갖고 있다는지 이해되지 않았다. 실제로 사용하다보면 이해가 쉬워진다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">String8</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
@@ -603,13 +444,13 @@ C++에서 부르는 메모리 할당 함수다. <code>malloc()</code>, <code>fre
 </span></span><span class="line"><span class="cl">    <span class="nf">ArenaRelease</span><span class="p">(</span><span class="n">system_arena</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>간단한 사용예제다. 사실 이코드만 보면 이게 <code>malloc()</code>이나 <code>free()</code>와 다른게 별로 없어보인다. 이건 해당 내용에 관해 설명하는 다른 영상들에도 달리는 단골 멘트인데, &ldquo;저건 그냥 기존의 <code>malloc()</code>과 <code>free()</code>를 더 복잡하게 바꾼거지 딱히 달라진것도 없고, 결국 본인이 직접 메모리를 만진다는 사실에는 변함이 없기 때문에 위험도는 오히려 더 높아졌다&quot;라는 방향성의 의견들을 많이 접할 수 있다(그러면서 넌지시 Rust난 C++을 하라고 강요한다). &ldquo;여기서 <code>ArenaRelease()</code>라는 함수가 뭔지는 모르지만 이름만 보면 <code>free()</code>의 기능인데, 이거 안쓰면 그대로 메모리 누수 아니냐!&rdquo; 라는 주장이 가장 대표적이다. 여기서 2가지 사실을 알 필요가 있다. 우선 예시이긴 하지만 위 코드를 잘보면, <code>ArenaRelease()</code>를 쓴 다음 바로 리턴을 하며 메인 함수는 끝난다. **<code>system_arena</code>**의 경우 프로세스가 실행하는 동안 계속 사용되다가 프로그램이 종료되면 자동으로 스택에서 없어지고, <code>VirtualAlloc()</code>을 통해 들고 있던 메모리의 경우 운영체제가 자원관리를 하며 정리한다. 운영체제가 마치 커다란 <em><strong>가비지 컬렉터</strong></em>인 셈이다. 그렇다고 위 인터페이스를 전통적인 C의 메모리 할당 방식처럼 사용하면 의미가 없어진다(해본 결과 터지기도 한다). 구현된 인터페이스에는 사용방법이 녹아있다고 봐야된다. <code>Arena Allocator</code>는 스택에 존재하는 일반적인 변수로써의 성질을 갖고 있다. 앞서 설명한 &ldquo;<code>scope</code>에서 벗어나면 <code>system_arena</code>가 소멸한다&quot;라는 내용이다. 이 특징을 살려 사용한다면 다음과 같은 생명주기를 관찰할 수 있다.</p>
+</span></span></code></pre></div><p>간단한 사용예제다. 사실 이코드만 보면 이게 <code>malloc()</code>이나 <code>free()</code>와 다른게 별로 없어보인다. 이건 해당 내용에 관해 설명하는 다른 영상들에도 달리는 단골 멘트인데, &ldquo;저건 그냥 기존의 <code>malloc()</code>과 <code>free()</code>를 더 복잡하게 바꾼거지 딱히 달라진것도 없고, 결국 본인이 직접 메모리를 만진다는 사실에는 변함이 없기 때문에 위험도는 오히려 더 높아졌다&quot;라는 방향성의 의견들을 많이 접할 수 있다(그러면서 넌지시 Rust난 C++을 하라고 강요한다). &ldquo;여기서 <code>ArenaRelease()</code>라는 함수가 뭔지는 모르지만 이름만 보면 <code>free()</code>의 기능인데, 이거 안쓰면 그대로 메모리 누수 아니냐!&rdquo; 라는 주장이 가장 대표적이다. 여기서 2가지 사실을 알 필요가 있다. 우선 예시이긴 하지만 위 코드를 잘보면, <code>ArenaRelease()</code>를 쓴 다음 바로 리턴을 하며 메인 함수는 끝난다. <strong><code>system_arena</code></strong> 의 경우 프로세스가 실행하는 동안 계속 사용되다가 프로그램이 종료되면 자동으로 스택에서 없어지고, <code>VirtualAlloc()</code>을 통해 들고 있던 메모리의 경우 운영체제가 자원관리를 하며 정리한다. 운영체제가 마치 커다란 <em><strong>가비지 컬렉터</strong></em> 인 셈이다. 그렇다고 위 인터페이스를 전통적인 C의 메모리 할당 방식처럼 사용하면 의미가 없어진다(해본 결과 터지기도 한다). 구현된 인터페이스에는 사용방법이 녹아있다고 봐야된다. <code>Arena Allocator</code>는 스택에 존재하는 일반적인 변수로써의 성질을 갖고 있다. 앞서 설명한 &ldquo;<code>scope</code>에서 벗어나면 <code>system_arena</code>가 소멸한다&quot;라는 내용이다. 이 특징을 살려 사용한다면 다음과 같은 생명주기를 관찰할 수 있다.</p>
 <pre><code>                       arena3[-------------------------------------------------]
         arena1[--------------]         arena2[--------------]
 arena_main[--------------------------------------------------------------------]
            시작                                                                끝
 </code></pre>
-<p>위 그림을 게임에 비교해보자. <em>arena_main</em>의 경우 게임의 시작부터 종료까지 계속 존재하는 영역이다. 기본적인 시스템에 필요한 자원은 여기서 할당 받으면 된다. <em>arena1</em>은 초기 리소스를 받아오는 시스템에서 사용하는 영역이라고 가정하자(실제로 게임이 이러한 순서로 동작하는지 모른다). <em>arena1</em>가 필요로 하는 파일경로 같은 정보가 <em>arena_main</em>에 있어도 가져오는데 전혀 문제가 없다. <em>arena2</em>의 경우 게임 도중에 저장을 하기 위해 잠깐 사용하는 영역이고, <em>arena3</em>는 사운드나 그래픽 시스템에서 사용하는 메모리라고 가정하자. 우리가 원하던 **&ldquo;동적 메모리 할당에 생명주기의 개념&rdquo;**이 추가되었고, 생성하는 타이밍도 자유롭게 정할 수 있다. <em>arena3</em>을 사용하는 작업을 하는 도중 절대 <em>arena_main</em>이 사라지거나 접근조차 못하게 되는 것이다. 실수로 해당 메모리를 없에고 싶어도 <em>arena3</em>이 동작하는 시스템은 <em>arena_main</em>이 살아있는 콜스택에서 한참은 떨어져 있는 코드에 존재하기 때문이다. 원본 블로그 글보다 설명이 어설프긴 하지만 커다란 개념은 위에 그린 도표가 전부다.<br>
+<p>위 그림을 게임에 비교해보자. <em>arena_main</em>의 경우 게임의 시작부터 종료까지 계속 존재하는 영역이다. 기본적인 시스템에 필요한 자원은 여기서 할당 받으면 된다. <em>arena1</em>은 초기 리소스를 받아오는 시스템에서 사용하는 영역이라고 가정하자(실제로 게임이 이러한 순서로 동작하는지 모른다). <em>arena1</em>가 필요로 하는 파일경로 같은 정보가 <em>arena_main</em>에 있어도 가져오는데 전혀 문제가 없다. <em>arena2</em>의 경우 게임 도중에 저장을 하기 위해 잠깐 사용하는 영역이고, <em>arena3</em>는 사운드나 그래픽 시스템에서 사용하는 메모리라고 가정하자. 우리가 원하던 <strong>&ldquo;동적 메모리 할당에 생명주기의 개념&rdquo;</strong> 이 추가되었고, 생성하는 타이밍도 자유롭게 정할 수 있다. <em>arena3</em>을 사용하는 작업을 하는 도중 절대 <em>arena_main</em>이 사라지거나 접근조차 못하게 되는 것이다. 실수로 해당 메모리를 없에고 싶어도 <em>arena3</em>이 동작하는 시스템은 <em>arena_main</em>이 살아있는 콜스택에서 한참은 떨어져 있는 코드에 존재하기 때문이다. 원본 블로그 글보다 설명이 어설프긴 하지만 커다란 개념은 위에 그린 도표가 전부다.<br>
 만약 아직도 &ldquo;그래도 만약 저중에 하나라도 <code>ArenaRelease()</code>를 안하면 메모리 누수가 터지지 않냐!&ldquo;라고 한다면 뭐라고 설명해야될지 본인의 능력으로는 생각이 나지 않는다. <em>&ldquo;printf(&quot;%d&rdquo;)라고 쓰고 뒤에 인수를 입력안하면 위험하니깐 어떤 방법이든 C언어는 고칠수 없다! 빨리 C++ || Rust으로 넘어와라~&rdquo;</em> 라는 소리처럼 들린다.<br>
 <code>malloc()</code> 과 <code>free()</code>와 다른점은 이 두함수는 반환하는 메모리 포인터 이외에 것에는 흥미가 없는 반면, <code>Arena Allocator</code>를 사용하면 메모리 할당이 곧 콜스택에 쌓이는, 생명주기가 확실하게 존재하는 변수로써의 의미를 갖게 된다. 이 시점까지 오면 C의 파일 입출력 함수인 <code>fopen()</code>, <code>fclose()</code>같은 형태가 된다. 이 두함수를 가지고 &ldquo;???: 부르는 것을 까먹으면 프로그램이 터지는 위험한 함수&quot;라며 C언어 사용을 하지 말라고 하는 개발자는 본적이 없다.<br>
 본인의 실전경험 부족과 지식에 한계로 위에 설명한 내용이 적절한 설명인지 확신할 수는 없지만 최소한 해당 주제에 대해 공부하면서 스스로 느낀 내용과 맞게 설명할 것 같다.</p>
